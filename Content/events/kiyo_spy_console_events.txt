@@ -1,0 +1,147 @@
+namespace = kiyo_event_spy_console
+
+#RESERVED FOR BUGFIXES
+event = {
+	id = kiyo_event_spy_console.100	#INCREMENT NUMBER EVERY UPDATE THIS IS NEEDED
+	hide_window = yes
+	fire_only_once = yes
+
+	trigger = { always = yes }
+	
+	immediate = {
+		every_country = {
+			limit = {
+				any_country = {
+					prev = {
+						has_relation_flag = { who = prev flag = kiyo_spy_spying_on }
+						NOR = {
+							has_relation_flag = { who = prev flag = kiyo_spy_scandal_a }
+							has_relation_flag = { who = prev flag = kiyo_spy_scandal_b }
+							
+							has_relation_flag = { who = prev flag = kiyo_spy_drone_a }
+							has_relation_flag = { who = prev flag = kiyo_spy_drone_b }
+							
+							has_relation_flag = { who = prev flag = kiyo_spy_company_a }
+							has_relation_flag = { who = prev flag = kiyo_spy_company_b }
+							
+							has_relation_flag = { who = prev flag = kiyo_spy_conserve_a }
+							has_relation_flag = { who = prev flag = kiyo_spy_conserve_b }
+							
+							has_relation_flag = { who = prev flag = kiyo_spy_hacker_a }
+							has_relation_flag = { who = prev flag = kiyo_spy_hacker_b }
+							
+							has_relation_flag = { who = prev flag = kiyo_spy_assassin_a }
+							has_relation_flag = { who = prev flag = kiyo_spy_assassin_b }
+							
+							has_relation_flag = { who = prev flag = kiyo_spy_hijack_a }
+							has_relation_flag = { who = prev flag = kiyo_spy_hijack_b }
+							
+							has_relation_flag = { who = prev flag = kiyo_spy_trade_a }
+							has_relation_flag = { who = prev flag = kiyo_spy_trade_b }
+							
+							has_relation_flag = { who = prev flag = kiyo_spy_droneprod_a }
+							has_relation_flag = { who = prev flag = kiyo_spy_droneprod_b }
+							
+							has_relation_flag = { who = prev flag = kiyo_spy_envoy_a }
+							has_relation_flag = { who = prev flag = kiyo_spy_envoy_b }
+							
+							has_relation_flag = { who = prev flag = kiyo_spy_active_bomb_a }
+							has_relation_flag = { who = prev flag = kiyo_spy_active_bomb_b }
+							
+							has_relation_flag = { who = prev flag = kiyo_spy_active_toxic_a }
+							has_relation_flag = { who = prev flag = kiyo_spy_active_toxic_b }
+							
+							has_relation_flag = { who = prev flag = kiyo_spy_active_leak_a }
+							has_relation_flag = { who = prev flag = kiyo_spy_active_leak_b }
+							
+							has_relation_flag = { who = prev flag = kiyo_spy_active_miner_a }
+							has_relation_flag = { who = prev flag = kiyo_spy_active_miner_b }
+						}
+					}
+				}
+			}
+			every_country = {
+				limit = {
+					prev = {
+						has_relation_flag = { who = prev flag = kiyo_spy_spying_on }
+						NOR = {
+							has_relation_flag = { who = prev flag = kiyo_spy_scandal_a }
+							has_relation_flag = { who = prev flag = kiyo_spy_scandal_b }
+							
+							has_relation_flag = { who = prev flag = kiyo_spy_drone_a }
+							has_relation_flag = { who = prev flag = kiyo_spy_drone_b }
+							
+							has_relation_flag = { who = prev flag = kiyo_spy_company_a }
+							has_relation_flag = { who = prev flag = kiyo_spy_company_b }
+							
+							has_relation_flag = { who = prev flag = kiyo_spy_conserve_a }
+							has_relation_flag = { who = prev flag = kiyo_spy_conserve_b }
+							
+							has_relation_flag = { who = prev flag = kiyo_spy_hacker_a }
+							has_relation_flag = { who = prev flag = kiyo_spy_hacker_b }
+							
+							has_relation_flag = { who = prev flag = kiyo_spy_assassin_a }
+							has_relation_flag = { who = prev flag = kiyo_spy_assassin_b }
+							
+							has_relation_flag = { who = prev flag = kiyo_spy_hijack_a }
+							has_relation_flag = { who = prev flag = kiyo_spy_hijack_b }
+							
+							has_relation_flag = { who = prev flag = kiyo_spy_trade_a }
+							has_relation_flag = { who = prev flag = kiyo_spy_trade_b }
+							
+							has_relation_flag = { who = prev flag = kiyo_spy_droneprod_a }
+							has_relation_flag = { who = prev flag = kiyo_spy_droneprod_b }
+							
+							has_relation_flag = { who = prev flag = kiyo_spy_envoy_a }
+							has_relation_flag = { who = prev flag = kiyo_spy_envoy_b }
+							
+							has_relation_flag = { who = prev flag = kiyo_spy_active_bomb_a }
+							has_relation_flag = { who = prev flag = kiyo_spy_active_bomb_b }
+							
+							has_relation_flag = { who = prev flag = kiyo_spy_active_toxic_a }
+							has_relation_flag = { who = prev flag = kiyo_spy_active_toxic_b }
+							
+							has_relation_flag = { who = prev flag = kiyo_spy_active_leak_a }
+							has_relation_flag = { who = prev flag = kiyo_spy_active_leak_b }
+							
+							has_relation_flag = { who = prev flag = kiyo_spy_active_miner_a }
+							has_relation_flag = { who = prev flag = kiyo_spy_active_miner_b }
+						}
+					}
+				}
+				prev = {
+					remove_relation_flag = { who = prev flag = kiyo_spy_spying_on }
+					set_timed_relation_flag = { who = prev flag = kiyo_spy_spying_cooldown days = 100 }
+				}
+			}
+		}
+	}
+}
+
+#Get max intrigue on everyone else
+country_event = {
+	id = kiyo_event_spy_console.1
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		every_country = {
+			limit = { NOT = { is_country = root } }
+			root = { set_country_flag = intrigue_5@prev }
+		}
+	}
+}
+
+#Clear max intrigue on everyone else
+country_event = {
+	id = kiyo_event_spy_console.2
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		every_country = {
+			limit = { NOT = { is_country = root } }
+			root = { remove_country_flag = intrigue_5@prev }
+		}
+	}
+}

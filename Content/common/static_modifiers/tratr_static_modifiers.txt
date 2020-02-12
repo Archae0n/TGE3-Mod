@@ -1,0 +1,406 @@
+tratr_diplo_unlocked = {
+	diplomacy_upkeep_mult = -0.5
+	pop_growth_from_immigration = 0.10
+	country_trust_cap_add = 50
+	country_trust_growth = 0.33
+}
+
+tratr_adapt_unlocked = {
+	pop_housing_usage_mult = -0.10
+}
+
+tratr_versa_unlocked = {
+	planet_pop_assemblers_upkeep_mult = -0.10
+	planet_building_refund_mult = 0.5
+}
+
+tratr_est_friend_unlocked = {
+	#on_enabled adoption
+	country_trust_growth = 0.20
+	pop_growth_from_immigration = 0.30
+	pop_environment_tolerance = 0.05
+}
+
+tratr_est_malice_unlocked = {
+	#on_enabled adoption
+	ship_weapon_damage = 0.10
+}
+
+tratr_est_malicealt_unlocked = { 
+	country_naval_cap_mult = 0.15
+	ship_weapon_damage = 0.10
+}
+
+tratr_est_per_ip_unlocked = {	
+	ship_hull_mult = 0.10
+	army_health = 0.1
+	leader_age = 25
+}
+
+tratr_est_aspir_unlocked = {
+	planet_jobs_energy_produces_mult = 0.05
+}
+
+tratr_expan_unlocked = {
+	planet_colony_development_speed_mult = 0.25
+	planet_non_artificial_max_districts_add = 1
+}
+
+tratr_admin_unlocked = {
+	country_admin_cap_add = 20
+	country_government_civic_points_add = 1
+}
+
+tratr_omnipresence_unlocked = {
+	planet_crime_mult = -0.20
+	country_government_civic_points_add = 1
+}
+
+tratr_found_unlocked = {
+	#on_enabled adoption
+	planet_max_districts_add = 2
+}
+
+tratr_confe_unlocked = {
+	#on_enabled adoption
+	planet_max_districts_add = 2
+}
+
+tratr_subminds_unlocked = {
+	country_minerals_produces_mult = 0.10
+	leaders_upkeep_mult = -0.15
+	country_leader_pool_size = 2
+}
+
+tratr_domin_unlocked = {
+	deposit_blockers_cost_mult = -0.333
+	country_base_influence_produces_add = 1
+}
+
+tratr_isolation_unlocked = {
+	country_admin_cap_add = 25
+	#on_enabled finisher
+}
+
+tratr_proys_unlocked = {
+	#on_enabled adoption
+	job_est_inquisitor_per_pop = 0.02857
+}
+
+tratr_ptmal_unlocked = {
+	country_insult_efficiency = 0.5
+}
+
+tratr_theswarm_unlocked = {
+	planet_pops_upkeep_mult = -0.10
+	country_admin_cap_add = 25
+}
+
+tratr_harmo_unlocked = {
+	planet_pops_organics_food_upkeep_mult = -0.10
+	planet_stability_add = 5
+}
+
+tratr_synch_unlocked = { 
+	planet_pops_organics_food_upkeep_mult = -0.10
+	planet_stability_add = 5
+}
+
+tratr_syncm_unlocked = { 
+	planet_pops_robotics_upkeep_mult = -0.10
+	planet_stability_add = 5
+}
+
+tratr_aesth_unlocked = {
+	#on_enabled adoption
+	planet_culture_workers_society_research_produces_add = 2
+}
+
+tratr_aesthspirit_unlocked = {
+	#on_enabled adoption
+	planet_culture_workers_society_research_produces_add = 2
+}
+
+tratr_agehive_unlocked = {
+	leader_age = 25
+	leader_skill_levels = 2
+}
+
+tratr_agemach_unlocked = {
+	MACHINE_species_trait_points_add = 1
+	leader_skill_levels = 2
+}
+
+tratr_justice_unlocked = {
+	planet_crime_add = -25
+	#on_enabled finisher
+}
+
+tratr_dest_unlocked = {
+	country_naval_cap_mult = 0.20
+	#on_enabled finisher
+}
+
+tratr_liber_unlocked = {
+	planet_amenities_add = 10
+	pop_growth_from_immigration = 0.20
+	pop_factions_influence_produces_mult = 0.15
+}
+
+tratr_libernomig_unlocked = {
+	pop_happiness = 0.05
+	trade_value_mult = 0.20
+}
+
+tratr_order_unlocked = {
+	country_resettlement_cost_mult = -0.20
+	planet_pops_consumer_goods_upkeep_mult = -0.10
+	pop_housing_usage_mult = -0.10
+}
+
+tratr_orderegal_unlocked = {
+	pop_government_ethic_attraction = 0.15
+	planet_pops_consumer_goods_upkeep_mult = -0.10
+	pop_housing_usage_mult = -0.10
+}
+
+tratr_cooper_unlocked = {
+	#on_enabled adoption
+	colony_start_num_pops_add = 2
+}
+
+tratr_ptaff_unlocked = {
+	planet_immigration_pull_mult = 1
+	#event finisher
+}
+
+tratr_ptmyst_unlocked = {
+	species_leader_exp_gain = 0.2
+	#decision finisher
+}
+
+tratr_ptmystmach_unlocked = {
+	species_leader_exp_gain = 0.2
+	#decision finisher
+}
+
+tratr_disco_unlocked = {
+	ship_anomaly_research_speed_mult = 0.20
+	all_technology_research_speed = 0.10
+}
+
+#Archivist static_modifiers found in common\static_modifiers\tratr_arch_mods.txt
+
+tratr_aca_unlocked = {
+	job_researcher_add = 1
+	#on_enabled finisher
+}
+
+tratr_shbn_unlocked = {
+	country_unity_produces_mult = 0.10	
+	species_leader_exp_gain = 0.25
+}
+
+tratr_hack_unlocked = {
+	category_computing_research_speed_mult = 0.25
+	rivalries_influence_produces_mult = 0.30
+}
+
+tratr_hackt_unlocked = {
+	category_computing_research_speed_mult = 0.25
+	army_morale_damage_mult = 0.25
+}
+
+tratr_supre_unlocked = {
+	country_starbase_capacity_add = 2
+	army_damage_mult = 0.20
+	#policy finisher
+}
+
+tratr_milit_unlocked = {
+	#on_enabled adoption
+	ship_weapon_range_mult = 0.25
+}
+
+tratr_might_unlocked = {
+	#on_enabled adoption
+	ship_weapon_range_mult = 0.15
+	ship_weapon_damage = 0.05
+}
+
+tratr_pir_unlocked = {
+	piracy_growth_mult = -0.25
+	army_damage_mult = 0.15
+}
+
+tratr_pirspec_unlocked = {
+	#on_enabled adoption
+	army_damage_mult = 0.15
+}
+
+tratr_pirgc_unlocked = {
+	ship_speed_mult = 0.1
+	army_damage_mult = 0.15
+}
+
+tratr_ptass_unlocked = {
+	ship_hull_damage_mult = 0.1
+	country_naval_cap_add = 10
+	country_naval_cap_mult = 0.1
+	ship_shield_damage_mult = 0.1
+	ships_upkeep_mult = -0.1
+}
+
+tratr_ptang_unlocked = {
+	damage_vs_country_type_swarm_mult = 0.15
+	damage_vs_country_type_extradimensional_mult = 0.15
+	damage_vs_country_type_extradimensional_2_mult = 0.15
+	damage_vs_country_type_extradimensional_3_mult = 0.15
+}
+
+tratr_ptorder_unlocked = {
+	ship_speed_mult = 0.10
+	ship_emergency_ftl_mult = -0.25
+	country_government_civic_points_add = 1
+	megastructures_cost_mult = -0.15
+}
+
+tratr_ptdef_unlocked = {
+	starbase_defense_platform_capacity_add = 3
+	army_starting_experience_add = 100
+	planet_structures_cost_mult = -0.1
+	planet_building_build_speed_mult = 0.10
+	starbase_defense_platform_capacity_add = 2
+}
+
+tratr_prosp_unlocked = {
+	station_gatherers_produces_mult = 0.10
+	job_merchant_per_pop = 0.02
+}
+
+tratr_prospm_unlocked = {
+	station_gatherers_produces_mult = 0.10
+	job_coordinator_per_pop = 0.05
+}
+
+tratr_prosph_unlocked = {
+	station_gatherers_produces_mult = 0.10
+	job_synapse_drone_per_pop = 0.05
+}
+
+tratr_comm_unlocked = {
+	job_clerk_add = 3
+	job_executive_per_pop = 0.02
+}
+
+tratr_bene_unlocked = {
+	diplomacy_upkeep_mult = -0.33
+	damage_vs_country_type_swarm_mult = 0.20
+	damage_vs_country_type_extradimensional_mult = 0.20
+	damage_vs_country_type_extradimensional_2_mult = 0.20
+	damage_vs_country_type_extradimensional_3_mult = 0.20
+	damage_vs_country_type_ai_empire_mult = 0.20
+	damage_vs_country_type_fallen_empire_mult = 0.20
+	damage_vs_country_type_awakened_fallen_empire_mult = 0.20
+}
+
+tratr_greed_unlocked = {
+	country_minerals_produces_mult = 0.10
+	country_energy_produces_mult = 0.10
+}
+
+tratr_ptklept_unlocked = {
+	ship_fire_rate_mult = 0.08
+	country_trade_attractiveness = 0.25
+}
+
+tratr_space_unlocked = {
+	country_starbase_capacity_mult = 0.20
+	shipclass_mining_station_build_cost_mult = -0.25
+	shipclass_research_station_build_cost_mult = -0.25
+}
+
+tratr_mech_unlocked = {
+	ship_hull_mult = 0.10
+	ship_armor_mult = 0.10
+	planet_technician_energy_produces_add = 1
+}
+
+tratr_mechr_unlocked = {
+	pop_category_robot_upkeep_mult = -0.15
+	planet_technician_energy_produces_add = 1
+}
+
+tratr_mechgc_unlocked = {
+	ship_hull_mult = 0.10
+	ship_armor_mult = 0.10
+	planet_technician_energy_produces_add = 1
+}
+
+tratr_ptend_unlocked = {
+	pop_environment_tolerance = 0.05
+	pc_nuked_habitability = 0.10
+}
+
+tratr_ptind_unlocked = {
+	category_industry_research_speed_mult = 0.15
+	station_gatherers_minerals_produces_mult = 0.1
+	#on_enabled adoption
+	#edict finisher
+}
+
+tratr_ptcyber_unlocked = {
+	category_computing_research_speed_mult = 0.2
+	planet_jobs_robotic_produces_mult = 0.1
+	ROBOT_species_trait_points_add = 1
+	MACHINE_species_trait_points_add = 1
+	#on_enabled finisher
+}
+
+tratr_ptcyberh_unlocked = {
+	category_computing_research_speed_mult = 0.2
+	BIOLOGICAL_species_trait_points_add = 1
+}
+
+tratr_indus_unlocked = {
+	district_mining_max = 2
+	planet_metallurgists_upkeep_mult = -0.25
+	planet_artisans_upkeep_mult = -0.25
+}
+
+tratr_myst_unlocked = {
+	planet_sensor_range_add = 1
+	ship_sensor_range_add = 1
+	#on_enabled adoption
+	job_est_shadow_administrator_per_pop = 0.02
+}
+
+tratr_philo_unlocked = {
+	planet_sensor_range_add = 1
+	ship_sensor_range_add = 1
+	country_influence_produces_mult = 0.20
+}
+
+tratr_nat_unlocked = {
+	country_society_tech_research_speed = 0.10
+	category_biology_research_speed_mult = 0.10
+	#building unlock
+}
+
+tratr_nath_unlocked = {
+	country_food_produces_mult = 0.15
+	country_society_tech_research_speed = 0.10
+	category_biology_research_speed_mult = 0.15
+}
+
+tratr_natm_unlocked = {
+	country_unity_produces_mult = 0.05
+	planet_colony_development_speed_mult = 0.50
+	country_society_tech_research_speed = 0.20
+}
+
+tratr_pttrans_unlocked = {
+	modify_species_cost_mult = -0.05
+	terraforming_cost_mult = -0.10
+	terraform_speed_mult = 0.10
+}

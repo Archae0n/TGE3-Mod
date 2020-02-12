@@ -1,0 +1,95 @@
+##########################################################################
+# Decisions
+##########################################################################
+# influence 
+# energy 
+# food 
+# consumer_goods 
+# minerals 
+# alloys 
+
+@enact_time_0 = 240
+@enact_time   = 360 
+@enact_time_2 = 480
+@enact_time_3 = 720
+
+decision_X_name = {
+	owned_planets_only = yes
+	#prerequisites = { "tech_housing_2" "tech_construction_templates" } 
+	enactment_time = 0
+	resources = {
+		category = decisions
+		cost = {
+			trigger = {
+				AND = { 
+					planet_size > 13 
+					planet_size < 23 
+				}
+			}
+			influence = 0
+			energy = 0
+			minerals = 0
+			alloys = 0
+		}
+	}
+	potential = {
+		#habitable_structure = no
+		NOT = { has_planet_flag = pf_X_max }
+
+		#owner = { has_ascension_perk = ap_voidborn }
+
+		owner = { AND = {
+			OR = {
+				has_technology = "tech_administrative_ai"
+				has_technology = "tech_administrative_ai_machine_intelligence"
+				has_technology = "tech_administrative_ai_hive_mind"
+			}
+			OR = {
+				has_technology = "tech_adaptive_bureaucracy"
+				has_technology = "tech_adaptive_bureaucracy_machine_intelligence"
+				#has_technology = "_hive_mind"
+			}
+		} }
+
+	allow = {
+		custom_tooltip = {
+			fail_text = decision_arcology_project_requirements
+			free_district_slots < 1
+			num_districts = { type = district_farming value < 1 }
+			num_districts = { type = district_mining value < 1 }
+			num_districts = { type = district_generator value < 1 }
+		}
+		num_uncleared_blockers < 1
+	}
+
+	}
+	effect = {
+		if = {
+		}
+		else_if = {
+			limit = {
+				AND = { 
+					planet_size > 13 
+					planet_size < 23 
+				}
+			}
+			add_modifier = {
+				modifier = low_orbit_urbanisation_2
+				days = -1
+			}
+		}
+		hidden_effect = { set_planet_flag = }
+	}
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0
+			free_district_slots > 0
+		}
+	}
+}
+
+
+
+
+

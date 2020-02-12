@@ -1,0 +1,24 @@
+##########################################################################
+# Empire Modifiers for Augmented Authorities: Megacorps
+##########################################################################
+mod_energy_trust_1 = {
+	country_trust_growth = 0.25
+	country_base_influence_produces_add = 0.25
+}
+mod_energy_trust_2 = {
+	country_trust_growth = 0.50
+	country_base_influence_produces_add = 0.50
+}
+mod_energy_trust_3 = {
+	country_trust_growth = 0.75
+	country_base_influence_produces_add = 0.75
+}
+mod_energy_trust_4 = {
+	country_trust_growth = 1.0
+	country_base_influence_produces_add = 1
+}
+
+raided = {
+	pop_happiness = -0.1	
+	country_produces_mult = -0.1
+}

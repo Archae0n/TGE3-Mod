@@ -1,0 +1,78 @@
+hyperlane_progenitor = {
+	icon = "GFX_spaceport_module_hyperlane_progenitor"
+	construction_days = 180
+	
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_hyper_drive_1 }
+	}
+	
+	possible = {
+		THIS = {
+			starbase = {
+				NOT = {
+					has_starbase_building = warp_fluctuator
+				}
+			}
+		}
+	}
+	
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 100
+		}
+
+		upkeep = {
+			energy = 2
+		}
+	}
+	
+	show_in_tech = "tech_hyper_drive_1"
+	
+	ai_build_at_chokepoint = no
+	ai_build_outside_chokepoint = no
+	ai_weight = {
+		weight = 0
+	}
+}
+
+warp_fluctuator = {
+	icon = "GFX_spaceport_module_atmospheric_manipulator"
+	construction_days = 180
+	
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_hyper_drive_1 }
+	}
+	
+	possible = {
+		THIS = {
+			starbase = {
+				NOT = {
+					has_starbase_building = hyperlane_progenitor
+				}
+			}
+		}
+	}
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 100
+		}
+
+		upkeep = {
+			energy = 2
+		}
+	}
+
+	equipped_component = "STARBASE_AURA_WARP_FLUCTUATOR"
+	show_in_tech = "tech_hyper_drive_1"
+	
+	ai_build_at_chokepoint = yes
+	ai_build_outside_chokepoint = no
+	ai_weight = {
+		weight = 10
+	}
+}

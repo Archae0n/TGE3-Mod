@@ -1,0 +1,100 @@
+#@cost = 56
+
+tr_plentiful_experimentalism_adopt = {
+	possible = {
+		has_country_flag = stupidAIstoptakingthis
+	}
+	
+#	cost = { unity = @cost }
+	
+	modifier = {
+		
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+}
+
+tr_plentiful_experimentalism_finish = {
+	modifier = {
+		ascension_perks_add = 1
+	}
+}
+
+tr_plentiful_experimentalism_1 = {
+#	cost = { unity = @cost }
+	
+	modifier = {
+
+	}
+	possible = {
+		has_tradition = tr_discovery_faith_in_science
+	}
+	
+	ai_weight = {
+		factor = 1000
+	}
+}
+
+tr_plentiful_experimentalism_2 = {
+#	cost = { unity = @cost }
+	
+	modifier = {
+# Level up exp + cap
+		leader_skill_levels = 1
+	}
+	possible = {
+		has_tradition = tr_est_academy_5
+	}
+	
+	ai_weight = {
+		factor = 1000
+	}
+}
+
+tr_plentiful_experimentalism_3 = {
+#	cost = { unity = @cost }
+	
+	possible = {
+		has_tradition = tr_plentiful_experimentalism_1
+		has_tradition = tr_plentiful_experimentalism_2
+	}
+	modifier = {
+
+	}
+	
+	ai_weight = {
+		factor = 1000
+	}
+}
+
+tr_plentiful_experimentalism_4 = {
+#	cost = { unity = @cost }
+	
+	possible = {
+		has_tradition = tr_plentiful_experimentalism_3
+	}
+	
+	ai_weight = {
+		factor = 1000
+	}
+}
+
+tr_plentiful_experimentalism_5 = {
+#	cost = { unity = @cost }
+	
+	possible = {
+		has_tradition = tr_plentiful_experimentalism_3
+		has_tradition = tr_est_archivist_5
+	}
+	
+	modifier = {
+		num_tech_alternatives_add = 1
+		shipclass_research_station_build_cost_mult = -0.15
+	}
+	
+	ai_weight = {
+		factor = 1000
+	}
+}

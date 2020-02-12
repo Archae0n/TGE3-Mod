@@ -1,0 +1,51 @@
+﻿l_english:
+ ####################################
+ # Localisation for Augmented Authorities
+ ####################################
+ civic_tooltip_aristocratic_elite_effects:2 "§Y$MOD_LEADER_GOVERNOR_SKILL_LEVELS$§! increased by §G+1§!\n£building£ §YCapital Buildings§! replace some £job_administrator£ §Y$job_administrator$§! Jobs with £job_noble£ §Y$job_noble_plural$§!\nCan construct £building£ §Y$building_noble_estates$§! buildings that add additional £job_noble£ §Y$job_noble$§! Jobs\n£job_noble£ $job_noble_plural$ produce £mod_planet_stability_add£ §Y$PLANET_STABILITY_TITLE$§! and £mod_planet_amenities_add£ §Y$PLANET_AMENITIES_TITLE$§!"
+ civic_tooltip_byzantine_bureaucracy_effects:0 "$MOD_POP_AMENITIES_USAGE_MULT$: §G-10%§!\nCan construct £building£ §Y$building_bureaucratic_complex$§! buildings that add additional £job_administrator §Y$job_administrator$§! Jobs"
+ civic_tooltip_exalted_priesthood_effects:1 "£building£ §YCapital Buildings§! replace some £job_administrator£ §Y$job_administrator$§! Jobs with £job_high_priest §Y$job_high_priest_plural$§!\n£job_high_priest£ $job_high_priest_plural$ produce £unity£ §Y$unity$§!, £society£ §Y$society_research$§! and £mod_pop_happiness£ §YPop Happiness§!\n§G+1§! £job_apostle£ $job_apostle$ Job per §Y20§! Pops\n£job_apostle£ $job_apostle_plural$ produce a small amount of £unity£ §Y$unity$§! and £mod_planet_amenities_add£ §Y$PLANET_AMENITIES_TITLE$§!"
+ civic_tooltip_merchant_guilds_effects:1 "§YCapital Buildings§! provide £job_merchant£ §Y$job_merchant$§! Jobs\n£job_merchant£ §Y$job_merchant_plural$§! also produce §Y2§! £unity£ Unity\nStart with the §YOffworld Trade Companies§! technology"
+ civic_tooltip_technocracy_effects:2 "£building£ §YCapital Buildings§! replace some £job_administrator£ §Y$job_administrator$§! Jobs with £job_head_researcher£ §Y$job_head_researcher_plural$§!\n£job_head_researcher $job_head_researcher_plural$ produce £mod_planet_amenities_add£ §Y$PLANET_AMENITIES_TITLE$§! and £physics£ £society£ £engineering£ §YResearch Points§! for new technologies\n§Y$job_researcher_plural$§! also produce §Y1§! £unity£ Unity"
+ 
+ civic_tooltip_warrior_culture_effects:1 "$MOD_ARMY_DAMAGE_MULT$: §G+20%§!\n$MOD_ARMY_UPKEEP_MULT$: §G-20%§!\nReplaces £job_entertainer£ §Y$job_entertainer$§! Jobs with £job_duelist£ §Y$job_duelist$§! Jobs.\n$job_duelist_effect_desc$"
+ civic_tooltip_criminal_heritage_effects:2 "Cannot form §YCommercial Pacts§!\nCannot join §YFederations§!\nCan build §YBranch Offices§! on the planets of other empires without the need for §YCommercial Pacts§!\nCrime on §YBranch Office§! Planets increases Branch Office Value\n§YBranch Office Cost:§! §G-30%§!\nCan build special Crime-increasing £building£ §Y$BRANCH_OFFICE_BUILDINGS$§!"
+ civic_tooltip_citizen_service_effects:4 "£job_soldier£ §Y$job_soldier_plural$§! also produce §Y2§! £unity£ Unity\n§Y$MOD_COUNTRY_NAVAL_CAP_MULT$§! increased by §G15%§!\nStart with the §YCentralised Command§! technology"
+ civic_tooltip_police_state_effects:1 "§Y$MOD_PLANET_STABILITY_ADD$§! increased by §G+5§!\nTrade Protection: §G+5§!\n£job_enforcer£ §Y$job_enforcer_plural$§! produce an additional §G1§! £unity£ §YUnity§! and §G-10§! £crime£ §YCrime Suppression§!\n\nCannot make §YCrime Lord Deals§!\nStart with the §YPenal Colonies§! technology"
+ civic_tooltip_franchising_effects:2 "The effects of Subsidiary §YSubject Power§! on relations is reduced by §Y50%§!\nThe impact of §YBranch Offices§! on our §Y$EMPIRE_SIZE$§! is decreased by §G50%§!"
+ civic_tooltip_private_prospectors_effects:2 "$MOD_COUNTRY_ADMIN_CAP_ADD$: §G+10§!\nEmpire Sprawl Penalty: §G-10%§!\n§HUnlocks Ship Type:§! Private Colony Ship"
+ civic_tooltip_barbaric_despoilers_effects:5 "Cannot form §YMigration Treaties§!\nCannot join §YFederations§!\nHas the '§Y$casus_belli_cb_despoliation$§!' casus belli on all other empires\n$allow_raiding$\nDecreased §YOpinion§! for most other empires\nPlanetary Bombardment Damage: §G+50%§!\nWorker and Slave Output: §G+10%§!"
+ civic_tooltip_functional_architecture_effects:0 "Reduces §YBuild Cost§! and §YUpkeep§! for all §YBuildings§! and §YDistricts§! by §G10%§!\n£building£ §YHousing Buildings§! give §G+2§! £housing£ §YHousing§!"
+
+ civic_machine_replication:0 "Rapid Assemblers"
+ civic_machine_replication_desc:0 "The Units that constitute the Machine Intelligence were originally designed for the efficient assembly of processed materials. The Machine Intelligence retains many of these early production pipeline optimizations."
+ 
+ job_high_priest_effect_desc:0 "£job_high_priest£ $job_high_priest_plural$ produce £unity£ §Y$unity$§!, £society£ §Y$society_research$§! and £mod_pop_happiness£ §YPop Happiness§!"
+ 
+ wg_plunder_accept_them:0 "§Y[Root.GetName]§! gains §Y6§! months' worth of £unity£ Unity (Max 1000)"
+ wg_plunder_accept_us_1:0 "§Y[Root.GetName]§! gains §G+500§! £energy£ £minerals£ £food£ and §G+200§! £alloys£ £consumer_goods£"
+ wg_plunder_accept_us_2:0 "§Y[Root.GetName]§! gains §G+1000§! £energy£ £minerals£ £food£ and §G+400§! £alloys£ £consumer_goods£"
+ wg_plunder_accept_us_3:0 "§Y[Root.GetName]§! gains §G+1500§! £energy£ £minerals£ £food£ and §G+600§! £alloys£ £consumer_goods£"
+ wg_plunder_accept_us_4:0 "§Y[Root.GetName]§! gains §G+2000§! £energy£ £minerals£ £food£ and §G+800§! £alloys£ £consumer_goods£"
+ wg_plunder_accept_us_5:0 "§Y[Root.GetName]§! gains §G+2500§! £energy£ £minerals£ £food£ and §G+1000§! £alloys£ £consumer_goods£"
+ wg_plunder_accept_us_6:0 "§Y[Root.GetName]§! gains §G+3000§! £energy£ £minerals£ £food£ and §G+1200§! £alloys£ £consumer_goods£"
+ wg_plunder_accept_us_7:0 "§Y[Root.GetName]§! gains §G+3500§! £energy£ £minerals£ £food£ and §G+1400§! £alloys£ £consumer_goods£"
+ wg_plunder_accept_us_8:0 "§Y[Root.GetName]§! gains §G+4000§! £energy£ £minerals£ £food£ and §G+1600§! £alloys£ £consumer_goods£"
+ wg_plunder_accept_us_9:0 "§Y[Root.GetName]§! gains §G+4500§! £energy£ £minerals£ £food£ and §G+1800§! £alloys£ £consumer_goods£"
+ wg_plunder_accept_us_10:0 "§Y[Root.GetName]§! gains §G+5000§! £energy£ £minerals£ £food£ and §G+2000§! £alloys£ £consumer_goods£"
+ wg_plunder_accept_us_11:0 "§Y[Root.GetName]§! gains §G+5500§! £energy£ £minerals£ £food£ and §G+2200§! £alloys£ £consumer_goods£"
+ wg_plunder_accept_us_12:0 "§Y[Root.GetName]§! gains §G+6000§! £energy£ £minerals£ £food£ and §G+2400§! £alloys£ £consumer_goods£"
+ wg_plunder_accept_us_13:0 "§Y[Root.GetName]§! gains §G+6500§! £energy£ £minerals£ £food£ and §G+2600§! £alloys£ £consumer_goods£"
+ wg_plunder_accept_us_14:0 "§Y[Root.GetName]§! gains §G+7000§! £energy£ £minerals£ £food£ and §G+2800§! £alloys£ £consumer_goods£"
+ wg_plunder_accept_us_15:0 "§Y[Root.GetName]§! gains §G+7500§! £energy£ £minerals£ £food£ and §G+3000§! £alloys£ £consumer_goods£"
+ wg_plunder_accept_us_16:0 "§Y[Root.GetName]§! gains §G+8000§! £energy£ £minerals£ £food£ and §G+3200§! £alloys£ £consumer_goods£"
+ wg_plunder_accept_us_17:0 "§Y[Root.GetName]§! gains §G+8500§! £energy£ £minerals£ £food£ and §G+3400§! £alloys£ £consumer_goods£"
+ wg_plunder_accept_us_18:0 "§Y[Root.GetName]§! gains §G+9000§! £energy£ £minerals£ £food£ and §G+3600§! £alloys£ £consumer_goods£"
+ wg_plunder_accept_us_19:0 "§Y[Root.GetName]§! gains §G+9500§! £energy£ £minerals£ £food£ and §G+3800§! £alloys£ £consumer_goods£"
+ wg_plunder_accept_us_20:0 "§Y[Root.GetName]§! gains §G+10000§! £energy£ £minerals£ £food£ and §G+4000§! £alloys£ £consumer_goods£"
+ 
+ 
+ 
+ 
+ 
+ 

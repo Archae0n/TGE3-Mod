@@ -1,0 +1,38 @@
+# File for all notification pop-ups
+
+namespace = kiyo_event_notification
+
+# Notification for spy out of cooldown
+country_event = {
+	id = kiyo_event_notification.0
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		create_message = {
+			type = EVENT_MESSAGE_TYPE
+			localization = kiyo_event_notification.0.desc
+			days = 30
+			variable = {
+				type = name
+				localization = COUNTRY
+				scope = event_target:spyVictim
+			}
+		}
+	}
+}
+
+# Notification for counterespionage out of cooldown
+country_event = {
+	id = kiyo_event_notification.1
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		create_message = {
+			type = EVENT_MESSAGE_TYPE
+			localization = kiyo_event_notification.1.desc
+			days = 30
+		}
+	}
+}

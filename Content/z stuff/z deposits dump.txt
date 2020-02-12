@@ -1,0 +1,138 @@
+#
+# is_inside_nebula = yes
+# is_planet_class is_wet is_cold is_dry 
+# solar_system = { has_star_flag = }
+#num_free_districts = {
+#	type = district_city
+#	value < 0
+#}
+# planet_size >= 0
+
+d_template_deposit = {
+	is_for_colonizeable = yes
+	#use_for_min_max_adjustments = 
+	category = deposit_cat_mod #deposit_cat_rare
+	should_swap_deposit_on_terraforming = no
+	
+	icon = #d_huge_tree
+
+	#potential = {
+	#	is_primary_star = no
+	#	NOR = {			
+	#		is_planet_class = pc_ringworld_habitable_damaged
+	#		is_planet_class = pc_ringworld_tech_damaged
+	#	}
+	#}
+	#potential = {
+	#	can_have_habitable_deposits = yes
+	#}
+	#potential = { always = no }
+
+
+	resources = {
+		category = planet_deposits
+		produces = {
+			energy = 0
+			minerals = 0
+			food = 0
+
+			physics_research = 0
+			society_research = 0
+			engineering_research = 0
+
+			unity = 0
+
+			volatile_motes = 0
+			exotic_gases = 0
+			rare_crystals = 0
+
+			sr_dark_matter = 0
+			sr_living_metal = 0
+			nanites = 0
+			sr_zro = 0
+		}
+	}
+	planet_modifier = {
+		planet_max_districts_add = 0
+
+		planet_housing_add = 0
+
+		district_mining_max = 0
+		planet_jobs_minerals_produces_mult = 0.00
+		district_generator_max = 0
+		planet_jobs_energy_produces_mult = 0.00
+		district_farming_max = 0
+		planet_jobs_food_produces_mult = 0.00
+
+		building_mote_harvesters_max = 0
+		building_gas_extractors_max = 0
+		building_crystal_mines_max = 0
+		building_betharian_power_plant_max = 0
+		building_xeno_zoo_max = 0
+
+		planet_jobs_physics_research_produces_mult = 0.00
+		planet_jobs_society_research_produces_mult = 0.00
+		planet_jobs_engineering_research_produces_mult = 0.00
+
+		job_researcher_add = 0 # job_brain_drone_add # job_calculator_add 
+		job_odd_factory_worker_add 
+		job_underground_trade_worker_add job_underground_trade_worker_per_pop = 0.00
+		job_underground_contact_drone_add job_underground_contact_drone_per_pop 
+		job_dimensional_portal_researcher_add job_dimensional_portal_researcher_per_pop 
+		job_dimensional_portal_researcher_gestalt_add job_dimensional_portal_researcher_gestalt_per_pop 
+
+		biological_pop_happiness = 0.00
+		pop_happiness = 0.00
+
+		planet_pop_assembly_mult = 0.00
+
+		army_starting_experience_add = 0
+
+		trade_value_mult = 0.00
+		planet_orbital_bombardment_damage = 0.0
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+			owner = { is_hive_empire = yes }
+			owner = { is_machine_empire = yes }
+			owner = { is_gestalt = yes }
+			owner = { 
+				OR = {
+					is_hive_empire = yes
+					is_machine_empire = yes
+				}
+			}
+			owner = {
+				has_civic = civic_hive_devouring_swarm
+			}
+		}
+		modifier = {
+		}
+	}
+	country_modifier = {
+		country_resource_max_add = 2000
+		max_energy 
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = job_agri_drone_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = no }
+		}
+		text = job_farmer_effect_desc
+	}
+	
+	#
+	drop_weight = {
+		weight = 0
+	}
+}
+

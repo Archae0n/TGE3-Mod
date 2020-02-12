@@ -1,0 +1,62 @@
+artifact_open_lcluster = {
+	resources = {
+		category = artifact_actions
+		cost = {
+			minor_artifacts = 0
+		}
+	}
+
+	potential = {
+		AND = {
+			can_set_lcluster_policiy = yes
+			controls_lcuster = yes
+		}
+	}
+	
+	allow = {
+		custom_tooltip = {
+			fail_text = "lcluster_opened"
+			NOT = { has_global_flag = lcuster_open }
+		}
+	}
+
+	effect = {
+		custom_tooltip = artifact_arcane_deciphering_effect
+		hidden_effect = {
+			remove_global_flag = lcuster_closed
+			add_global_flag = lcuster_open
+		}
+	}
+}
+
+
+artifact_close_lcluster = {
+	resources = {
+		category = artifact_actions
+		cost = {
+			minor_artifacts = 0
+		}
+	}
+
+	potential = {
+		AND = {
+			can_set_lcluster_policiy = yes
+			controls_lcuster = yes
+		}
+	}
+	
+	allow = {
+		custom_tooltip = {
+			fail_text = "lcluster_closed"
+			NOT = { has_global_flag = lcuster_closed }
+		}
+	}
+
+	effect = {
+		custom_tooltip = close_lcluster_effect
+		hidden_effect = {
+			add_global_flag = lcuster_closed
+			remove_global_flag = lcuster_open
+		}
+	}
+}

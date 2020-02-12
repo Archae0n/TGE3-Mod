@@ -1,0 +1,7 @@
+tr_global_adopt = {
+	ai_weight = {
+		factor = 1000
+	}
+}
+tr_global_finish = {
+}

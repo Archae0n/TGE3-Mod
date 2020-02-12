@@ -1,0 +1,841 @@
+namespace = starborn
+
+#District patch flag setting 
+#out of order to make it easy for the patcher to find.
+event = {
+        id = starborn.9
+        hide_window = yes
+	is_triggered_only = yes
+        trigger = {
+                always = yes
+        }
+        immediate = {
+                set_global_flag = starborn_installed
+        }
+}
+
+
+#1. starting - spawn planets and habitats
+country_event = {
+        id = starborn.1
+        hide_window = yes
+        is_triggered_only = yes
+
+        trigger = {
+                is_ai = no
+                has_civic = civic_starborn
+        }
+
+        immediate = {
+                set_country_flag = custom_start_screen
+                set_country_flag = starborn_hab_size_2
+
+                #starting system
+                random_system_within_border = {
+                        limit = {
+                                any_system_planet = {
+                                        is_capital = yes
+                                }
+                        }
+                        # tag the star
+                        random_system_planet = { 
+                                limit = {
+                                        is_star = yes
+                                }
+                                save_event_target_as = star_spawn
+                                clear_deposits = yes
+                                set_planet_flag = has_megastructure
+                                random_mining_station = {
+                                        dismantle = yes
+                                }
+                        }
+
+                        # tag the capital
+                        random_system_planet = { 
+                                limit = {
+                                        is_capital = yes
+                                }
+                                save_event_target_as = capital_spawn_planet
+                        }
+
+                        every_planet = {
+                                limit = {
+                                        is_star = yes
+                                }
+                                remove_deposit = yes 
+                        }
+
+                        if = {
+                                limit = {
+                                        NOT = {
+                                                any_system_planet = {
+                                                        is_asteroid = yes
+                                                }
+                                        }
+                                }
+                                add_asteroid_belt = {
+                                        radius = 200
+                                        type = rocky_asteroid_belt
+                                }
+
+                                spawn_planet = {
+                                        class = "pc_asteroid"
+                                        orbit_distance = 200
+                                        orbit_angle = 0
+                                        size = 6
+                                        has_ring = no
+                        
+                                        init_effect = {
+                                                set_name = "I5-A2"
+                                                set_planet_flag = has_megastructure
+                                                save_event_target_as = asteroid_spawn 
+                                        }
+                                }
+                                
+                                spawn_planet = {
+                                        class = "pc_asteroid"
+                                        orbit_distance = 200
+                                        orbit_angle = 90
+                                        size = 5
+                                        has_ring = no
+                                        init_effect = {
+                                                set_name = "I5-A1"
+                                                random_list = {
+                                                        40 = {}
+                                                        60 = { add_deposit = d_minerals_1 }
+                                                        50 = { add_deposit = d_minerals_2 }
+                                                        40 = { add_deposit = d_minerals_3 }
+                                                        20 = { add_deposit = d_minerals_4 }
+                                                }
+                                        }
+                                }
+                                spawn_planet = {
+                                        class = "pc_asteroid"
+                                        orbit_distance = 200
+                                        orbit_angle = 200
+                                        size = 4
+                                        has_ring = no
+                                        init_effect = {
+                                                set_name = "I5-A3"
+                                                random_list = {
+                                                        40 = {}
+                                                        60 = { add_deposit = d_minerals_1 }
+                                                        50 = { add_deposit = d_minerals_2 }
+                                                        40 = { add_deposit = d_minerals_3 }
+                                                        20 = { add_deposit = d_minerals_4 }
+                                                }
+                                        }
+                                }
+                                spawn_planet = {
+                                        class = "pc_asteroid"
+                                        orbit_distance = 200
+                                        orbit_angle = 280
+                                        size = 3
+                                        has_ring = no
+                                        init_effect = {
+                                                set_name = "I5-A4"
+                                                random_list = {
+                                                        40 = {}
+                                                        60 = { add_deposit = d_minerals_1 }
+                                                        50 = { add_deposit = d_minerals_2 }
+                                                        40 = { add_deposit = d_minerals_3 }
+                                                        20 = { add_deposit = d_minerals_4 }
+                                                }
+                                        }
+                                }
+                        }
+                        else = {
+                                random_system_planet = { 
+                                        limit = {
+                                                is_asteroid = yes
+                                        }
+                                        save_event_target_as = asteroid_spawn 
+                                        clear_deposits = yes
+                                }  
+                        }
+
+                        # spawn the solar habitat
+                        spawn_planet = {
+                                class = "pc_habitat"
+                                location = event_target:star_spawn
+                                orbit_location = yes
+                                orbit_angle_offset = 45
+                                orbit_distance_offset = 9.899
+                                size = 3
+                                has_ring = no
+                                
+                                init_effect = {
+                                        set_name = "Prototype Solar Collection Habitat"
+                                        set_planet_entity = {
+                                                entity = "orbital_habitat_entity"
+                                                graphical_culture = fromfrom
+                                        }
+                                        surveyed = {
+                                                set_surveyed = yes
+                                                surveyor = FROM
+                                        }
+                                        set_all_comms_surveyed = yes
+                                        clear_blockers = yes
+                                        prevent_anomaly = yes
+                                        add_modifier = {
+                                                modifier = starborn_near_solar_energy
+                                                days = -1
+                                        }                                                                               
+
+                                        set_planet_flag = megastructure
+                                        set_planet_flag = habitat
+                                        set_planet_flag = energy_habitat
+                                        set_planet_flag = starborn_energy_6
+                                        set_planet_flag = habitat_of@event_target:star_spawn
+                                }
+                        }
+
+                        # spawn the mining habitat
+                        spawn_planet = {
+                                class = "pc_habitat"
+                                location = event_target:asteroid_spawn
+                                orbit_location = yes
+                                orbit_angle_offset = 20
+                                orbit_distance_offset = 2
+                                size = 3
+                                has_ring = no
+                                
+                                init_effect = {
+                                        set_name = "Prototype Asteroid Mining Habitat"
+                                        set_planet_entity = {
+                                                entity = "orbital_habitat_entity"
+                                                graphical_culture = fromfrom
+                                        }
+                                        surveyed = {
+                                                set_surveyed = yes
+                                                surveyor = FROM
+                                        }
+                                        set_all_comms_surveyed = yes
+                                        clear_blockers = yes
+                                        prevent_anomaly = yes
+
+                                        add_modifier = {
+                                                modifier = starborn_asteroid_minerals
+                                                days = -1
+                                        }                                                                               
+
+                                        set_planet_flag = megastructure
+                                        set_planet_flag = habitat
+                                        set_planet_flag = mining_habitat
+                                        set_planet_flag = starborn_mining_6
+                                        set_planet_flag = habitat_of@event_target:asteroid_spawn
+                                }
+                        }
+
+                        # spawn the original homeworld
+                        spawn_planet = {
+                                class = "pc_nuked"
+                                location =  event_target:capital_spawn_planet
+                                orbit_location = yes
+                                size = 18
+                                has_ring = no
+                                
+                                init_effect = {
+                                        surveyed = {
+                                                set_surveyed = yes
+                                                surveyor = FROM
+                                        }
+                                        set_all_comms_surveyed = yes
+                                        clear_blockers = yes
+                                        clear_planet_modifiers = yes                                        
+                                        prevent_anomaly = yes
+
+                                        set_planet_flag = has_megastructure
+                                        set_planet_flag = starborn_origin
+                                        set_name = "Paradise Lost"
+
+                                        #copy of the post_apoc deposits
+                                        # common/scripted_effects/01_start_of_game_effects.txt : generate_start_deposits_and_blockers
+                                        # 3 + 3 energy		
+                                        set_deposit = d_hot_springs		
+                                        add_deposit = d_searing_desert
+                                        add_deposit = d_underwater_vent	
+                                        
+                                        # 3 + 4 mining
+                                        add_deposit = d_veiny_cliffs		
+                                        add_deposit = d_ore_rich_caverns
+                                        add_deposit = d_submerged_ore_veins
+                                        
+                                        # 3 + 2 farming
+                                        add_deposit = d_lichen_fields	
+                                        add_deposit = d_fungal_caves 	
+                                        add_deposit = d_fungal_forest	
+                                
+                                        # add starborn ruins blockers
+                                        # like regular ones, except they don't give you any pops when cleared as all the pops are dead.  
+                                        add_deposit = d_starborn_ruins
+                                        add_deposit = d_starborn_wasteland
+                                        add_deposit = d_starborn_ruins
+                                        add_deposit = d_starborn_wasteland	
+                                        add_deposit = d_starborn_ruins
+                                        add_deposit = d_starborn_wasteland
+                                }
+                        }
+                }
+
+                # we live in a space station, we understand how hydroponics work
+                give_technology = { 
+                        message = no 
+                        tech = tech_hydroponics 
+                }
+        }
+}
+
+#2. tried to cheat enlarging habitat
+country_event = {
+        id = starborn.2    
+	title = "starborn.2.name"
+	desc = "starborn.2.desc"
+	show_sound = event_mystic_reveal
+	picture = GFX_evt_colony_settlement
+	is_triggered_only = yes
+        location = FromFromFrom.Planet
+
+	option = {
+		name = "starborn.2.option.a"
+	}
+}
+
+#3. Starting mechanics functions
+country_event = {
+        id = starborn.3    
+	title = "starborn.3.name"
+	desc = "starborn.3.desc"
+	picture = GFX_evt_colony_settlement
+	is_triggered_only = yes
+
+        trigger = {
+                is_ai = no
+                has_civic = civic_starborn
+        }
+
+	option = {
+		name = "starborn.3.option.a"
+	}
+}
+
+#4. hab build size menu
+country_event = {
+        id = starborn.4    
+	title = "starborn.4.name"
+	desc = "starborn.4.desc"
+	picture = GFX_evt_colony_settlement
+	is_triggered_only = yes
+
+	option = {
+                name = "starborn.4.option.2"
+                hidden_effect = {
+                        set_country_flag = starborn_hab_size_2
+                        remove_country_flag = starborn_hab_size_3
+                        remove_country_flag = starborn_hab_size_4
+                        remove_country_flag = starborn_hab_size_5
+                        remove_country_flag = starborn_hab_size_6
+		}
+        }
+        option = {
+                name = "starborn.4.option.3"
+                hidden_effect = {
+                        set_country_flag = starborn_hab_size_3
+                        remove_country_flag = starborn_hab_size_2
+                        remove_country_flag = starborn_hab_size_4
+                        remove_country_flag = starborn_hab_size_5
+                        remove_country_flag = starborn_hab_size_6
+		}
+        }
+        option = {
+                name = "starborn.4.option.4"
+                hidden_effect = {
+                        set_country_flag = starborn_hab_size_4
+                        remove_country_flag = starborn_hab_size_2
+                        remove_country_flag = starborn_hab_size_3
+                        remove_country_flag = starborn_hab_size_5
+                        remove_country_flag = starborn_hab_size_6
+		}
+        }
+        option = {
+                name = "starborn.4.option.5"
+                hidden_effect = {
+                        set_country_flag = starborn_hab_size_5
+                        remove_country_flag = starborn_hab_size_2
+                        remove_country_flag = starborn_hab_size_3
+                        remove_country_flag = starborn_hab_size_4
+                        remove_country_flag = starborn_hab_size_6
+		}
+        }
+        option = {
+                name = "starborn.4.option.6"
+                hidden_effect = {
+                        set_country_flag = starborn_hab_size_6
+                        remove_country_flag = starborn_hab_size_2
+                        remove_country_flag = starborn_hab_size_3
+                        remove_country_flag = starborn_hab_size_4
+                        remove_country_flag = starborn_hab_size_5
+		}
+	}
+}
+
+#5. hab enlargement menu
+country_event = {
+        id = starborn.5    
+	title = "starborn.5.name"
+	desc = "starborn.5.desc"
+	picture = GFX_evt_colony_settlement
+	is_triggered_only = yes
+
+        option = {
+                name = "starborn.5.option.0"
+                hidden_effect = {
+                        remove_country_flag = starborn_hab_enlargement_3
+                        remove_country_flag = starborn_hab_enlargement_2
+                        remove_country_flag = starborn_hab_enlargement_1
+		}
+        }
+	option = {
+                name = "starborn.5.option.1"
+                trigger = {
+			has_technology = tech_starbase_3
+		}
+                hidden_effect = {
+                        set_country_flag = starborn_hab_enlargement_1
+                        remove_country_flag = starborn_hab_enlargement_2
+                        remove_country_flag = starborn_hab_enlargement_3
+		}
+        }
+        option = {
+                name = "starborn.5.option.2"
+                trigger = {
+			has_technology = tech_starbase_5
+		}
+                hidden_effect = {
+                        set_country_flag = starborn_hab_enlargement_2
+                        remove_country_flag = starborn_hab_enlargement_1
+                        remove_country_flag = starborn_hab_enlargement_3
+		}
+        }
+        option = {
+                name = "starborn.5.option.3"
+                trigger = {
+			has_technology = tech_mega_engineering
+		}
+                hidden_effect = {
+                        set_country_flag = starborn_hab_enlargement_3
+                        remove_country_flag = starborn_hab_enlargement_1
+                        remove_country_flag = starborn_hab_enlargement_2
+		}
+        }
+}
+
+#6. hab enlargement failed because you lacked resources
+country_event = {
+        id = starborn.6    
+	title = "starborn.6.name"
+	desc = "starborn.6.desc"
+	show_sound = event_mystic_reveal
+	picture = GFX_evt_colony_settlement
+	is_triggered_only = yes
+        location = FromFromFrom.Planet
+
+	option = {
+		name = "starborn.6.option.a"
+	}
+}
+
+#7. enact living metal event if playing in the OP system.  
+country_event = {
+        id = starborn.7
+        hide_window = yes
+        is_triggered_only = yes
+
+        trigger = {
+                is_ai = no
+                has_civic = civic_starborn
+                has_global_flag = starborn_op_init
+        }
+
+        immediate = {
+                if = {
+                        limit = {
+                                has_tech_option = tech_mine_living_metal
+                        }
+                        add_tech_progress = {
+                                tech = tech_mine_living_metal
+                                progress = 0.25
+                        }
+                }
+                else = {
+                        add_research_option = tech_mine_living_metal
+                }
+        }
+}
+
+#8. Deal with Starting world - the orbital city
+planet_event = {
+        id = starborn.8
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		owner = {
+			has_civic = civic_starborn
+		}
+        }
+        immediate = {
+                clear_deposits = yes
+                clear_blockers = yes
+		prevent_anomaly = yes
+                set_planet_flag = has_megastructure
+                set_planet_flag = starborn_tomb_scavenging              
+
+                set_name = "Arc of Civilisation"              
+               
+                remove_all_districts = yes
+                add_district = district_starborn_starting_hab_housing
+                add_district = district_starborn_starting_hab_housing
+                add_district = district_starborn_starting_hab_housing
+                add_district = district_starborn_starting_scavenger
+                add_district = district_starborn_starting_scavenger
+                add_district = district_starborn_starting_preserve
+                add_district = district_starborn_starting_preserve
+                add_district = district_starborn_starting_preserve
+                add_district = district_starborn_starting_solar
+                add_district = district_starborn_starting_solar
+                add_district = district_starborn_starting_solar
+
+                set_planet_size = 16
+        }
+}
+
+#9. is at the top
+
+
+#10 put refund modifer on smaller hab alloys cost
+planet_event = {
+        id = starborn.10
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		owner = {
+			has_civic = civic_starborn
+		}
+                is_planet_class = pc_habitat
+        }
+
+        immediate = {
+                if = {
+                        limit = {
+                                planet_size = 2
+                        }
+                        add_deposit = d_starborn_refund_size_2
+                }
+
+                if = {
+                        limit = {
+                                planet_size = 3
+                        }
+                        add_deposit = d_starborn_refund_size_3
+                }
+
+                if = {
+                        limit = {
+                                planet_size = 4
+                        }
+                        add_deposit = d_starborn_refund_size_4
+                }
+        }
+}
+
+# 11. Remove whole planetary farming when colonised
+planet_event = {
+        id = starborn.11
+	is_triggered_only = yes
+        title = "starborn.11.name"
+	desc = "starborn.11.desc"
+	picture = GFX_evt_colony_settlement
+
+	trigger = {
+		owner = {
+                        any_planet_within_border = {
+                                has_planet_flag = habitat_of@root
+                                has_planet_flag = starborn_farming_habitat
+                        }
+		}
+        }
+
+        immediate = {
+                random_planet = {
+                        limit = {
+                                has_planet_flag = habitat_of@prev
+                                has_planet_flag = starborn_farming_habitat
+                        }
+                        save_event_target_as = target
+                        remove_modifier = starborn_farming_planet
+                }
+        }
+        option = {
+                name = "starborn.11.option.a"
+        }
+}
+
+
+#16. message about terraforming causing scavenger districts to pack up and become farming
+country_event = {
+        id = starborn.16    
+	title = "starborn.16.name"
+	desc = "starborn.16.desc"
+	picture = GFX_evt_colony_settlement
+	is_triggered_only = yes
+
+
+	option = {
+		name = "starborn.16.option.a"
+	}
+}
+
+# 12. Remove tomb world savenger when terraformed
+planet_event = {
+        id = starborn.12
+        is_triggered_only = yes
+        hide_window = yes
+	picture = GFX_evt_colony_settlement
+
+	trigger = {
+                solar_system = {
+                        any_system_planet = {
+                                has_planet_flag = habitat_of@root
+                                has_planet_flag = starborn_tomb_scavenging
+                        }   
+                }
+        }
+
+        immediate = {
+                save_event_target_as = src_planet
+                random_planet = {
+                        limit = {
+                                has_planet_flag = habitat_of@root
+                                has_planet_flag = starborn_tomb_scavenging
+                        }
+                        save_event_target_as = target_hab
+                        remove_planet_flag = starborn_tomb_scavenging
+                        while = {
+                                limit = {
+                                        num_districts = {
+                                                type = district_starborn_starting_scavenger
+                                                value > 0                                                
+                                        }
+                                }
+                                remove_district = district_starborn_starting_scavenger
+                                add_district = district_starborn_surface_farming
+                        }
+                        set_planet_flag = starborn_farming_habitat
+                        
+                        if = {
+                                limit = {
+                                        root = {
+                                                has_owner = no
+                                        }
+                                }
+                                add_modifier = {
+                                        modifier = starborn_farming_planet
+                                        days = -1
+                                }
+                        }
+                      
+                }
+                from = {
+                        country_event = { id = starborn.16 }
+                }
+        }
+}
+
+# 13. Add City world mod when converted
+planet_event = {
+        id = starborn.13
+        is_triggered_only = yes
+	title = "starborn.13.name"
+	desc = "starborn.13.desc"
+	picture = GFX_evt_city_planet
+
+	trigger = {
+		owner = {
+                        has_civic = civic_starborn
+                         any_planet_within_border = {
+                                 has_planet_flag = habitat_of@root
+                        }
+                }
+        }
+
+        immediate = {
+                random_planet = {
+                        limit = {
+                                has_planet_flag = habitat_of@root
+                        }
+                        save_event_target_as = target
+                        remove_planet_flag = starborn_tomb_scavenging
+                        remove_planet_flag = starborn_farming_habitat
+                        remove_modifier = starborn_farming_planet
+                        
+                        while = {
+                                limit = {
+                                        num_districts = {
+                                                type = district_starborn_starting_scavenger
+                                                value > 0                                                
+                                        }
+                                }
+                                remove_district = district_starborn_starting_scavenger
+                                add_district = district_hab_commercial
+                        }
+                        while = {
+                                limit = {
+                                        num_districts = {
+                                                type = district_starborn_surface_farming
+                                                value > 0                                                
+                                        }
+                                }
+                                remove_district = district_starborn_surface_farming
+                                add_district = district_hab_commercial
+                        }
+                        add_modifier = {
+                                modifier = starborn_pc_city_trade_value
+                                days = -1
+                        }
+
+                }
+        }
+
+        option = {
+                name = "starborn.13.option.a"
+        }
+}
+
+
+
+#17. message about terraforming home world causing scavenger districts to pack up and become farming
+country_event = {
+        id = starborn.17    
+	title = "starborn.17.name"
+	desc = "starborn.17.desc"
+	picture = GFX_evt_colony_settlement
+	is_triggered_only = yes
+
+
+	option = {
+		name = "starborn.17.option.a"
+	}
+}
+
+# 14. Remove tomb world savenger from orbital city when home world terraformed
+planet_event = {
+        id = starborn.14
+        is_triggered_only = yes
+        hide_window = yes	
+	picture = GFX_evt_colony_settlement
+
+	trigger = {
+                has_planet_flag = starborn_origin
+        }
+
+        immediate = {
+                solar_system = {
+                        random_system_planet = {
+                                limit = {
+                                       is_planet_class = pc_starborn_habitat_start
+                                }
+                                remove_planet_flag = starborn_tomb_scavenging
+                                while = {
+                                        limit = {
+                                                num_districts = {
+                                                        type = district_starborn_starting_scavenger
+                                                        value > 0                                                
+                                                }
+                                        }
+                                        remove_district = district_starborn_starting_scavenger
+                                        add_district = district_starborn_surface_farming
+                                }
+                                set_planet_flag = starborn_farming_habitat
+                                if = {
+                                        limit = {
+                                                root = {
+                                                        has_owner = no
+                                                }
+                                        }
+                                        add_modifier = {
+                                                modifier = starborn_farming_planet
+                                                days = -1
+                                        }
+                                }
+                        }
+                }
+                from = {
+                        country_event = { id = starborn.17 }
+                }
+                
+        }
+}
+
+
+# 15.  Homeworld converted to city
+planet_event = {
+        id = starborn.15
+        is_triggered_only = yes
+	title = "starborn.15.name"
+	desc = "starborn.15.desc"
+	picture = GFX_evt_city_planet
+
+	trigger = {
+		has_planet_flag = starborn_origin
+        }
+
+        immediate = {
+                save_event_target_as = src_planet
+                solar_system = {
+                        random_system_planet = {
+                                limit = {
+                                        is_planet_class = pc_starborn_habitat_start
+                                }
+                                save_event_target_as = target_hab
+                                remove_planet_flag = starborn_tomb_scavenging
+                                remove_planet_flag = starborn_farming_habitat
+                                remove_modifier = starborn_farming_planet
+
+                                set_planet_flag = commercial_habitat
+                                
+                                while = {
+                                        limit = {
+                                                num_districts = {
+                                                        type = district_starborn_starting_scavenger
+                                                        value > 0                                                
+                                                }
+                                        }
+                                        remove_district = district_starborn_starting_scavenger
+                                        add_district = district_starborn_hab_commercial
+                                }
+                                while = {
+                                        limit = {
+                                                num_districts = {
+                                                        type = district_starborn_surface_farming
+                                                        value > 0                                                
+                                                }
+                                        }
+                                        remove_district = district_starborn_surface_farming
+                                        add_district = district_starborn_hab_commercial
+                                }
+                                add_modifier = {
+                                        modifier = starborn_pc_city_trade_value
+                                        days = -1
+                                }
+                        }
+                }
+        }
+
+        option = {
+                name = "starborn.15.option.a"
+        }
+}
+
+#16 and 17 are out of order

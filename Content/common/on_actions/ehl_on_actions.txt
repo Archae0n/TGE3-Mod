@@ -1,0 +1,48 @@
+# Triggers when the game starts
+on_game_start = {
+	events = {
+		ehl_event.1
+		ehl_event.15
+	}
+}
+
+on_game_start_country = {
+	events = {
+		ehl_event.2
+		ehl_event.3
+	}
+}
+
+# No scope, like on_game_start
+on_yearly_pulse = {
+	events = {
+		ehl_event.3
+		ehl_event.12
+	}
+}
+
+# No scope, like on_game_start
+on_five_year_pulse = {
+	events = {
+		ehl_event.7
+		ehl_event.8
+		ehl_event.9
+		ehl_event.11
+	}
+}
+
+# No scope, like on_game_start
+on_decade_pulse = {
+	events = {
+		ehl_event.4
+		ehl_event.5
+		ehl_event.6
+	}
+}
+
+# No scope, like on_game_start
+on_mid_game_pulse = {
+	events = {
+		ehl_event.10
+	}
+}

@@ -1,0 +1,409 @@
+tratr_diplo_unlock_trig = {
+	AND = {
+		has_tradition = tr_diplomacy_secure_shipping
+		has_tradition = tr_diplomacy_insider_trading
+		has_tradition = tr_diplomacy_the_federation
+		has_tradition = tr_diplomacy_entente_coordination
+		has_tradition = tr_diplomacy_open_markets
+	}
+}
+
+tratr_friend_unlock_trig = {
+	AND = {
+		has_tradition = tr_est_friendship_1
+		has_tradition = tr_est_friendship_2
+		has_tradition = tr_est_friendship_3
+		has_tradition = tr_est_friendship_4
+		has_tradition = tr_est_friendship_5
+	}
+}
+
+tratr_aspir_unlock_trig = {
+	AND = {
+		has_tradition = tr_plentiful_aspiration_1
+		has_tradition = tr_plentiful_aspiration_2
+		has_tradition = tr_plentiful_aspiration_3
+		has_tradition = tr_plentiful_aspiration_4
+		has_tradition = tr_plentiful_aspiration_5
+	}
+}
+
+tratr_expan_unlock_trig = {
+	AND = {
+		has_tradition = tr_expansion_colonization_fever
+		has_tradition = tr_expansion_a_new_life
+		has_tradition = tr_expansion_courier_network
+		has_tradition = tr_expansion_reach_for_the_stars
+		has_tradition = tr_expansion_galactic_ambition
+	}
+}
+
+tratr_admin_unlock_trig = {
+	AND = {
+		has_tradition = tr_est_administratum_1
+		has_tradition = tr_est_administratum_2
+		has_tradition = tr_est_administratum_3
+		has_tradition = tr_est_administratum_4
+		has_tradition = tr_est_administratum_5
+	}
+}
+
+tratr_found_unlock_trig = {
+	AND = {
+		has_tradition = tr_est_foundation_1
+		has_tradition = tr_est_foundation_2
+		has_tradition = tr_est_foundation_3
+		has_tradition = tr_est_foundation_4
+		has_tradition = tr_est_foundation_5
+	}
+}
+
+tratr_domin_unlock_trig = {
+	AND = {
+		has_tradition = tr_domination_grand_council
+		has_tradition = tr_domination_judgment_corps
+		has_tradition = tr_domination_workplace_motivators
+		has_tradition = tr_domination_imperious_architecture
+		has_tradition = tr_domination_colonial_viceroys
+	}
+}
+
+tratr_isola_unlock_trig = {
+	AND = {
+		has_tradition = tr_est_isolation_1
+		has_tradition = tr_est_isolation_2
+		has_tradition = tr_est_isolation_3
+		has_tradition = tr_est_isolation_4
+		has_tradition = tr_est_isolation_5
+	}
+}
+
+tratr_chiva_unlock_trig = {
+	AND = {
+		has_tradition = tr_est_chivalry_1
+		has_tradition = tr_est_chivalry_2
+		has_tradition = tr_est_chivalry_3
+		has_tradition = tr_est_chivalry_4
+		has_tradition = tr_est_chivalry_5
+	}
+}
+
+tratr_ptmal_unlock_trig = {
+	AND = {
+		has_tradition = tr_plentiful_malice_1
+		has_tradition = tr_plentiful_malice_2
+		has_tradition = tr_plentiful_malice_3
+		has_tradition = tr_plentiful_malice_4
+		has_tradition = tr_plentiful_malice_5
+	}
+}
+
+tratr_harmony_unlock_trig = {
+	AND = {
+		has_tradition = tr_harmony_the_greater_good
+		has_tradition = tr_harmony_kinship
+		has_tradition = tr_harmony_utopian_dream
+		has_tradition = tr_harmony_mind_and_body
+		has_tradition = tr_harmony_bulwark_of_harmony
+	}
+}
+
+tratr_aesth_unlock_trig = {
+	AND = {
+		has_tradition = tr_est_aesthetics_1
+		has_tradition = tr_est_aesthetics_2
+		has_tradition = tr_est_aesthetics_3
+		has_tradition = tr_est_aesthetics_4
+		has_tradition = tr_est_aesthetics_5
+	}
+}
+
+tratr_justice_unlock_trig = {
+	AND = {
+		has_tradition = tr_est_justice_1
+		has_tradition = tr_est_justice_2
+		has_tradition = tr_est_justice_3
+		has_tradition = tr_est_justice_4
+		has_tradition = tr_est_justice_5
+	}
+}
+
+tratr_liber_unlock_trig = {
+	AND = {
+		has_tradition = tr_est_liberty_1
+		has_tradition = tr_est_liberty_2
+		has_tradition = tr_est_liberty_3
+		has_tradition = tr_est_liberty_4
+		has_tradition = tr_est_liberty_5
+	}
+}
+
+tratr_order_unlock_trig = {
+	AND = {
+		has_tradition = tr_est_order_1
+		has_tradition = tr_est_order_2
+		has_tradition = tr_est_order_3
+		has_tradition = tr_est_order_4
+		has_tradition = tr_est_order_5
+	}
+}
+
+tratr_ptaff_unlock_trig = {
+	AND = {
+		has_tradition = tr_plentiful_affinity_1
+		has_tradition = tr_plentiful_affinity_2
+		has_tradition = tr_plentiful_affinity_3
+		has_tradition = tr_plentiful_affinity_4
+		has_tradition = tr_plentiful_affinity_5
+	}
+}
+
+tratr_ptmyst_unlock_trig = {
+	AND = {
+		has_tradition = tr_plentiful_mysticism_1
+		has_tradition = tr_plentiful_mysticism_2
+		has_tradition = tr_plentiful_mysticism_3
+		has_tradition = tr_plentiful_mysticism_4
+		has_tradition = tr_plentiful_mysticism_5
+	}
+}
+
+tratr_disco_unlock_trig = {
+	AND = {
+		has_tradition = tr_discovery_to_boldly_go
+		has_tradition = tr_discovery_databank_uplinks
+		has_tradition = tr_discovery_polytechnic_education
+		has_tradition = tr_discovery_faith_in_science
+		has_tradition = tr_discovery_science_division
+	}
+}
+
+tratr_arch_unlock_trig = {
+	AND = {
+		has_tradition = tr_est_archivist_1
+		has_tradition = tr_est_archivist_2
+		has_tradition = tr_est_archivist_3
+		has_tradition = tr_est_archivist_4
+		has_tradition = tr_est_archivist_5
+	}
+}
+
+tratr_academy_unlock_trig = {
+	AND = {
+		has_tradition = tr_est_academy_1
+		has_tradition = tr_est_academy_2
+		has_tradition = tr_est_academy_3
+		has_tradition = tr_est_academy_4
+		has_tradition = tr_est_academy_5
+	}
+}
+
+tratr_ptexp_unlock_trig = {
+	AND = {
+		has_tradition = tr_plentiful_experimentalism_1
+		has_tradition = tr_plentiful_experimentalism_2
+		has_tradition = tr_plentiful_experimentalism_3
+		has_tradition = tr_plentiful_experimentalism_4
+		has_tradition = tr_plentiful_experimentalism_5
+	}
+}
+
+tratr_supre_unlock_trig = {
+	AND = {
+		has_tradition = tr_supremacy_great_game
+		has_tradition = tr_supremacy_fleet_logistical_corps
+		has_tradition = tr_supremacy_master_shipwrights
+		has_tradition = tr_supremacy_war_games
+		has_tradition = tr_supremacy_overwhelming_force
+	}
+}
+
+tratr_milit_unlock_trig = {
+	AND = {
+		has_tradition = tr_est_militarism_1
+		has_tradition = tr_est_militarism_2
+		has_tradition = tr_est_militarism_3
+		has_tradition = tr_est_militarism_4
+		has_tradition = tr_est_militarism_5
+	}
+}
+
+tratr_piracy_unlock_trig = {
+	AND = {
+		has_tradition = tr_est_piracy_1
+		has_tradition = tr_est_piracy_2
+		has_tradition = tr_est_piracy_3
+		has_tradition = tr_est_piracy_4
+		has_tradition = tr_est_piracy_5
+	}
+}
+
+tratr_ptass_unlock_trig = {
+	AND = {
+		has_tradition = tr_plentiful_assault_1
+		has_tradition = tr_plentiful_assault_2
+		has_tradition = tr_plentiful_assault_3
+		has_tradition = tr_plentiful_assault_4
+		has_tradition = tr_plentiful_assault_5
+	}
+}
+
+tratr_ptang_unlock_trig = {
+	AND = {
+		has_tradition = tr_plentiful_anguish_1
+		has_tradition = tr_plentiful_anguish_2
+		has_tradition = tr_plentiful_anguish_3
+		has_tradition = tr_plentiful_anguish_4
+		has_tradition = tr_plentiful_anguish_5
+	}
+}
+
+tratr_ptorder_unlock_trig = {
+	AND = {
+		has_tradition = tr_plentiful_order_1
+		has_tradition = tr_plentiful_order_2
+		has_tradition = tr_plentiful_order_3
+		has_tradition = tr_plentiful_order_4
+		has_tradition = tr_plentiful_order_5
+	}
+}
+
+tratr_ptdef_unlock_trig = {
+	AND = {
+		has_tradition = tr_plentiful_defence_1
+		has_tradition = tr_plentiful_defence_2
+		has_tradition = tr_plentiful_defence_3
+		has_tradition = tr_plentiful_defence_4
+		has_tradition = tr_plentiful_defence_5
+	}
+}
+
+tratr_prosp_unlock_trig = {
+	AND = {
+		has_tradition = tr_prosperity_sct
+		has_tradition = tr_prosperity_administrative_operations
+		has_tradition = tr_prosperity_public_works
+		has_tradition = tr_prosperity_interstellar_franchising
+		has_tradition = tr_prosperity_pursuit_of_profit
+	}
+}
+
+tratr_comm_unlock_trig = {
+	AND = {
+		has_tradition = tr_est_commerce_1
+		has_tradition = tr_est_commerce_2
+		has_tradition = tr_est_commerce_3
+		has_tradition = tr_est_commerce_4
+		has_tradition = tr_est_commerce_5
+	}
+}
+
+tratr_greed_unlock_trig = {
+	AND = {
+		has_tradition = tr_est_greed_1
+		has_tradition = tr_est_greed_2
+		has_tradition = tr_est_greed_3
+		has_tradition = tr_est_greed_4
+		has_tradition = tr_est_greed_5
+	}
+}
+
+tratr_ptklept_unlock_trig = {
+	AND = {
+		has_tradition = tr_plentiful_kleptocracy_1
+		has_tradition = tr_plentiful_kleptocracy_2
+		has_tradition = tr_plentiful_kleptocracy_3
+		has_tradition = tr_plentiful_kleptocracy_4
+		has_tradition = tr_plentiful_kleptocracy_5
+	}
+}
+
+tratr_space_unlock_trig = {
+	AND = {
+		has_tradition = tr_est_spaceborn_1
+		has_tradition = tr_est_spaceborn_2
+		has_tradition = tr_est_spaceborn_3
+		has_tradition = tr_est_spaceborn_4
+		has_tradition = tr_est_spaceborn_5
+	}
+}
+
+tratr_mech_unlock_trig = {
+	AND = {
+		has_tradition = tr_est_mechanicum_1
+		has_tradition = tr_est_mechanicum_2
+		has_tradition = tr_est_mechanicum_3
+		has_tradition = tr_est_mechanicum_4
+		has_tradition = tr_est_mechanicum_5
+	}
+}
+
+tratr_ptend_unlock_trig = {
+	AND = {
+		has_tradition = tr_plentiful_endure_1
+		has_tradition = tr_plentiful_endure_2
+		has_tradition = tr_plentiful_endure_3
+		has_tradition = tr_plentiful_endure_4
+		has_tradition = tr_plentiful_endure_5
+	}
+}
+
+tratr_ptind_unlock_trig = {
+	AND = {
+		has_tradition = tr_plentiful_industry_1
+		has_tradition = tr_plentiful_industry_2
+		has_tradition = tr_plentiful_industry_3
+		has_tradition = tr_plentiful_industry_4
+		has_tradition = tr_plentiful_industry_5
+	}
+}
+
+tratr_ptcyber_unlock_trig = {
+	AND = {
+		has_tradition = tr_est_cybernetics_1
+		has_tradition = tr_est_cybernetics_2
+		has_tradition = tr_est_cybernetics_3
+		has_tradition = tr_est_cybernetics_4
+		has_tradition = tr_est_cybernetics_5
+	}
+}
+
+tratr_indus_unlock_trig = {
+	AND = {
+		has_tradition = tr_est_industry_1
+		has_tradition = tr_est_industry_2
+		has_tradition = tr_est_industry_3
+		has_tradition = tr_est_industry_4
+		has_tradition = tr_est_industry_5
+	}
+}
+
+tratr_myst_unlock_trig = {
+	AND = {
+		has_tradition = tr_est_mysticism_1
+		has_tradition = tr_est_mysticism_2
+		has_tradition = tr_est_mysticism_3
+		has_tradition = tr_est_mysticism_4
+		has_tradition = tr_est_mysticism_5
+	}
+}
+
+tratr_natural_unlock_trig = {
+	AND = {
+		has_tradition = tr_est_natural_1
+		has_tradition = tr_est_natural_2
+		has_tradition = tr_est_natural_3
+		has_tradition = tr_est_natural_4
+		has_tradition = tr_est_natural_5
+	}
+}
+
+tratr_pttrans_unlock_trig = {
+	AND = {
+		has_tradition = tr_plentiful_transformation_1
+		has_tradition = tr_plentiful_transformation_2
+		has_tradition = tr_plentiful_transformation_3
+		has_tradition = tr_plentiful_transformation_4
+		has_tradition = tr_plentiful_transformation_5
+	}
+}

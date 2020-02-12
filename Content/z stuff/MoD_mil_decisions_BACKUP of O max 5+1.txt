@@ -1,0 +1,177 @@
+##########################################################################
+# Decisions
+##########################################################################
+# influence 
+# energy 
+# food 
+# consumer_goods = 1 mineral +
+# minerals 
+# alloys = 2 minerals +
+
+@enact_time_placeholder = 1
+#@enact_time_0 = 240
+#@enact_time   = 360 
+#@enact_time_2 = 480
+#@enact_time_3 = 720
+@influence = 20
+@influence_AP = 10
+
+decision_O_LSLODI = {
+	owned_planets_only = yes
+	#prerequisites = { "tech_housing_2" "tech_construction_templates" } 
+	enactment_time = @enact_time_placeholder 
+	resources = {
+		category = decisions
+		cost = {
+			trigger = {
+				NOT = { owner = { has_ascension_perk = ap_voidborn } }
+			}
+			influence = @influence 
+			energy = 500
+			#minerals = 0
+			alloys = 1000
+		}
+		cost = {
+			trigger = {
+				owner = { has_ascension_perk = ap_voidborn }
+			}
+			influence = @influence_AP 
+			energy = 400
+			#minerals = 0
+			alloys = 800
+		}
+	}
+	potential = {
+		habitable_structure = no
+		NOT = { owner = { has_country_flag = cf_hide_mod } }
+		NOT = { has_modifier = modifier_O_max_AP }
+		OR = {
+			NOT = { has_modifier = modifier_O_max }
+			owner = { has_ascension_perk = ap_voidborn }
+		}
+	}
+	#allow = {
+		#custom_tooltip = {
+		#	fail_text = decision_arcology_project_requirements
+		#	free_district_slots < 1
+		#}
+		#free_district_slots > 0
+	#}
+	effect = {
+		add_deposit = d_O_LSLODI_deposit 
+		#hidden_effect = { set_planet_flag = }
+		if = {
+			limit = { 
+				NOR = {
+					has_planet_flag = pf_O_1 
+					has_planet_flag = pf_O_2 
+					has_planet_flag = pf_O_3 
+					has_planet_flag = pf_O_4 
+					has_planet_flag = pf_O_5 
+					has_planet_flag = pf_O_6 
+				}
+			} 
+			set_planet_flag = pf_O_1
+			break = yes
+		}
+		else_if = {
+			limit = { 
+				has_planet_flag = pf_O_5 
+			}
+			if = {
+				limit = { planet_size > 20 } # 5 O +1
+				#set_planet_flag = pf_O_max_AP
+				add_modifier = { modifier = modifier_O_max_AP days = -1 }
+				remove_modifier = modifier_O_max
+				#break = yes
+			}
+			remove_planet_flag = pf_O_5 
+			set_planet_flag = pf_O_6
+			break = yes
+		}
+		else_if = {
+			limit = { 
+				has_planet_flag = pf_O_4 
+			}
+			if = {
+				limit = { planet_size > 15 planet_size < 21 } # 4 O +1
+				#set_planet_flag = pf_O_max_AP
+				add_modifier = { modifier = modifier_O_max_AP days = -1 }
+				remove_modifier = modifier_O_max
+				break = yes
+			}
+			else_if = {
+				limit = { planet_size > 20 } # 5 O +1
+				#set_planet_flag = pf_O_max 
+				add_modifier = { modifier = modifier_O_max days = -1 }
+			}
+			remove_planet_flag = pf_O_4 
+			set_planet_flag = pf_O_5
+			break = yes
+		}
+		else_if = {
+			limit = { 
+				has_planet_flag = pf_O_3 
+			}
+			if = {
+				limit = { planet_size > 10 planet_size < 16 } # 3 O +1
+				#set_planet_flag = pf_O_max_AP
+				add_modifier = { modifier = modifier_O_max_AP days = -1 }
+				remove_modifier = modifier_O_max
+				break = yes
+			}
+			else_if = {
+				limit = { planet_size > 15 planet_size < 21 } # 4 O +1
+				#set_planet_flag = pf_O_max 
+				add_modifier = { modifier = modifier_O_max days = -1 }
+			}
+			remove_planet_flag = pf_O_3 
+			set_planet_flag = pf_O_4
+			break = yes
+		}
+		else_if = {
+			limit = { 
+				has_planet_flag = pf_O_2 
+			}
+			if = {
+				limit = { planet_size < 11 } # 2 O +1
+				#set_planet_flag = pf_O_max_AP
+				add_modifier = { modifier = modifier_O_max_AP days = -1 }
+				remove_modifier = modifier_O_max
+				break = yes
+			}
+			else_if = {
+				limit = { planet_size > 10 planet_size < 16 } # 3 O +1
+				#set_planet_flag = pf_O_max 
+				add_modifier = { modifier = modifier_O_max days = -1 }
+			}
+			remove_planet_flag = pf_O_2 
+			set_planet_flag = pf_O_3
+			break = yes
+		}
+		else_if = {
+			limit = { 
+				has_planet_flag = pf_O_1 
+			}
+			if = {
+				limit = { planet_size < 11 } # 2 O +1
+				#set_planet_flag = pf_O_max 
+				add_modifier = { modifier = modifier_O_max days = -1 }
+				#break = yes
+			}
+			remove_planet_flag = pf_O_1 
+			set_planet_flag = pf_O_2
+			break = yes
+		}
+	}
+	ai_weight = {
+		weight = 0
+	}
+}
+
+#decision_HR_LSDI = {
+#}
+
+
+
+

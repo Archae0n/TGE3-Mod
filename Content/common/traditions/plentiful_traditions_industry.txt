@@ -1,0 +1,92 @@
+tr_plentiful_industry_adopt = {
+	possible = {
+		has_country_flag = stupidAIstoptakingthis
+	}
+	
+	modifier = {
+		category_industry_research_speed_mult = 0.15
+		station_gatherers_minerals_produces_mult = 0.1
+	}
+	
+	on_enabled = {
+		give_technology = { message = no tech = tech_plentiful_traditions_orbital_fracking_cannon }
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+}
+
+tr_plentiful_industry_finish = {
+	modifier = {
+		#P Edict
+		ascension_perks_add = 1
+	}
+}
+
+tr_plentiful_industry_1 = {
+	modifier = {
+		station_gatherers_cost_mult = -0.15
+	}
+	
+	ai_weight = {
+		factor = 1000
+	}
+}
+
+tr_plentiful_industry_2 = {
+	possible = {
+		has_tradition = tr_plentiful_industry_1
+	}
+	
+	modifier = {
+		ship_colonizer_cost_mult = -0.2
+	}
+	
+	ai_weight = {
+		factor = 1000
+	}
+}
+
+tr_plentiful_industry_3 = {
+	possible = {
+		has_tradition = tr_plentiful_industry_5
+	}
+	
+	modifier = {
+		country_resettlement_cost_mult = -0.3
+	}
+	
+	ai_weight = {
+		factor = 1000
+	}
+}
+
+tr_plentiful_industry_4 = {
+	possible = {
+		has_tradition = tr_plentiful_industry_5
+	}
+	
+	modifier = {
+		station_gatherers_minerals_produces_mult = 0.1
+		# B. Min
+	}
+	
+	ai_weight = {
+		factor = 1000
+	}
+}
+
+tr_plentiful_industry_5 = {
+	possible = {
+		has_tradition = tr_plentiful_industry_2
+	}
+	
+	modifier = {
+		#E Edict
+	}
+	
+	ai_weight = {
+		factor = 1000
+	}
+}

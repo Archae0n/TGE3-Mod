@@ -1,0 +1,138 @@
+
+#civic_example = {
+#	playable = {}								# AND trigger, no scope; use this to prevent the civic from being selectable by the player (UI)
+#	potential = {}								# requirements list, see ../readme_requirements.txt
+#	possible = {}								# requirements list, see ../readme_requirements.txt
+#	pickable_at_start = yes / no				# default: yes
+#	modification = yes / no						# default: yes, set to no to prevent adding or removing this after creation of the empire
+#
+#	random_weight = { base = 5 }				# scriptable weight for randomizing a civic; required, else the civic will not get assigned randomly
+#
+#	modifier = {}								# modifier added to the country if the civic is selected and valid
+#	can_build_ruler_ship = yes / no				# default: no
+#	traits = { trait = ... }					# default: empty; trait set to enforce on the primary species. They cannot be removed, but more can be added if points/picks permit
+#	has_secondary_species = {					# default: none; if present, will enable secondary species customization in empire designer and will create secondary species & pops at galaxy generation time (see empire_init_create_capital_secondary_pops)
+#		traits = { trait = ... }					# default: empty; trait set to enforce on the secondary species. They cannot be removed, but more can be added if points/picks permit
+#	}
+#}
+
+########################################
+# NEW CIVICS FOR AUGMENTED AUTHORITIES #
+########################################
+
+## REGULAR CIVICS ##
+
+civic_hive_brood_queens = {
+	potential = { authority = { value = auth_hive_mind } }
+	random_weight = { base = 5 }
+	modifier = {
+		job_brood_queen_add = 1
+		# Brood Queens have higher upkeep, but produce unity and stability
+		# Spawning Pools give Brood Queen jobs instead of Spawning Drones
+	}
+	description = "civic_tooltip_hive_brood_queens_effects"
+}
+
+civic_hive_tunnel_networks = {
+	potential = { authority = { value = auth_hive_mind } }
+	random_weight = { base = 5 }
+	modifier = {
+		planet_structures_cost_mult = -0.10
+		planet_structures_upkeep_mult = -0.10
+		# Housing buildings have +2 Housing
+	}
+	description = "civic_tooltip_functional_architecture_effects"
+}
+
+
+## MEGACORP CIVICS ##
+## CULTURE CIVICS ##
+
+civic_workers_cooperative = {
+	potential = { authority = { value = auth_corporate } }
+	random_weight = { base = 5 }
+	possible = {
+		ethics = {
+			OR = {
+				text = civic_tooltip_egalitarian
+				value = ethic_egalitarian
+				value = ethic_fanatic_egalitarian
+			}
+		}
+		civics = {
+			NOR = {
+				value = civic_thinktank
+				value = civic_energy_trust
+			}
+		}
+	}
+	modifier = {
+		country_election_influence_cost_mult = -0.50
+		pop_factions_produces_mult = 0.50
+		# Employ Representatives for some Culture jobs
+	}
+	description = "civic_tooltip_workers_cooperative_effects"
+}
+
+civic_thinktank = {
+	potential = { authority = { value = auth_corporate } }
+	random_weight = { base = 5 }
+	possible = {
+		ethics = {
+			OR = {
+				text = civic_tooltip_materialist
+				value = ethic_materialist
+				value = ethic_fanatic_materialist
+			}
+		}
+		civics = {
+			NOR = {
+				value = civic_energy_trust
+				value = civic_workers_cooperative
+			}
+		}
+	}
+	description = "civic_tooltip_thinktank_effects"
+	modifier = {
+		num_tech_alternatives_add = 1
+		# "Workplace of Ideas" trade policy produces research in addition to unity
+		# Employ Innovators for some Culture jobs
+	}
+}
+
+civic_energy_trust = {
+	potential = { authority = { value = auth_corporate } }
+	random_weight = { base = 5 }
+	possible = {
+		ethics = {
+			OR = {
+				text = civic_tooltip_pacifist
+				value = ethic_pacifist
+				value = ethic_fanatic_pacifist
+			}
+		}
+		civics = {
+			NOR = {
+				value = civic_thinktank
+				value = civic_workers_cooperative
+			}
+		}
+	}
+	modifier = {
+		# Gain extra trust gain and influence based on energy storage
+		# Employ Bankers for some Culture jobs
+		# Can only use "Wealth Creation" trade policy
+	}
+	description = "civic_tooltip_energy_trust_effects" 
+}
+
+civic_megacorp_architecture = {
+	description = "civic_tooltip_functional_architecture_effects"
+	potential = { authority = { value = auth_corporate } }
+	random_weight = { base = 5 }
+	modifier = {
+		planet_structures_cost_mult = -0.10
+		planet_structures_upkeep_mult = -0.10
+		# Housing buildings have +2 Housing
+	}
+}

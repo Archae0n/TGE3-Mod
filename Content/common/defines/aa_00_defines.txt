@@ -1,0 +1,15 @@
+
+	NGameplay = {
+		LEADER_MAX_SKILL_CAP	= 20 # Maximum leader level, was 10
+		
+		GOVERNMENT_CIVIC_POINTS_BASE		= 3		# Base amount of civic points (to "pay" for government civic costs)
+		
+		POP_ETHOS_DIVERGENCE_INTERVAL				= 360	# Number of days until a Pop has a change to diverge from empire ethos
+		POP_ETHOS_DIVERGENCE_RATE_MULT				= 300	# Chance of a pop evaluating its ethics every year
+		POP_CHANGE_FACTION_CHANCE					= 100	# Once every month a pop has X chance to change faction but only if the pop wants to
+
+		POPS_BRANCH_OFFICE_BUILDING_SLOTS		 = 20 	# The amount of pops needed to unlock a new branch office building slot, was 25
+		BASE_PLANET_BRANCH_OFFICE_BUILDING_SLOTS = 1	# How many building slots a branch office starts with unlocked, was 0
+		
+	}
+	

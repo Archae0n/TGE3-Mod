@@ -1,0 +1,274 @@
+tratr_arch_paco_mod = {
+	category_particles_research_speed_mult = 0.15
+	category_computing_research_speed_mult = 0.15
+}
+
+tratr_arch_pafm_mod = {
+	category_particles_research_speed_mult = 0.15
+	category_field_manipulation_research_speed_mult = 0.15
+}
+
+tratr_arch_pavc_mod = {
+	category_particles_research_speed_mult = 0.15
+	category_voidcraft_research_speed_mult = 0.15
+}
+
+tratr_arch_pabio_mod = {
+	category_particles_research_speed_mult = 0.15
+	category_biology_research_speed_mult = 0.15
+}
+
+tratr_arch_pasc_mod = {
+	category_particles_research_speed_mult = 0.15
+	category_statecraft_research_speed_mult = 0.15
+}
+
+tratr_arch_panw_mod = {
+	category_particles_research_speed_mult = 0.15
+	category_new_worlds_research_speed_mult = 0.15
+}
+
+tratr_arch_pamt_mod = {
+	category_particles_research_speed_mult = 0.15
+	category_military_theory_research_speed_mult = 0.15
+}
+
+tratr_arch_pama_mod = {
+	category_particles_research_speed_mult = 0.15
+	category_materials_research_speed_mult = 0.15
+}
+
+tratr_arch_paind_mod = {
+	category_particles_research_speed_mult = 0.15
+	category_industry_research_speed_mult = 0.15
+}
+
+tratr_arch_paro_mod = {
+	category_particles_research_speed_mult = 0.15
+	category_propulsion_research_speed_mult = 0.15
+}
+
+tratr_arch_cofm_mod = {
+	category_computing_research_speed_mult = 0.15
+	category_field_manipulation_research_speed_mult = 0.15
+}
+
+tratr_arch_covc_mod = {
+	category_computing_research_speed_mult = 0.15
+	category_voidcraft_research_speed_mult = 0.15
+}
+
+tratr_arch_cobio_mod = {
+	category_computing_research_speed_mult = 0.15
+	category_biology_research_speed_mult = 0.15
+}
+
+tratr_arch_cosc_mod = {
+	category_computing_research_speed_mult = 0.15
+	category_statecraft_research_speed_mult = 0.15
+}
+
+tratr_arch_conw_mod = {
+	category_computing_research_speed_mult = 0.15
+	category_new_worlds_research_speed_mult = 0.15
+}
+
+tratr_arch_comt_mod = {
+	category_computing_research_speed_mult = 0.15
+	category_military_theory_research_speed_mult = 0.15
+}
+
+tratr_arch_coma_mod = {
+	category_computing_research_speed_mult = 0.15
+	category_materials_research_speed_mult = 0.15
+}
+
+tratr_arch_coind_mod = {
+	category_computing_research_speed_mult = 0.15
+	category_industry_research_speed_mult = 0.15
+}
+
+tratr_arch_coro_mod = {
+	category_computing_research_speed_mult = 0.15
+	category_propulsion_research_speed_mult = 0.15
+}
+
+tratr_arch_fmvc_mod = {
+	category_field_manipulation_research_speed_mult = 0.15
+	category_voidcraft_research_speed_mult = 0.15
+}
+
+tratr_arch_fmbio_mod = {
+	category_field_manipulation_research_speed_mult = 0.15
+	category_biology_research_speed_mult = 0.15
+}
+
+tratr_arch_fmsc_mod = {
+	category_field_manipulation_research_speed_mult = 0.15
+	category_statecraft_research_speed_mult = 0.15
+}
+
+tratr_arch_fmnw_mod = {
+	category_field_manipulation_research_speed_mult = 0.15
+	category_new_worlds_research_speed_mult = 0.15
+}
+
+tratr_arch_fmmt_mod = {
+	category_field_manipulation_research_speed_mult = 0.15
+	category_military_theory_research_speed_mult = 0.15
+}
+
+tratr_arch_fmma_mod = {
+	category_field_manipulation_research_speed_mult = 0.15
+	category_materials_research_speed_mult = 0.15
+}
+
+tratr_arch_fmind_mod = {
+	category_field_manipulation_research_speed_mult = 0.15
+	category_industry_research_speed_mult = 0.15
+}
+
+tratr_arch_fmro_mod = {
+	category_field_manipulation_research_speed_mult = 0.15
+	category_propulsion_research_speed_mult = 0.15
+}
+
+tratr_arch_vcbio_mod = {
+	category_voidcraft_research_speed_mult = 0.15
+	category_biology_research_speed_mult = 0.15
+}
+
+tratr_arch_vcsc_mod = {
+	category_voidcraft_research_speed_mult = 0.15
+	category_statecraft_research_speed_mult = 0.15
+}
+
+tratr_arch_vcnw_mod = {
+	category_voidcraft_research_speed_mult = 0.15
+	category_new_worlds_research_speed_mult = 0.15
+}
+
+tratr_arch_vcmt_mod = {
+	category_voidcraft_research_speed_mult = 0.15
+	category_military_theory_research_speed_mult = 0.15
+}
+
+tratr_arch_vcma_mod = {
+	category_voidcraft_research_speed_mult = 0.15
+	category_materials_research_speed_mult = 0.15
+}
+
+tratr_arch_vcind_mod = {
+	category_voidcraft_research_speed_mult = 0.15
+	category_industry_research_speed_mult = 0.15
+}
+
+tratr_arch_vcro_mod = {
+	category_voidcraft_research_speed_mult = 0.15
+	category_propulsion_research_speed_mult = 0.15
+}
+
+tratr_arch_biosc_mod = {
+	category_biology_research_speed_mult = 0.15
+	category_statecraft_research_speed_mult = 0.15
+}
+
+tratr_arch_bionw_mod = {
+	category_biology_research_speed_mult = 0.15
+	category_new_worlds_research_speed_mult = 0.15
+}
+
+tratr_arch_biomt_mod = {
+	category_biology_research_speed_mult = 0.15
+	category_military_theory_research_speed_mult = 0.15
+}
+
+tratr_arch_bioma_mod = {
+	category_biology_research_speed_mult = 0.15
+	category_materials_research_speed_mult = 0.15
+}
+
+tratr_arch_bioind_mod = {
+	category_biology_research_speed_mult = 0.15
+	category_industry_research_speed_mult = 0.15
+}
+
+tratr_arch_bioro_mod = {
+	category_biology_research_speed_mult = 0.15
+	category_propulsion_research_speed_mult = 0.15
+}
+
+tratr_arch_scnw_mod = {
+	category_statecraft_research_speed_mult = 0.15
+	category_new_worlds_research_speed_mult = 0.15
+}
+
+tratr_arch_scmt_mod = {
+	category_statecraft_research_speed_mult = 0.15
+	category_military_theory_research_speed_mult = 0.15
+}
+
+tratr_arch_scma_mod = {
+	category_statecraft_research_speed_mult = 0.15
+	category_materials_research_speed_mult = 0.15
+}
+
+tratr_arch_scind_mod = {
+	category_statecraft_research_speed_mult = 0.15
+	category_industry_research_speed_mult = 0.15
+}
+
+tratr_arch_scro_mod = {
+	category_statecraft_research_speed_mult = 0.15
+	category_propulsion_research_speed_mult = 0.15
+}
+
+tratr_arch_nwmt_mod = {
+	category_new_worlds_research_speed_mult = 0.15
+	category_military_theory_research_speed_mult = 0.15
+}
+
+tratr_arch_nwma_mod = {
+	category_new_worlds_research_speed_mult = 0.15
+	category_materials_research_speed_mult = 0.15
+}
+
+tratr_arch_nwind_mod = {
+	category_new_worlds_research_speed_mult = 0.15
+	category_industry_research_speed_mult = 0.15
+}
+
+tratr_arch_nwro_mod = {
+	category_new_worlds_research_speed_mult = 0.15
+	category_propulsion_research_speed_mult = 0.15
+}
+
+tratr_arch_mtma_mod = {
+	category_military_theory_research_speed_mult = 0.15
+	category_materials_research_speed_mult = 0.15
+}
+
+tratr_arch_mtind_mod = {
+	category_military_theory_research_speed_mult = 0.15
+	category_industry_research_speed_mult = 0.15
+}
+
+tratr_arch_mtro_mod = {
+	category_military_theory_research_speed_mult = 0.15
+	category_propulsion_research_speed_mult = 0.15
+}
+
+tratr_arch_maind_mod = {
+	category_materials_research_speed_mult = 0.15
+	category_industry_research_speed_mult = 0.15
+}
+
+tratr_arch_maro_mod = {
+	category_materials_research_speed_mult = 0.15
+	category_propulsion_research_speed_mult = 0.15
+}
+
+tratr_arch_indro_mod = {
+	category_industry_research_speed_mult = 0.15
+	category_propulsion_research_speed_mult = 0.15
+}

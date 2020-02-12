@@ -1,0 +1,1 @@
+- attempting a fix for starbase shield upgrades for AI. Players will have to manually update the shields from tier 5 to tier 6 though. After tier 6 they should continue to auto upgrade

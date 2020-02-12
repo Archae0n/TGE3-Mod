@@ -1,0 +1,86 @@
+#icon_frame = 1 # green frame
+#icon_frame = 2 # yellow frame
+#icon_frame = 3 # red frame
+
+##########################################################################
+# Faction Modifiers
+##########################################################################
+suppressed_xenophobe2 = {
+	pop_ethic_xenophobe_attraction_mult = -0.75
+	country_base_influence_produces_add = -0.5
+}
+
+promoted_xenophobe2 = {
+	pop_ethic_xenophobe_attraction_mult = 1
+	country_base_influence_produces_add = -1
+}
+
+suppressed_xenophile2 = {
+	pop_ethic_xenophile_attraction_mult = -0.75
+	country_base_influence_produces_add = -0.5
+}
+
+promoted_xenophile2 = {
+	pop_ethic_xenophile_attraction_mult = 1
+	country_base_influence_produces_add = -1
+}
+
+suppressed_spiritualist2 = {
+	pop_ethic_spiritualist_attraction_mult = -0.75
+	country_base_influence_produces_add = -0.5
+}
+
+promoted_spiritualist2 = {
+	pop_ethic_spiritualist_attraction_mult = 1
+	country_base_influence_produces_add = -1
+}
+
+suppressed_materialist2 = {
+	pop_ethic_materialist_attraction_mult = -0.75
+	country_base_influence_produces_add = -0.5
+}
+
+promoted_materialist2 = {
+	pop_ethic_materialist_attraction_mult = 1
+	country_base_influence_produces_add = -1
+}
+
+suppressed_pacifist2 = {
+	pop_ethic_pacifist_attraction_mult = -0.75
+	country_base_influence_produces_add = -0.5
+}
+
+promoted_pacifist2 = {
+	pop_ethic_pacifist_attraction_mult = 1
+	country_base_influence_produces_add = -1
+}
+
+suppressed_militarist2 = {
+	pop_ethic_militarist_attraction_mult = -0.75
+	country_base_influence_produces_add = -0.5
+}
+
+promoted_militarist2 = {
+	pop_ethic_militarist_attraction_mult = 1
+	country_base_influence_produces_add = -1
+}
+
+suppressed_egalitarian2 = {
+	pop_ethic_egalitarian_attraction_mult = -0.75
+	country_base_influence_produces_add = -0.5
+}
+
+promoted_egalitarian2 = {
+	pop_ethic_egalitarian_attraction_mult = 1
+	country_base_influence_produces_add = -1
+}
+
+suppressed_authoritarian2 = {
+	pop_ethic_authoritarian_attraction_mult = -0.75
+	country_base_influence_produces_add = -0.5
+}
+
+promoted_authoritarian2 = {
+	pop_ethic_authoritarian_attraction_mult = 1
+	country_base_influence_produces_add = -1
+}

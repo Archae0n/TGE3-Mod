@@ -1,0 +1,185 @@
+#@cost = 56
+
+tr_plentiful_malice_adopt = {
+	possible = {
+		has_country_flag = stupidAIstoptakingthis
+	}
+	
+#	cost = { unity = @cost }
+	modifier = {
+		country_insult_efficiency = 0.5
+	}
+	ai_weight = {
+		factor = 0
+	}
+}
+
+tr_plentiful_malice_finish = {
+	modifier = {
+		ascension_perks_add = 1
+	}
+}
+
+tr_plentiful_malice_1 = {
+	possible = { 
+		has_tradition = tr_domination_workplace_motivators
+	}
+#	cost = { unity = @cost }
+	modifier = {
+		pop_cat_slave_happiness = -0.20
+	}
+	
+	tradition_swap = {
+		name = tr_tratr_malice_1
+		inherit_effects = no
+		inherit_icon = yes
+		inherit_name = no
+		trigger = {
+			owner = {
+		any_owned_pop = {
+		is_enslaved = no
+		}
+		}
+		}	
+		modifier = {	
+			pop_cat_worker_happiness = -0.10
+		}
+		weight = {factor =  1}
+	}
+	
+	ai_weight = {
+		factor = 0
+		modifier = {
+			weight = 100
+			has_tradition = tr_domination_workplace_motivators
+		}
+	}
+}
+
+tr_plentiful_malice_2 = {
+#	cost = { unity = @cost }
+	possible = {
+		has_tradition = tr_plentiful_malice_1
+	}
+	modifier = {
+		max_rivalries = 0.4
+	}
+	
+	ai_weight = {
+		factor = 0
+		modifier = {
+			weight = 100
+			has_tradition = tr_plentiful_malice_1
+		}
+	}
+}
+
+tr_plentiful_malice_3 = {
+#	cost = { unity = @cost }
+	possible = {
+		has_tradition = tr_plentiful_malice_1
+	}
+	modifier = {
+		planet_jobs_slave_produces_mult = 0.1
+	}
+	
+	tradition_swap = {
+		name = tr_tratr_malice_3
+		inherit_effects = no
+		inherit_icon = yes
+		inherit_name = no
+		trigger = {
+			owner = {
+		any_owned_pop = {
+		is_enslaved = no
+		}
+		}
+		}	
+		modifier = {	
+			planet_jobs_worker__produces_mult = 0.05
+		}
+		weight = {factor =  1}
+	}
+	
+	ai_weight = {
+		factor = 0
+		modifier = {
+			weight = 100
+			has_tradition = tr_plentiful_malice_1
+		}
+	}
+}
+
+tr_plentiful_malice_4 = {
+#	cost = { unity = @cost }
+	possible = {
+		has_tradition = tr_plentiful_malice_3
+	}
+	modifier = {
+		max_rivalries = 4
+		planet_jobs_worker_minerals_produces_mult = 0.15
+	}
+	
+		tradition_swap = {
+		name = tr_tratr_malice_4
+		inherit_effects = no
+		inherit_icon = yes
+		inherit_name = no
+		trigger = {
+			owner = {
+		any_owned_pop = {
+		is_enslaved = no
+		}
+		}
+		}	
+		modifier = {	
+			planet_jobs_slave_minerals_produces_mult = 0.075
+		}
+		weight = {factor =  1}
+	}
+	
+	ai_weight = {
+		factor = 0
+		modifier = {
+			weight = 100
+			has_tradition = tr_plentiful_malice_3
+		}
+	}
+}
+
+tr_plentiful_malice_5 = {
+#	cost = { unity = @cost }
+	possible = {
+		has_tradition = tr_plentiful_malice_2
+	}
+	modifier = {
+		
+	}
+		tradition_swap = {
+		name = tr_tratr_malice_5
+		inherit_effects = no
+		inherit_icon = yes
+		inherit_name = no
+		trigger = {
+			owner = {
+		any_owned_pop = {
+		is_enslaved = no
+		}
+		}
+		}	
+		modifier = {	
+				planet_jobs_slave_food_produces_mult = 0.05
+		}
+		weight = {factor =  1}
+	}
+	
+	
+	
+	ai_weight = {
+		factor = 0
+		modifier = {
+			weight = 100
+			has_tradition = tr_plentiful_malice_2
+		}
+	}
+}

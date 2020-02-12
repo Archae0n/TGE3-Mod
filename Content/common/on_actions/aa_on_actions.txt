@@ -1,0 +1,20 @@
+
+on_monthly_pulse = {
+	events = {
+		aa.1 # Gatekeeper event to check for aa.2, for adding/removing bonuses for Energy Trusts
+		aa.4 # Gatekeeper event to check for aa.7, for adding/removing bonuses for Philosopher King
+		aa.6 # Philosopher can give heir bonus experience
+	}
+}
+
+on_leader_spawned = {
+	events = {
+		aa.3 # Leaders in Factory Overclocking, Pooled Knowledge, Meritocracy, and Ruthless Competititon empires start at level 2.
+	}
+}
+
+empire_init_add_technologies = {
+	events = {
+		aa.5 # Starting technology for new or changed tech
+	}
+}

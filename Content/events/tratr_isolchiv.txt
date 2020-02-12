@@ -1,0 +1,127 @@
+namespace = tratr_isolation
+
+country_event = { #adoption effects for isolation tree
+	id = tratr_isolation.1
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_isola_unlock_trig = yes
+			est_uses_proselytism_traditions = no
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+			NOT = { has_country_flag = tratr_isolation_finish }
+			NOT = { has_country_flag = tratr_isolationgc_finish }
+			NOT = { has_country_flag = tratr_proys_finish }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_isolation_finish	
+		tratr_isolation_unlocked_effect = yes
+	}
+}
+
+country_event = { #adoption effects for isolation GC tree
+	id = tratr_isolation.2
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_isola_unlock_trig = yes
+			est_uses_proselytism_traditions = no
+			has_ethic = ethic_gestalt_consciousness
+			NOT = { has_country_flag = tratr_isolation_finish }
+			NOT = { has_country_flag = tratr_isolationgc_finish }
+			NOT = { has_country_flag = tratr_proys_finish }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_isolationgc_finish	
+		tratr_isolationgc_unlocked_effect = yes
+	}
+}
+
+country_event = { #adoption effects for proelytism w/slaves tree
+	id = tratr_isolation.3
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_isola_unlock_trig = yes
+			est_uses_proselytism_traditions = yes
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+			NOT = { has_country_flag = tratr_isolation_finish }
+			NOT = { has_country_flag = tratr_isolationgc_finish }
+			NOT = { has_country_flag = tratr_proys_finish }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_proys_finish	
+		tratr_proys_unlocked_effect = yes
+	}
+}
+
+namespace = tratr_chivalry
+
+country_event = { #adoption effects for chivalry tree
+	id = tratr_chivalry.1
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_chiva_unlock_trig = yes
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+			NOT = { has_country_flag = tratr_chiva_finish }
+			NOT = { has_country_flag = tratr_swarm_finish }
+			NOT = { has_country_flag = tratr_proys_finish }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_chiva_finish	
+		tratr_chiva_unlocked_effect = yes
+		country_event = { id = est_chivalry.8 }
+	}
+}
+
+country_event = { #adoption effects for chivalry swap the swarm
+	id = tratr_chivalry.2
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_chiva_unlock_trig = yes
+			has_ethic = ethic_gestalt_consciousness
+			NOT = { has_country_flag = tratr_chiva_finish }
+			NOT = { has_country_flag = tratr_swarm_finish }
+			NOT = { has_country_flag = tratr_proys_finish }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_swarm_finish	
+		tratr_theswarm_unlocked = yes
+	}
+}

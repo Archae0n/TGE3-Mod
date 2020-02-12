@@ -1,0 +1,13 @@
+spriteTypes = {
+	
+	spriteType = {
+		name = "GFX_spaceport_module_hyperlane_progenitor"
+		texturefile = "gfx/interface/icons/modules/spaceport_module_hyperlane_progenitor.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_ehl_message_hyperlane"
+		texturefile = "gfx/interface/icons/messages/ehl_hyperlane_shift.dds"
+	}
+	
+}

@@ -1,0 +1,536 @@
+namespace = tratr_archivist
+
+country_event = { #Fires Archivist Adopt event upon finishing all archivist traditions
+	id = tratr_archivist.1
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_arch_unlock_trig = yes
+			NOT = { has_country_flag = tratr_arch_finish }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_arch_finish
+		country_event = { id = est_archivist.1 }
+	}
+}
+
+country_event = { #takes flags from est_archivist.1 and applies appropriate modifier
+	id = tratr_archivist.2
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			has_country_flag = tratr_arch_flag_1
+			has_country_flag = tratr_arch_flag_2
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_particles
+					has_country_flag = flag_est_archivist_adopt_computing
+				}
+			}
+			add_modifier = { modifier = tratr_arch_paco_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_particles
+					has_country_flag = flag_est_archivist_adopt_field_manipulation
+				}
+			}
+			add_modifier = { modifier = tratr_arch_pafm_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_particles
+					has_country_flag = flag_est_archivist_adopt_voidcraft
+				}
+			}
+			add_modifier = { modifier = tratr_arch_pavc_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_particles
+					has_country_flag = flag_est_archivist_adopt_biology
+				}
+			}
+			add_modifier = { modifier = tratr_arch_pabio_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_particles
+					has_country_flag = flag_est_archivist_adopt_statecraft
+				}
+			}
+			add_modifier = { modifier = tratr_arch_pasc_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_particles
+					has_country_flag = flag_est_archivist_adopt_new_worlds
+				}
+			}
+			add_modifier = { modifier = tratr_arch_panw_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_particles
+					has_country_flag = flag_est_archivist_adopt_military_theory
+				}
+			}
+			add_modifier = { modifier = tratr_arch_pamt_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_particles
+					has_country_flag = flag_est_archivist_adopt_materials
+				}
+			}
+			add_modifier = { modifier = tratr_arch_pama_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_particles
+					has_country_flag = flag_est_archivist_adopt_industry
+				}
+			}
+			add_modifier = { modifier = tratr_arch_paind_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_particles
+					has_country_flag = flag_est_archivist_adopt_rocketry
+				}
+			}
+			add_modifier = { modifier = tratr_arch_paro_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_computing
+					has_country_flag = flag_est_archivist_adopt_field_manipulation
+				}
+			}
+			add_modifier = { modifier = tratr_arch_cofm_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_computing
+					has_country_flag = flag_est_archivist_adopt_voidcraft
+				}
+			}
+			add_modifier = { modifier = tratr_arch_covc_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_computing
+					has_country_flag = flag_est_archivist_adopt_biology
+				}
+			}
+			add_modifier = { modifier = tratr_arch_cobio_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_computing
+					has_country_flag = flag_est_archivist_adopt_statecraft
+				}
+			}
+			add_modifier = { modifier = tratr_arch_cosc_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_computing
+					has_country_flag = flag_est_archivist_adopt_new_worlds
+				}
+			}
+			add_modifier = { modifier = tratr_arch_conw_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_computing
+					has_country_flag = flag_est_archivist_adopt_military_theory
+				}
+			}
+			add_modifier = { modifier = tratr_arch_comt_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_computing
+					has_country_flag = flag_est_archivist_adopt_materials
+				}
+			}
+			add_modifier = { modifier = tratr_arch_coma_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_computing
+					has_country_flag = flag_est_archivist_adopt_industry
+				}
+			}
+			add_modifier = { modifier = tratr_arch_coind_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_computing
+					has_country_flag = flag_est_archivist_adopt_rocketry
+				}
+			}
+			add_modifier = { modifier = tratr_arch_coro_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_field_manipulation
+					has_country_flag = flag_est_archivist_adopt_voidcraft
+				}
+			}
+			add_modifier = { modifier = tratr_arch_fmvc_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_field_manipulation
+					has_country_flag = flag_est_archivist_adopt_biology
+				}
+			}
+			add_modifier = { modifier = tratr_arch_fmbio_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_field_manipulation
+					has_country_flag = flag_est_archivist_adopt_statecraft
+				}
+			}
+			add_modifier = { modifier = tratr_arch_fmsc_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_field_manipulation
+					has_country_flag = flag_est_archivist_adopt_new_worlds
+				}
+			}
+			add_modifier = { modifier = tratr_arch_fmnw_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_field_manipulation
+					has_country_flag = flag_est_archivist_adopt_military_theory
+				}
+			}
+			add_modifier = { modifier = tratr_arch_fmmt_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_field_manipulation
+					has_country_flag = flag_est_archivist_adopt_materials
+				}
+			}
+			add_modifier = { modifier = tratr_arch_fmma_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_field_manipulation
+					has_country_flag = flag_est_archivist_adopt_industry
+				}
+			}
+			add_modifier = { modifier = tratr_arch_fmind_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_field_manipulation
+					has_country_flag = flag_est_archivist_adopt_rocketry
+				}
+			}
+			add_modifier = { modifier = tratr_arch_fmro_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_voidcraft
+					has_country_flag = flag_est_archivist_adopt_biology
+				}
+			}
+			add_modifier = { modifier = tratr_arch_vcbio_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_voidcraft
+					has_country_flag = flag_est_archivist_adopt_statecraft
+				}
+			}
+			add_modifier = { modifier = tratr_arch_vcsc_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_voidcraft
+					has_country_flag = flag_est_archivist_adopt_new_worlds
+				}
+			}
+			add_modifier = { modifier = tratr_arch_vcnw_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_voidcraft
+					has_country_flag = flag_est_archivist_adopt_military_theory
+				}
+			}
+			add_modifier = { modifier = tratr_arch_vcmt_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_voidcraft
+					has_country_flag = flag_est_archivist_adopt_materials
+				}
+			}
+			add_modifier = { modifier = tratr_arch_vcma_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_voidcraft
+					has_country_flag = flag_est_archivist_adopt_industry
+				}
+			}
+			add_modifier = { modifier = tratr_arch_vcind_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_voidcraft
+					has_country_flag = flag_est_archivist_adopt_rocketry
+				}
+			}
+			add_modifier = { modifier = tratr_arch_vcro_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_biology
+					has_country_flag = flag_est_archivist_adopt_statecraft
+				}
+			}
+			add_modifier = { modifier = tratr_arch_biosc_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_biology
+					has_country_flag = flag_est_archivist_adopt_new_worlds
+				}
+			}
+			add_modifier = { modifier = tratr_arch_bionw_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_biology
+					has_country_flag = flag_est_archivist_adopt_military_theory
+				}
+			}
+			add_modifier = { modifier = tratr_arch_biomt_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_biology
+					has_country_flag = flag_est_archivist_adopt_materials
+				}
+			}
+			add_modifier = { modifier = tratr_arch_bioma_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_biology
+					has_country_flag = flag_est_archivist_adopt_industry
+				}
+			}
+			add_modifier = { modifier = tratr_arch_bioind_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_biology
+					has_country_flag = flag_est_archivist_adopt_rocketry
+				}
+			}
+			add_modifier = { modifier = tratr_arch_bioro_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_statecraft
+					has_country_flag = flag_est_archivist_adopt_new_worlds
+				}
+			}
+			add_modifier = { modifier = tratr_arch_scnw_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_statecraft
+					has_country_flag = flag_est_archivist_adopt_military_theory
+				}
+			}
+			add_modifier = { modifier = tratr_arch_scmt_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_statecraft
+					has_country_flag = flag_est_archivist_adopt_materials
+				}
+			}
+			add_modifier = { modifier = tratr_arch_scma_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_statecraft
+					has_country_flag = flag_est_archivist_adopt_industry
+				}
+			}
+			add_modifier = { modifier = tratr_arch_scind_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_statecraft
+					has_country_flag = flag_est_archivist_adopt_rocketry
+				}
+			}
+			add_modifier = { modifier = tratr_arch_scro_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_new_worlds
+					has_country_flag = flag_est_archivist_adopt_military_theory
+				}
+			}
+			add_modifier = { modifier = tratr_arch_nwmt_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_new_worlds
+					has_country_flag = flag_est_archivist_adopt_materials
+				}
+			}
+			add_modifier = { modifier = tratr_arch_nwma_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_new_worlds
+					has_country_flag = flag_est_archivist_adopt_industry
+				}
+			}
+			add_modifier = { modifier = tratr_arch_nwind_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_new_worlds
+					has_country_flag = flag_est_archivist_adopt_rocketry
+				}
+			}
+			add_modifier = { modifier = tratr_arch_nwro_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_military_theory
+					has_country_flag = flag_est_archivist_adopt_materials
+				}
+			}
+			add_modifier = { modifier = tratr_arch_mtma_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_military_theory
+					has_country_flag = flag_est_archivist_adopt_industry
+				}
+			}
+			add_modifier = { modifier = tratr_arch_mtind_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_military_theory
+					has_country_flag = flag_est_archivist_adopt_rocketry
+				}
+			}
+			add_modifier = { modifier = tratr_arch_mtro_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_materials
+					has_country_flag = flag_est_archivist_adopt_industry
+				}
+			}
+			add_modifier = { modifier = tratr_arch_maind_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_materials
+					has_country_flag = flag_est_archivist_adopt_rocketry
+				}
+			}
+			add_modifier = { modifier = tratr_arch_maro_mod days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					has_country_flag = flag_est_archivist_adopt_industry
+					has_country_flag = flag_est_archivist_adopt_rocketry
+				}
+			}
+			add_modifier = { modifier = tratr_arch_indro_mod days = -1 }
+		}
+	}
+}

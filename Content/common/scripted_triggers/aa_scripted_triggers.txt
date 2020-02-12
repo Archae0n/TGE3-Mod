@@ -1,0 +1,7 @@
+indentured_assets_check_trigger = {
+	is_enslaved = yes
+	planet = {
+		exists = owner
+		owner = { has_valid_civic = civic_indentured_assets }
+	}
+}

@@ -1,0 +1,90 @@
+tr_plentiful_aspiration_adopt = {
+	possible = {
+		has_country_flag = stupidAIstoptakingthis
+	}
+	
+	modifier = {
+
+	}
+	ai_weight = {
+		factor = 0
+	}
+}
+
+tr_plentiful_aspiration_finish = {
+	modifier = {
+# Building Trading Terminal + Deeds pedict
+		trade_value_mult = 0.05
+		ascension_perks_add = 1
+	}
+}
+
+tr_plentiful_aspiration_1 = {
+#	cost = { unity = @cost }
+	modifier = {
+		country_border_friction_mult = -0.25
+	}
+	possible = {
+		has_tradition = tr_plentiful_aspiration_2
+	}
+	
+	ai_weight = {
+		factor = 1000
+	}
+}
+
+tr_plentiful_aspiration_2 = {
+#	cost = { unity = @cost }
+	possible = {
+		has_tradition = tr_diplomacy_secure_shipping
+	}
+	modifier = {
+		country_trust_growth = 0.20
+	}
+	
+	ai_weight = {
+		factor = 1000
+	}
+}
+
+tr_plentiful_aspiration_3 = {
+#	cost = { unity = @cost }
+	possible = {
+		has_tradition = tr_plentiful_aspiration_5
+	}
+	modifier = {
+# Strategic Res/Trade Attractiveness event
+	}
+	
+	ai_weight = {
+		factor = 1000
+	}
+}
+
+tr_plentiful_aspiration_4 = {
+#	cost = { unity = @cost }
+	modifier = {
+#		Building Trading Depot, Unity + Energy Reserve + Energy Generation
+	}
+	possible = {
+		has_tradition = tr_plentiful_aspiration_3
+	}
+	
+	ai_weight = {
+		factor = 1000
+	}
+}
+
+tr_plentiful_aspiration_5 = {
+#	cost = { unity = @cost }
+	possible = {
+		has_tradition = tr_diplomacy_secure_shipping
+	}
+	modifier = {
+
+	}
+	
+	ai_weight = {
+		factor = 1000
+	}
+}

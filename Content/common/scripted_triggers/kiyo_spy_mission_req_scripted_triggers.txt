@@ -1,0 +1,34 @@
+# Has intrigue on empire
+kiyo_spy_empire_info_req = {
+	event_target:spyVictim = { root = { kiyo_spy_has_intrigue_1 = yes } }
+}
+
+kiyo_spy_scandal_req = { event_target:spyVictim = { NOR = { has_ethic = ethic_gestalt_consciousness is_at_war_with = root } } }
+kiyo_spy_drone_req = { event_target:spyVictim = { has_ethic = ethic_gestalt_consciousness NOT = { is_at_war_with = root } } }
+kiyo_spy_company_req = { event_target:spyVictim = { NOR = { has_ethic = ethic_gestalt_consciousness is_at_war_with = root } } }
+kiyo_spy_conserve_req = { event_target:spyVictim = { has_ethic = ethic_gestalt_consciousness NOT = { is_at_war_with = root } } }
+kiyo_spy_hacker_req = { always = yes }
+kiyo_spy_assassin_req = { always = yes }
+kiyo_spy_hijack_req = { always = yes }
+kiyo_spy_trade_req = {
+	event_target:spyVictim = { NOR = { has_ethic = ethic_gestalt_consciousness is_at_war_with = root } }
+	#Needs at least 3 intrigue
+	event_target:spyVictim = { root = { kiyo_spy_has_intrigue_3 = yes } }
+}
+kiyo_spy_droneprod_req = {
+	event_target:spyVictim = { has_ethic = ethic_gestalt_consciousness }
+	#Needs at least 3 intrigue
+	event_target:spyVictim = { root = { kiyo_spy_has_intrigue_3 = yes } }
+}
+kiyo_spy_envoy_req = {
+	any_country = {
+		is_country_type = default
+		is_neighbor_of = event_target:spyVictim
+	}
+	#Needs at least 2 intrigue
+	event_target:spyVictim = { root = { kiyo_spy_has_intrigue_2 = yes } }
+}
+kiyo_spy_generic_sabotage_req = {
+	#Generic Sabotaging Events need at least 2 intrigue
+	event_target:spyVictim = { root = { kiyo_spy_has_intrigue_2 = yes } }
+}

@@ -1,0 +1,633 @@
+# See wg_example.txt for an explanation
+
+wg_subjugation = {
+	casus_belli = cb_subjugation
+	
+	hide_if_no_cb = no
+	release_occupied_systems_on_status_quo = yes
+	
+	surrender_acceptance = -100
+	
+
+	potential = {
+		NOR = { 
+			has_valid_civic = civic_inwards_perfection
+			has_authority = auth_corporate
+			has_valid_civic = civic_feudal_realm
+		}
+		has_total_war_cb = no
+	}
+	possible = {
+		always = yes
+	}
+	on_accept = {
+		hidden_effect = {
+			from = {
+				add_threat = {
+					who = root
+					amount = 0.5
+				}				
+			}	
+		}		
+		from = {
+			set_subject_of = {
+				who = root
+				subject_type = vassal
+			}		
+		}	
+	}
+	
+	on_status_quo = {
+		if = {
+			limit = {
+				last_created_country = { 
+					has_country_flag = released_empire 
+				}
+			}
+
+			last_created_country = { 
+				set_subject_of = {
+					who = root
+					subject_type = vassal
+				}
+			}
+		}	
+	}
+	
+	ai_weight = {
+		weight = 10
+		modifier = {
+			factor = 0
+			has_ai_personality_behaviour = wants_tribute
+		}
+	}
+}
+
+wg_tribute = {
+	casus_belli = cb_subjugation
+	
+	hide_if_no_cb = no
+	release_occupied_systems_on_status_quo = yes
+	
+	surrender_acceptance = -75
+
+	potential = {
+		NOT = { has_authority = auth_corporate }
+		has_total_war_cb = no
+		has_valid_civic = civic_feudal_realm
+	}
+	possible = {
+		always = yes
+	}
+	on_accept = {
+		hidden_effect = {
+			from = {
+				add_threat = {
+					who = root
+					amount = 0.25
+				}				
+			}	
+		}		
+		from = {
+			set_subject_of = {
+				who = root
+				subject_type = tributary
+			}		
+		}
+	}
+	
+	on_status_quo = {
+		if = {
+			limit = {
+				last_created_country = { 
+					has_country_flag = released_empire 
+				}
+			}
+
+			last_created_country = { 
+				set_subject_of = {
+					who = root
+					subject_type = tributary
+				}
+			}
+		}	
+	}
+	
+	ai_weight = {
+		weight = 10
+		modifier = {
+			factor = 0
+			NOT = { has_ai_personality_behaviour = wants_tribute }
+		}		
+	}
+}
+
+wg_feudalise = {
+	casus_belli = cb_feudalise
+	
+	hide_if_no_cb = no
+	release_occupied_systems_on_status_quo = yes
+	
+	surrender_acceptance = -100
+	
+
+	potential = {
+		has_valid_civic = civic_feudal_realm
+		has_total_war_cb = no
+	}
+	possible = {
+		always = yes
+	}
+	on_accept = {
+		custom_tooltip = wg_feudalise_accept
+		add_monthly_resource_mult = {
+			resource = unity
+			value = @unityreward
+			min = @unitymin
+			max = @unitymax
+		}	
+		hidden_effect = {
+			from = {
+				add_threat = {
+					who = root
+					amount = 0.5
+				}				
+			}	
+		}		
+		from = {
+			set_subject_of = {
+				who = root
+				subject_type = liegedom
+			}		
+		}	
+	}
+	
+	on_status_quo = {
+		custom_tooltip = wg_feudalise_stauts_quo
+		add_monthly_resource_mult = {
+			resource = unity
+			value = @unityreward
+			min = @unitymin
+			max = @unitymax
+		}	
+		if = {
+			limit = {
+				last_created_country = { 
+					has_country_flag = released_empire 
+				}
+			}
+
+			last_created_country = { 
+				set_subject_of = {
+					who = root
+					subject_type = liegedom
+				}
+			}
+		}	
+	}
+	
+	ai_weight = {
+		weight = 10
+		modifier = {
+			factor = 0
+			has_ai_personality_behaviour = wants_tribute
+		}
+	}
+}
+
+wg_plunder = {
+	casus_belli = cb_despoliation
+	
+	hide_if_no_cb = no
+	total_war = no
+	
+	surrender_acceptance = -25
+
+	potential = {
+		has_total_war_cb = no
+		has_valid_civic = civic_barbaric_despoilers
+	}
+	possible = {
+		always = yes
+	}
+	on_status_quo = {
+		custom_tooltip = wg_plunder_status_quo_them		
+		add_monthly_resource_mult = {
+			resource = unity
+			value = @unityreward
+			min = @unitymin
+			max = @unitymax
+		}	
+		if = {
+			limit = { 
+				from = {
+					num_owned_planets <= 3
+				}
+			}		
+			custom_tooltip = wg_plunder_status_quo_us_1
+			hidden_effect = { add_resource = { energy = 250 minerals = 250 food = 250 alloys = 100 consumer_goods = 100 } }
+		}
+		if = {
+			limit = {
+				from = { 
+					num_owned_planets >= 4
+					num_owned_planets <= 6
+				}
+			}
+			custom_tooltip = wg_plunder_status_quo_us_2
+			hidden_effect = { add_resource = { energy = 500 minerals = 500 food = 500 alloys = 200 consumer_goods = 200 } }
+		}
+		if = {
+			limit = {
+				from = { 
+					num_owned_planets >= 7
+					num_owned_planets <= 9
+				}
+			}
+			custom_tooltip = wg_plunder_status_quo_us_3
+			hidden_effect = { add_resource = { energy = 750 minerals = 750 food = 750 alloys = 300 consumer_goods = 300 } }
+		}	
+		if = {
+			limit = {
+				from = { 
+					num_owned_planets >= 10
+					num_owned_planets <= 12
+				}
+			}
+			custom_tooltip = wg_plunder_status_quo_us_4
+			hidden_effect = { add_resource = { energy = 1000 minerals = 1000 food = 1000 alloys = 400 consumer_goods = 400 } }
+		}			
+		if = {
+			limit = {
+				from = { 
+					num_owned_planets >= 13
+					num_owned_planets <= 15
+				}
+			}
+			custom_tooltip = wg_plunder_status_quo_us_5
+			hidden_effect = { add_resource = { energy = 1250 minerals = 1250 food = 1250 alloys = 500 consumer_goods = 500 } }
+		}	
+		if = {
+			limit = {
+				from = { 
+					num_owned_planets >= 16
+					num_owned_planets <= 18
+				}
+			}
+			custom_tooltip = wg_plunder_status_quo_us_6
+			hidden_effect = { add_resource = { energy = 1500 minerals = 1500 food = 1500 alloys = 600 consumer_goods = 600 } }
+		}	
+		if = {
+			limit = {
+				from = { 
+					num_owned_planets >= 19
+					num_owned_planets <= 21
+				}
+			}
+			custom_tooltip = wg_plunder_status_quo_us_7
+			hidden_effect = { add_resource = { energy = 1750 minerals = 1750 food = 1750 alloys = 700 consumer_goods = 700 } }
+		}
+		if = {
+			limit = {
+				from = { 
+					num_owned_planets >= 22
+					num_owned_planets <= 24
+				}
+			}
+			custom_tooltip = wg_plunder_status_quo_us_8
+			hidden_effect = { add_resource = { energy = 2000 minerals = 2000 food = 2000 alloys = 800 consumer_goods = 800 } }
+		}	
+		if = {
+			limit = {
+				from = { 
+					num_owned_planets >= 25
+					num_owned_planets <= 27
+				}
+			}
+			custom_tooltip = wg_plunder_status_quo_us_9
+			hidden_effect = { add_resource = { energy = 2250 minerals = 2250 food = 2250 alloys = 900 consumer_goods = 900 } }
+		}		
+		if = {
+			limit = {
+				from = { 
+					num_owned_planets >= 28
+					num_owned_planets <= 30
+				}
+			}
+			custom_tooltip = wg_plunder_status_quo_us_10
+			hidden_effect = { add_resource = { energy = 2500 minerals = 2500 food = 2500 alloys = 1000 consumer_goods = 1000 } }
+		}
+		if = {
+			limit = {
+				from = { 
+					num_owned_planets >= 31
+					num_owned_planets <= 33
+				}
+			}
+			custom_tooltip = wg_plunder_status_quo_us_11
+			hidden_effect = { add_resource = { energy = 2750 minerals = 2750 food = 2750 alloys = 1100 consumer_goods = 1100 } }
+		}			
+		if = {
+			limit = {
+				from = { 
+					num_owned_planets >= 34
+					num_owned_planets <= 36
+				}
+			}
+			custom_tooltip = wg_plunder_status_quo_us_12
+			hidden_effect = { add_resource = { energy = 3000 minerals = 3000 food = 3000 alloys = 1200 consumer_goods = 1200 } }
+		}	
+		if = {
+			limit = {
+				from = { 
+					num_owned_planets >= 37
+					num_owned_planets <= 39
+				}
+			}
+			custom_tooltip = wg_plunder_status_quo_us_13
+			hidden_effect = { add_resource = { energy = 3250 minerals = 3250 food = 3250 alloys = 1300 consumer_goods = 1300 } }
+		}			
+		if = {
+			limit = {
+				from = { 
+					num_owned_planets >= 40
+					num_owned_planets <= 42
+				}
+			}
+			custom_tooltip = wg_plunder_status_quo_us_14
+			hidden_effect = { add_resource = { energy = 3500 minerals = 3500 food = 3500 alloys = 1400 consumer_goods = 1400 } }
+		}	
+		if = {
+			limit = {
+				from = { 
+					num_owned_planets >= 43
+					num_owned_planets <= 45
+				}
+			}
+			custom_tooltip = wg_plunder_status_quo_us_15
+			hidden_effect = { add_resource = { energy = 3750 minerals = 3750 food = 3750 alloys = 1500 consumer_goods = 1500 } }
+		}
+		if = {
+			limit = {
+				from = { 
+					num_owned_planets >= 46
+					num_owned_planets <= 48
+				}
+			}
+			custom_tooltip = wg_plunder_status_quo_us_16
+			hidden_effect = { add_resource = { energy = 4000 minerals = 4000 food = 4000 alloys = 1600 consumer_goods = 1600 } }
+		}	
+		if = {
+			limit = {
+				from = { 
+					num_owned_planets >= 49
+					num_owned_planets <= 51
+				}
+			}
+			custom_tooltip = wg_plunder_status_quo_us_17
+			hidden_effect = { add_resource = { energy = 4250 minerals = 4250 food = 4250 alloys = 1700 consumer_goods = 1700 } }
+		}
+		if = {
+			limit = {
+				from = { 
+					num_owned_planets >= 52
+					num_owned_planets <= 54
+				}
+			}
+			custom_tooltip = wg_plunder_status_quo_us_18
+			hidden_effect = { add_resource = { energy = 4500 minerals = 4500 food = 4500 alloys = 1800 consumer_goods = 1800 } }
+		}			
+		if = {
+			limit = {
+				from = { 
+					num_owned_planets >= 55
+					num_owned_planets <= 57
+				}
+			}
+			custom_tooltip = wg_plunder_status_quo_us_19
+			hidden_effect = { add_resource = { energy = 4750 minerals = 4750 food = 4750 alloys = 1900 consumer_goods = 1900 } }
+		}		
+		if = {
+			limit = {
+				from = { 
+					num_owned_planets >= 58
+				}
+			}
+			custom_tooltip = wg_plunder_status_quo_us_20
+			hidden_effect = { add_resource = { energy = 5000 minerals = 5000 food = 5000 alloys = 2000 consumer_goods = 2000 } }
+		}			
+	}
+	on_accept = {
+		custom_tooltip = wg_plunder_accept_them		
+		add_monthly_resource_mult = {
+			resource = unity
+			value = @unityreward
+			min = @unitymin
+			max = @unitymax
+		}	
+		if = {
+			limit = { 
+				from = {
+					num_owned_planets <= 3
+				}
+			}		
+			custom_tooltip = wg_plunder_accept_us_1
+			hidden_effect = { add_resource = { energy = 500 minerals = 500 food = 500 alloys = 200 consumer_goods = 200 } }
+		}
+		if = {
+			limit = {
+				from = { 
+					num_owned_planets >= 4
+					num_owned_planets <= 6
+				}
+			}
+			custom_tooltip = wg_plunder_accept_us_2
+			hidden_effect = { add_resource = { energy = 1000 minerals = 1000 food = 1000 alloys = 400 consumer_goods = 400 } }
+		}
+		if = {
+			limit = {
+				from = { 
+					num_owned_planets >= 7
+					num_owned_planets <= 9
+				}
+			}
+			custom_tooltip = wg_plunder_accept_us_3
+			hidden_effect = { add_resource = { energy = 1500 minerals = 1500 food = 1500 alloys = 600 consumer_goods = 600 } }
+		}	
+		if = {
+			limit = {
+				from = { 
+					num_owned_planets >= 10
+					num_owned_planets <= 12
+				}
+			}
+			custom_tooltip = wg_plunder_accept_us_4
+			hidden_effect = { add_resource = { energy = 2000 minerals = 2000 food = 2000 alloys = 800 consumer_goods = 800 } }
+		}			
+		if = {
+			limit = {
+				from = { 
+					num_owned_planets >= 13
+					num_owned_planets <= 15
+				}
+			}
+			custom_tooltip = wg_plunder_accept_us_5
+			hidden_effect = { add_resource = { energy = 2500 minerals = 2500 food = 2500 alloys = 1000 consumer_goods = 1000 } }
+		}	
+		if = {
+			limit = {
+				from = { 
+					num_owned_planets >= 16
+					num_owned_planets <= 18
+				}
+			}
+			custom_tooltip = wg_plunder_accept_us_6
+			hidden_effect = { add_resource = { energy = 3000 minerals = 3000 food = 3000 alloys = 1200 consumer_goods = 1200 } }
+		}	
+		if = {
+			limit = {
+				from = { 
+					num_owned_planets >= 19
+					num_owned_planets <= 21
+				}
+			}
+			custom_tooltip = wg_plunder_accept_us_7
+			hidden_effect = { add_resource = { energy = 3500 minerals = 3500 food = 3500 alloys = 1400 consumer_goods = 1400 } }
+		}
+		if = {
+			limit = {
+				from = { 
+					num_owned_planets >= 22
+					num_owned_planets <= 24
+				}
+			}
+			custom_tooltip = wg_plunder_accept_us_8
+			hidden_effect = { add_resource = { energy = 4000 minerals = 4000 food = 4000 alloys = 1600 consumer_goods = 1600 } }
+		}	
+		if = {
+			limit = {
+				from = { 
+					num_owned_planets >= 25
+					num_owned_planets <= 27
+				}
+			}
+			custom_tooltip = wg_plunder_accept_us_9
+			hidden_effect = { add_resource = { energy = 4500 minerals = 4500 food = 4500 alloys = 1800 consumer_goods = 1800 } }
+		}		
+		if = {
+			limit = {
+				from = { 
+					num_owned_planets >= 28
+					num_owned_planets <= 30
+				}
+			}
+			custom_tooltip = wg_plunder_accept_us_10
+			hidden_effect = { add_resource = { energy = 5000 minerals = 5000 food = 5000 alloys = 2000 consumer_goods = 2000 } }
+		}
+		if = {
+			limit = {
+				from = { 
+					num_owned_planets >= 31
+					num_owned_planets <= 33
+				}
+			}
+			custom_tooltip = wg_plunder_accept_us_11
+			hidden_effect = { add_resource = { energy = 5500 minerals = 5500 food = 5500 alloys = 2200 consumer_goods = 2200 } }
+		}			
+		if = {
+			limit = {
+				from = { 
+					num_owned_planets >= 34
+					num_owned_planets <= 36
+				}
+			}
+			custom_tooltip = wg_plunder_accept_us_12
+			hidden_effect = { add_resource = { energy = 6000 minerals = 6000 food = 6000 alloys = 2400 consumer_goods = 2400 } }
+		}	
+		if = {
+			limit = {
+				from = { 
+					num_owned_planets >= 37
+					num_owned_planets <= 39
+				}
+			}
+			custom_tooltip = wg_plunder_accept_us_13
+			hidden_effect = { add_resource = { energy = 6500 minerals = 6500 food = 6500 alloys = 2600 consumer_goods = 2600 } }
+		}			
+		if = {
+			limit = {
+				from = { 
+					num_owned_planets >= 40
+					num_owned_planets <= 42
+				}
+			}
+			custom_tooltip = wg_plunder_accept_us_14
+			hidden_effect = { add_resource = { energy = 7000 minerals = 7000 food = 7000 alloys = 2800 consumer_goods = 2800 } }
+		}	
+		if = {
+			limit = {
+				from = { 
+					num_owned_planets >= 43
+					num_owned_planets <= 45
+				}
+			}
+			custom_tooltip = wg_plunder_accept_us_15
+			hidden_effect = { add_resource = { energy = 7500 minerals = 7500 food = 7500 alloys = 3000 consumer_goods = 3000 } }
+		}
+		if = {
+			limit = {
+				from = { 
+					num_owned_planets >= 46
+					num_owned_planets <= 48
+				}
+			}
+			custom_tooltip = wg_plunder_accept_us_16
+			hidden_effect = { add_resource = { energy = 8000 minerals = 8000 food = 8000 alloys = 3200 consumer_goods = 3200 } }
+		}	
+		if = {
+			limit = {
+				from = { 
+					num_owned_planets >= 49
+					num_owned_planets <= 51
+				}
+			}
+			custom_tooltip = wg_plunder_accept_us_17
+			hidden_effect = { add_resource = { energy = 8500 minerals = 8500 food = 8500 alloys = 3400 consumer_goods = 3400 } }
+		}
+		if = {
+			limit = {
+				from = { 
+					num_owned_planets >= 52
+					num_owned_planets <= 54
+				}
+			}
+			custom_tooltip = wg_plunder_accept_us_18
+			hidden_effect = { add_resource = { energy = 9000 minerals = 9000 food = 9000 alloys = 3600 consumer_goods = 3600 } }
+		}			
+		if = {
+			limit = {
+				from = { 
+					num_owned_planets >= 55
+					num_owned_planets <= 57
+				}
+			}
+			custom_tooltip = wg_plunder_accept_us_19
+			hidden_effect = { add_resource = { energy = 9500 minerals = 9500 food = 9500 alloys = 3800 consumer_goods = 3800 } }
+		}		
+		if = {
+			limit = {
+				from = { 
+					num_owned_planets >= 58
+				}
+			}
+			custom_tooltip = wg_plunder_accept_us_20
+			hidden_effect = { add_resource = { energy = 10000 minerals = 10000 food = 10000 alloys = 4000 consumer_goods = 4000 } }
+		}			
+		hidden_effect = { from = { add_modifier = { modifier = raided days = 3600 } } }
+	}
+	
+	ai_weight = {
+		weight = 100
+	}
+}
+

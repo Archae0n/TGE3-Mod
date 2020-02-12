@@ -1,0 +1,115 @@
+[h1]100+ new ship components & weapons with matching technologies, 8 new ship sections with aux slots, new advanced science ship [/h1]
+Compatible with version 2.3+, and all DLC
+
+This mod adds a lot of new ship modules as well as extra levels of existing ship modules and weapons. This mod is save game compatible. 
+
+[h1]NSC Compatibility[/h1]
+Get the patch!: [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1359117942] ((Guilli's Ship Components NSC Compatibility [/url]
+
+[h1]The following have been added:[/h1]
+
+[b]Ship Sections[/b]
+Ship sections have extra aux slots. It's intended that the Destroyer gets more! It is a support class shit afterall. 
+
+[b]Technologies[/b]
+These are new techs to help speed up the component research.
+[list]
+[*] 3 new techs to help speed up Physics research.
+[*] 3 new techs to help speed up Engineering research. 
+[/List]
+
+[b]Ship Modules[/b]
+[list]
+[*] Armoured Thrusters 1-4
+[*] Psionic Thrusters 1-4
+[*] Crystallis Ship Sensors 6-10
+[/List]
+
+[b]Reactor Slot[/b]
+[list]
+[*] Crystallis Reactors VI - X
+[/List]
+
+[b]Utility Modules[/b]
+[list]
+[*] Crystal Plating II - V
+[*] Crystal Armor VI - X
+[*] Phase-Shields VI - X (hive mind) 
+[*] Force-Fields VI - X (Not materialists, not hivemind)
+[*] Psionic Barriers VI - X (psionics) 
+[*] Adaptive Shields VI - X (Materialists) 
+[/List]
+
+[b]Ship Crew Utility Modules[/b]
+[list]
+[*] AI Ship Crew 				(materialists)
+[*] Psionic Ship Crew 			(psionics, not materialists)
+[*] Clone Ship Crew 			(cloning, not egalitarian)
+[*] Purifier Ship Crew  		(only for fanatic purifiers and xenophobes)
+[*] Alien Ship Crew				(xenophiles and egalitarian)
+[*] Standard Ship Crew	 		default crew you start with
+[*] Slave Ship Crew 			(authoritarian)
+[/List]
+
+[b]Auxiliary Modules[/b]
+[list]
+[*] Crystal Targeting Matrix I - V 
+[*] Crystal Tissue I - V  
+[*] Ship Hangar Bays 1-5 
+[*] Shield Capacitors II - III 
+[/List]
+
+[b]Weapons[/b]
+[list]
+[*] 2 new Lasers: Positron and Anti-Matter
+[*] 2 new Plasma cannons: Phased-Plasma and Chrono-Plasma
+[*] 2 new Energy Lances: Tetryon and Polaron
+[*] 2 new Disruptors: Resonant and Muon
+[*] 2 new Disintegrators: Improved and Matter-Energy
+[*] 2 new Arc Emitters: Vexed and Concerted
+[*] 2 new Missiles: Isokinetic and Chroniton
+[*] 2 new Swarm Missiles: Typhoon and Hurricane
+[*] 2 new Torpedoes: Cobalt and Tricobalt
+[*] 2 new Energy Torpedoes: Anti-Proton and Quantum
+[*] 2 new Railguns: Tri-Gaus and XV-88
+[*] 2 new Kinetic Guns: Kinetic Cannon and Kinetic Howitzer
+[*] 2 new Autocannons: Thunder and Thor
+[*] 2 new Mass Accelerators: Ultra Cannon and Omega Cannon
+[*] 2 new Point Defense: Mercy and Emperor
+[*] 2 new Flak: Flak Array and Flak Barrier
+[*] 2 new Strike Craft Tiers (final tier is dimensional unlock after salvaging/unlocking unbidden dimensional weaponry tech)
+[/List]
+
+[h1]Techs[/h1]
+All modules have their own technologies. Some are rare. Tier 6 to Tier 10 modules come after their vanilla variants and techs, so these are very much late game technologies. 
+For those with Utopia DLC: The final tier weapon technologies have a low spawn chance unless you build the science nexus! 
+For those without Utopia DLC: the final tier weapon technologies will show up normally.
+The science nexus increases the chance advanced component & weapons technologies show up by 500%
+
+Recomended Addon Mod: [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1377634390] Core Game Mechanics: Debris [/url]
+[i]ExNihil's Debris mod fixes/boosts the way debris works in Vanilla. Debris that you research will give you ALL the technologies that lead up to what's in the debris, not just the latest version.[/i]
+	
+[h1]Ship Power Stations for other mods.?[/h1]
+Feel free to make a compatibility patch. I sadly don't have the time. 
+
+[h1]KNOWN ISSUES [/h1]
+** Some modules do not correctly apply their stats to the ship builder UI. This is an issue with the game and ui that I cannot fix myself.
+** Auto-upgrade between vanilla modules and my modules does not work (yet). I'd need to overwrite the vanilla files. 
+
+[h1]For other modders:[/h1]
+All my techs are prefixed with [b]tech_c_techname[/b]
+All my other files are prefixed with [b]C_modulename/componant[/b]
+
+
+
+Please don’t forget to rate my mod and have fun! :)
+
+
+[h1]Support my work[/h1]
+Hello, if you like what I do and wish to thank me for my work on this mod you can do so by donating a few dollars. This money will not go to waste and will help me greatly in my passion for modding. Any support is greatly appreciated! Thank you.
+
+[b][i]You can support me on Patreon[/i][/b]
+[url=https://www.patreon.com/GuillisMods][img]https://i.imgur.com/BTonHYz.png[/img] [/url] 
+
+[b][i]If you want to leave a small donation instead::[/i][/b]
+[url=https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2YNBVCV78USXN] [img]http://i.imgur.com/DR3G8dK.png[/img] [/url] 

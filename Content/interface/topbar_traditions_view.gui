@@ -1,0 +1,1123 @@
+@entries_row1_y = 60
+@entries_row2_y = 187
+@entries_row3_y = 374
+@entries_row4_y = 561
+@entries_row5_y = 748
+@entries_row6_y = 935
+
+@entries_row7_y = 1122
+@entries_row8_y = 1309
+@entries_row9_y = 1496
+@entries_row10_y = 1683
+
+@entries_row11_y = 1870
+@entries_row12_y = 2057
+@entries_row13_y = 2244
+@entries_row14_y = 2431
+@entries_row15_y = 2618
+
+@entries_column1 = 5
+@entries_column2 = 319
+@entries_column3 = 634
+@entries_column4 = 948
+@entries_column5 = 1262
+
+@entry_h = 260
+@entry_h_narrow = 180
+@entry_w = 308
+
+@bigwindow_h = 100% #655
+@bigwindow_w = 1270
+
+@entry_h_ap = 172
+@entry_w_ap = 1252
+
+guiTypes = {
+
+	################################################################
+	# TRADITION ENTRY POSITIONS
+	################################################################
+
+	positionType = { name = "tr_diplomacy_the_federation"         		position = { x = 90 y = 238  } }
+	positionType = { name = "tr_diplomacy_open_markets"            	    position = { x = 125 y = 305 } }
+	positionType = { name = "tr_diplomacy_entente_coordination"         position = { x = 55 y = 305 } }
+	positionType = { name = "tr_diplomacy_insider_trading"      		position = { x = 90 y = 372 } }
+	positionType = { name = "tr_diplomacy_secure_shipping"     	 	  	position = { x = 160 y = 372 } }
+	positionType = { name = "tr_est_friendship_1"					  	position = { x = 55 y = 442 } }
+	positionType = { name = "tr_est_friendship_2"		  				position = { x = 20 y = 509 } }
+	positionType = { name = "tr_est_friendship_3"			  			position = { x = 90 y = 509 } }
+	positionType = { name = "tr_est_friendship_4"		  				position = { x = 125 y = 576 } }
+	positionType = { name = "tr_est_friendship_5"			 			position = { x = 55 y = 576 } }
+	positionType = { name = "tr_plentiful_aspiration_1"			 		position = { x = 160 y = 506 } }
+	positionType = { name = "tr_plentiful_aspiration_2"			 		position = { x = 160 y = 439 } }
+	positionType = { name = "tr_plentiful_aspiration_3"			 		position = { x = 227 y = 439 } }
+	positionType = { name = "tr_plentiful_aspiration_4"			 		position = { x = 227 y = 506 } }
+	positionType = { name = "tr_plentiful_aspiration_5"			 		position = { x = 227 y = 372 } }
+	
+	positionType = { name = "tr_expansion_colonization_fever"     	 	position = { x = 367 y = 305 } }
+	positionType = { name = "tr_expansion_a_new_life"     	 			position = { x = 402 y = 372 } }
+	positionType = { name = "tr_expansion_courier_network"     	 		position = { x = 332 y = 372 } }
+	positionType = { name = "tr_expansion_reach_for_the_stars"     	 	position = { x = 332 y = 238 } }
+	positionType = { name = "tr_expansion_galactic_ambition"     	 	position = { x = 297 y = 305 } }
+	positionType = { name = "tr_est_administratum_1"					position = { x = 367 y = 439 } }
+	positionType = { name = "tr_est_administratum_2"		  			position = { x = 367 y = 506 } }
+	positionType = { name = "tr_est_administratum_3"			  		position = { x = 297 y = 506 } }
+	positionType = { name = "tr_est_administratum_4"		  			position = { x = 297 y = 439 } }
+	positionType = { name = "tr_est_administratum_5"		 			position = { x = 332 y = 573 } }
+	positionType = { name = "tr_est_foundation_1"				  		position = { x = 455 y = 410 } }
+	positionType = { name = "tr_est_foundation_2"	  					position = { x = 420 y = 477 } }
+	positionType = { name = "tr_est_foundation_3"		  				position = { x = 490 y = 477 } }
+	positionType = { name = "tr_est_foundation_4"	  					position = { x = 430 y = 544 } }
+	positionType = { name = "tr_est_foundation_5"		 				position = { x = 490 y = 544 } }
+	
+	positionType = { name = "tr_domination_grand_council"     	 		position = { x = 617 y = 238 } }
+	positionType = { name = "tr_domination_judgment_corps"     	 		position = { x = 582 y = 305 } }
+	positionType = { name = "tr_domination_workplace_motivators"   		position = { x = 684 y = 238 } }
+	positionType = { name = "tr_domination_imperious_architecture"     	position = { x = 652 y = 372 } }
+	positionType = { name = "tr_domination_colonial_viceroys"     	 	position = { x = 652 y = 305 } }
+	positionType = { name = "tr_est_isolation_1"					  	position = { x = 582 y = 372 } }
+	positionType = { name = "tr_est_isolation_2"		  				position = { x = 582 y = 439 } }
+	positionType = { name = "tr_est_isolation_3"			  			position = { x = 515 y = 372 } }
+	positionType = { name = "tr_est_isolation_4"		  				position = { x = 515 y = 305 } }
+	positionType = { name = "tr_est_isolation_5"		 				position = { x = 582 y = 506 } }
+	positionType = { name = "tr_est_chivalry_1"						  	position = { x = 652 y = 439 } }
+	positionType = { name = "tr_est_chivalry_2"		  					position = { x = 711 y = 439 } }
+	positionType = { name = "tr_est_chivalry_3"			  				position = { x = 771 y = 439 } }
+	positionType = { name = "tr_est_chivalry_4"		  					position = { x = 652 y = 573 } }
+	positionType = { name = "tr_est_chivalry_5"				 			position = { x = 652 y = 506 } }
+	positionType = { name = "tr_plentiful_malice_1" 					position = { x = 751 y = 238 } }
+	positionType = { name = "tr_plentiful_malice_2" 					position = { x = 716 y = 305 } }
+	positionType = { name = "tr_plentiful_malice_3" 					position = { x = 786 y = 305 } }
+	positionType = { name = "tr_plentiful_malice_4" 					position = { x = 786 y = 372 } }
+	positionType = { name = "tr_plentiful_malice_5" 					position = { x = 716 y = 372 } }
+	
+	positionType = { name = "tr_harmony_the_greater_good"     	 		position = { x = 1043 y = 238 } }
+	positionType = { name = "tr_harmony_kinship"     	 				position = { x = 1008 y = 305 } }
+	positionType = { name = "tr_harmony_utopian_dream"     	 			position = { x = 1078 y = 305 } }
+	positionType = { name = "tr_harmony_mind_and_body"     	 			position = { x = 1043 y = 372 } }
+	positionType = { name = "tr_harmony_bulwark_of_harmony"     	 	position = { x = 1113 y = 372 } }
+	positionType = { name = "tr_est_aesthetics_1"				  		position = { x = 1145 y = 305 } }
+	positionType = { name = "tr_est_aesthetics_2"		  				position = { x = 1198 y = 410 } }
+	positionType = { name = "tr_est_aesthetics_3"			  			position = { x = 1138 y = 477 } }
+	positionType = { name = "tr_est_aesthetics_4"		  				position = { x = 1198 y = 343 } }
+	positionType = { name = "tr_est_aesthetics_5"			 			position = { x = 1198 y = 477 } }
+	positionType = { name = "tr_est_justice_1"					  		position = { x = 1043 y = 710 } }
+	positionType = { name = "tr_est_justice_2"		  					position = { x = 930 y = 748 } }
+	positionType = { name = "tr_est_justice_3"			  				position = { x = 990 y = 748 } }
+	positionType = { name = "tr_est_justice_4"		  					position = { x = 1043 y = 777 } }
+	positionType = { name = "tr_est_justice_5"		 					position = { x = 990 y = 681 } }
+	positionType = { name = "tr_est_liberty_1"				  			position = { x = 1156 y = 815 } }
+	positionType = { name = "tr_est_liberty_2"		  					position = { x = 1156 y = 681 } }
+	positionType = { name = "tr_est_liberty_3"			  				position = { x = 1156 y = 748 } }
+	positionType = { name = "tr_est_liberty_4"		  					position = { x = 1103 y = 710 } }
+	positionType = { name = "tr_est_liberty_5"			 				position = { x = 1103 y = 777 } }
+	positionType = { name = "tr_est_order_1"					  		position = { x = 1043 y = 509 } }
+	positionType = { name = "tr_est_order_2"		  					position = { x = 1096 y = 547 } }
+	positionType = { name = "tr_est_order_3"			  				position = { x = 1043 y = 576 } }
+	positionType = { name = "tr_est_order_4"		  					position = { x = 1043 y = 643 } }
+	positionType = { name = "tr_est_order_5"			 				position = { x = 1103 y = 643 } }
+	positionType = { name = "tr_plentiful_affinity_1"					position = { x = 955 y = 410 } }
+	positionType = { name = "tr_plentiful_affinity_2"					position = { x = 955 y = 343 } }
+	positionType = { name = "tr_plentiful_affinity_3"					position = { x = 990 y = 477 } }
+	positionType = { name = "tr_plentiful_affinity_4"					position = { x = 990 y = 544 } }
+	positionType = { name = "tr_plentiful_affinity_5"					position = { x = 990 y = 611 } }
+	positionType = { name = "tr_plentiful_mysticism_1"					position = { x = 800 y = 544 } }
+	positionType = { name = "tr_plentiful_mysticism_2"					position = { x = 860 y = 544 } }
+	positionType = { name = "tr_plentiful_mysticism_3"					position = { x = 920 y = 544 } }
+	positionType = { name = "tr_plentiful_mysticism_4"					position = { x = 920 y = 477 } }
+	positionType = { name = "tr_plentiful_mysticism_5"					position = { x = 860 y = 611 } }
+	
+	positionType = { name = "tr_discovery_to_boldly_go"     	 		position = { x = 483 y = 822  } }
+	positionType = { name = "tr_discovery_databank_uplinks"     	 	position = { x = 448 y = 889 } }
+	positionType = { name = "tr_discovery_polytechnic_education"     	position = { x = 518 y = 956 } }
+	positionType = { name = "tr_discovery_faith_in_science"     	 	position = { x = 518 y = 1023 } }
+	positionType = { name = "tr_discovery_science_division"     	 	position = { x = 518 y = 889 } }
+	positionType = { name = "tr_est_archivist_1"				  		position = { x = 448 y = 956 } }
+	positionType = { name = "tr_est_archivist_2"	  					position = { x = 448 y = 1023 } }
+	positionType = { name = "tr_est_archivist_3"		  				position = { x = 448 y = 1090 } }
+	positionType = { name = "tr_est_archivist_4"	  					position = { x = 448 y = 1157 } }
+	positionType = { name = "tr_est_archivist_5"			 			position = { x = 381 y = 1157 } }
+	positionType = { name = "tr_est_academy_1"				  			position = { x = 571 y = 1061 } }
+	positionType = { name = "tr_est_academy_2"		  					position = { x = 571 y = 1128 } }
+	positionType = { name = "tr_est_academy_3"			  				position = { x = 638 y = 1128 } }
+	positionType = { name = "tr_est_academy_4"		  					position = { x = 638 y = 1061 } }
+	positionType = { name = "tr_est_academy_5"		 					position = { x = 638 y = 1195 } }
+	positionType = { name = "tr_plentiful_experimentalism_1"			position = { x = 518 y = 1166 } }
+	positionType = { name = "tr_plentiful_experimentalism_2"			position = { x = 585 y = 1233 } }
+	positionType = { name = "tr_plentiful_experimentalism_3"			position = { x = 518 y = 1233 } }
+	positionType = { name = "tr_plentiful_experimentalism_4"			position = { x = 518 y = 1300 } }
+	positionType = { name = "tr_plentiful_experimentalism_5" 			position = { x = 448 y = 1233 } }
+	
+	positionType = { name = "tr_supremacy_great_game"     	 			position = { x = 277 y = 747 } }
+	positionType = { name = "tr_supremacy_fleet_logistical_corps"     	position = { x = 210 y = 747 } }
+	positionType = { name = "tr_supremacy_master_shipwrights"     	 	position = { x = 210 y = 680 } }
+	positionType = { name = "tr_supremacy_war_games"     	 			position = { x = 245 y = 814 } }
+	positionType = { name = "tr_supremacy_overwhelming_force"     	 	position = { x = 175 y = 814 } }
+	positionType = { name = "tr_est_militarism_1"					  	position = { x = 108 y = 814 } }
+	positionType = { name = "tr_est_militarism_2"		  				position = { x = 108 y = 747 } }
+	positionType = { name = "tr_est_militarism_3"			  			position = { x = 38 y = 747 } }
+	positionType = { name = "tr_est_militarism_4"		  				position = { x = 38 y = 814 } }
+	positionType = { name = "tr_est_militarism_5"			 			position = { x = 73 y = 881 } }
+	positionType = { name = "tr_plentiful_assault_1"		  			position = { x = 20 y = 919 } }
+	positionType = { name = "tr_plentiful_assault_2"		  			position = { x = 20 y = 986 } }
+	positionType = { name = "tr_plentiful_assault_3"		  			position = { x = 80 y = 1053 } }
+	positionType = { name = "tr_plentiful_assault_4"		  			position = { x = 20 y = 1053 } }
+	positionType = { name = "tr_plentiful_assault_5"		  			position = { x = 20 y = 1120 } }
+	positionType = { name = "tr_plentiful_anguish_1"		  			position = { x = 210 y = 880 } }
+	positionType = { name = "tr_plentiful_anguish_2"		  			position = { x = 280 y = 880 } }
+	positionType = { name = "tr_plentiful_anguish_3"		  			position = { x = 245 y = 948 } }
+	positionType = { name = "tr_plentiful_anguish_4"		  			position = { x = 298 y = 986 } }
+	positionType = { name = "tr_plentiful_anguish_5"		  			position = { x = 298 y = 1053 } }
+	positionType = { name = "tr_plentiful_order_1"		  				position = { x = 330 y = 785 } }
+	positionType = { name = "tr_plentiful_order_2"		  				position = { x = 330 y = 852 } }
+	positionType = { name = "tr_plentiful_order_3"		  				position = { x = 330 y = 918 } }
+	positionType = { name = "tr_plentiful_order_4"		  				position = { x = 383 y = 823 } }
+	positionType = { name = "tr_plentiful_order_5"		  				position = { x = 383 y = 890 } }
+	positionType = { name = "tr_plentiful_defence_1"		  			position = { x = 126 y = 919 } }
+	positionType = { name = "tr_plentiful_defence_2"		  			position = { x = 91 y = 986 } }
+	positionType = { name = "tr_plentiful_defence_3"		  			position = { x = 161 y = 986 } }
+	positionType = { name = "tr_plentiful_defence_4"		  			position = { x = 161 y = 1053 } }
+	positionType = { name = "tr_plentiful_defence_5"		  			position = { x = 221 y = 1053 } }
+	positionType = { name = "tr_est_piracy_1"						  	position = { x = 277 y = 680 } }
+	positionType = { name = "tr_est_piracy_2"		  					position = { x = 344 y = 680 } }
+	positionType = { name = "tr_est_piracy_3"			  				position = { x = 411 y = 680 } }
+	positionType = { name = "tr_est_piracy_4"		  					position = { x = 411 y = 747 } }
+	positionType = { name = "tr_est_piracy_5"				 			position = { x = 471 y = 747 } }
+	
+	positionType = { name = "tr_prosperity_interstellar_franchising"    position = { x = 1028 y = 1150 } }	#1	
+	positionType = { name = "tr_prosperity_pursuit_of_profit"     	 	position = { x = 1028 y = 1217 } }	#2
+	positionType = { name = "tr_prosperity_sct"     	 				position = { x = 1028 y = 1284 } }	#4
+	positionType = { name = "tr_prosperity_administrative_operations"   position = { x = 993 y = 1351 } }	#8
+	positionType = { name = "tr_prosperity_public_works"     	 		position = { x = 1063 y = 1351 } }	#9
+	positionType = { name = "tr_plentiful_kleptocracy_1"				position = { x = 1028 y = 1418 } }	#12
+	positionType = { name = "tr_plentiful_kleptocracy_2"				position = { x = 1028 y = 1485 } }	#17
+	positionType = { name = "tr_plentiful_kleptocracy_3"				position = { x = 975 y = 1523 } }	#18
+	positionType = { name = "tr_plentiful_kleptocracy_4"				position = { x = 1028 y = 1552 } }	#20
+	positionType = { name = "tr_plentiful_kleptocracy_5"				position = { x = 1081 y = 1523 } }	#19
+	positionType = { name = "tr_est_greed_1"				  			position = { x = 961 y = 1284 } }	#3
+	positionType = { name = "tr_est_greed_2"		  					position = { x = 908 y = 1322 } }	#6
+	positionType = { name = "tr_est_greed_3"			  				position = { x = 908 y = 1389 } }	#10
+	positionType = { name = "tr_est_greed_4"		  					position = { x = 873 y = 1456 } }	#13
+	positionType = { name = "tr_est_greed_5"			 				position = { x = 943 y = 1456 } }	#14
+	positionType = { name = "tr_est_commerce_1"					  		position = { x = 1095 y = 1284 } }	#5
+	positionType = { name = "tr_est_commerce_2"		  					position = { x = 1148 y = 1322 } }	#7
+	positionType = { name = "tr_est_commerce_3"			  				position = { x = 1148 y = 1389 } }	#11
+	positionType = { name = "tr_est_commerce_4"		  					position = { x = 1113 y = 1456 } }	#15
+	positionType = { name = "tr_est_commerce_5"		 					position = { x = 1183 y = 1456 } }	#16
+	
+	positionType = { name = "tr_est_spaceborn_1"					  	position = { x = 161 y = 1137  } }	#1
+	positionType = { name = "tr_est_spaceborn_2"		  				position = { x = 126 y = 1204 } }	#2
+	positionType = { name = "tr_est_spaceborn_3"		  				position = { x = 126 y = 1271 } }	#4
+	positionType = { name = "tr_est_spaceborn_4"			  			position = { x = 196 y = 1204 } }	#3
+	positionType = { name = "tr_est_spaceborn_5"			 			position = { x = 196 y = 1271 } }	#5
+	positionType = { name = "tr_est_mechanicum_1"					  	position = { x = 66 y = 1338 } }	#6
+	positionType = { name = "tr_est_mechanicum_2"		  				position = { x = 66 y = 1405 } }	#10
+	positionType = { name = "tr_est_mechanicum_3"			  			position = { x = 126 y = 1338 } }	#7
+	positionType = { name = "tr_est_mechanicum_4"		  				position = { x = 126 y = 1405 } }	#11
+	positionType = { name = "tr_est_mechanicum_5"		 				position = { x = 96 y = 1472 } }	#14
+	positionType = { name = "tr_plentiful_endure_1"		 				position = { x = 196 y = 1338 } }	#8
+	positionType = { name = "tr_plentiful_endure_2"		 				position = { x = 196 y = 1405 } }	#12
+	positionType = { name = "tr_plentiful_endure_3" 		 			position = { x = 256 y = 1338 } }	#9
+	positionType = { name = "tr_plentiful_endure_4" 		 			position = { x = 256 y = 1405 } }	#13
+	positionType = { name = "tr_plentiful_endure_5" 		 			position = { x = 226 y = 1472 } }	#15
+	
+	positionType = { name = "tr_plentiful_industry_1" 					position = { x = 780 y = 681 } }
+	positionType = { name = "tr_plentiful_industry_2" 					position = { x = 780 y = 748 } }
+	positionType = { name = "tr_plentiful_industry_3" 					position = { x = 847 y = 815 } }
+	positionType = { name = "tr_plentiful_industry_4" 					position = { x = 713 y = 815 } }
+	positionType = { name = "tr_plentiful_industry_5" 					position = { x = 780 y = 815 } }
+	positionType = { name = "tr_est_cybernetics_1"					  	position = { x = 713 y = 882 } }
+	positionType = { name = "tr_est_cybernetics_2"		  				position = { x = 713 y = 949 } }
+	positionType = { name = "tr_est_cybernetics_3"			  			position = { x = 713 y = 1016 } }
+	positionType = { name = "tr_est_cybernetics_4"		  				position = { x = 780 y = 1016 } }
+	positionType = { name = "tr_est_cybernetics_5"		 				position = { x = 780 y = 1083 } }
+	positionType = { name = "tr_est_industry_1"					  		position = { x = 847 y = 882 } }
+	positionType = { name = "tr_est_industry_2"		  					position = { x = 847 y = 949 } }
+	positionType = { name = "tr_est_industry_3"			  				position = { x = 881 y = 1016 } }
+	positionType = { name = "tr_est_industry_4"		  					position = { x = 914 y = 882 } }
+	positionType = { name = "tr_est_industry_5"			 				position = { x = 914 y = 949 } }
+	positionType = { name = "tr_est_mysticism_1"				  		position = { x = 831 y = 1150 } }
+	positionType = { name = "tr_est_mysticism_2"	  					position = { x = 729 y = 1217 } }
+	positionType = { name = "tr_est_mysticism_3"		  				position = { x = 866 y = 1217 } }
+	positionType = { name = "tr_est_mysticism_4"	  					position = { x = 796 y = 1217 } }
+	positionType = { name = "tr_est_mysticism_5"		 				position = { x = 933 y = 1217 } }
+
+	positionType = { name = "tr_est_natural_1"				  			position = { x = 1039 y = 920 } }
+	positionType = { name = "tr_est_natural_2"		  					position = { x = 1004 y = 987 } }
+	positionType = { name = "tr_est_natural_3"			  				position = { x = 1074 y = 987 } }
+	positionType = { name = "tr_est_natural_4"		  					position = { x = 1074 y = 853 } }
+	positionType = { name = "tr_est_natural_5"			 				position = { x = 1109 y = 920 } }
+	positionType = { name = "tr_plentiful_transformation_1"				position = { x = 1141 y = 987 } }
+	positionType = { name = "tr_plentiful_transformation_2"				position = { x = 1141 y = 1054 } }
+	positionType = { name = "tr_plentiful_transformation_3"				position = { x = 1074 y = 1054 } }
+	positionType = { name = "tr_plentiful_transformation_4"				position = { x = 1141 y = 1121 } }
+	positionType = { name = "tr_plentiful_transformation_5" 			position = { x = 1208 y = 1054 } }
+	
+	################################################################
+	# ASCENSION PERKS ENTRY POSITIONS
+	################################################################
+	
+	positionType = { name = "ap_0"	position = { x = -3 y = 2 } }
+	positionType = { name = "ap_1"	position = { x = 55 y = 2 } }
+	positionType = { name = "ap_2"	position = { x = 113 y = 2 } }
+	positionType = { name = "ap_3"	position = { x = 171 y = 2 } }
+	positionType = { name = "ap_4"	position = { x = 229 y = 2 } }
+	positionType = { name = "ap_5"	position = { x = 287 y = 2 } }
+	positionType = { name = "ap_6"	position = { x = 345 y = 2 } }
+	positionType = { name = "ap_7"	position = { x = 403 y = 2 } }
+	positionType = { name = "ap_8"	position = { x = 461 y = 2 } }
+	positionType = { name = "ap_9"	position = { x = 519 y = 2 } }
+	positionType = { name = "ap_10"	position = { x = 573 y = 2 } }
+	positionType = { name = "ap_11"	position = { x = 635 y = 2 } }
+	positionType = { name = "ap_12"	position = { x = 693 y = 2 } }
+	positionType = { name = "ap_13"	position = { x = 751 y = 2 } }
+	positionType = { name = "ap_14"	position = { x = 809 y = 2 } }
+	positionType = { name = "ap_15"	position = { x = 867 y = 2 } }
+	positionType = { name = "ap_16"	position = { x = 925 y = 2 } }
+	positionType = { name = "ap_17"	position = { x = 983 y = 2 } }
+	positionType = { name = "ap_18"	position = { x = 1041 y = 2 } }
+	positionType = { name = "ap_19"	position = { x = 1099 y = 2 } }
+	positionType = { name = "ap_20"	position = { x = 1157 y = 2 } }
+	positionType = { name = "ap_21"	position = { x = 26 y = 51 } }
+	positionType = { name = "ap_22"	position = { x = 84 y = 51 } }
+	positionType = { name = "ap_23"	position = { x = 143 y = 51 } }
+	positionType = { name = "ap_24"	position = { x = 200 y = 51 } }
+	positionType = { name = "ap_25"	position = { x = 258 y = 51 } }
+	positionType = { name = "ap_26"	position = { x = 316 y = 51 } }
+	positionType = { name = "ap_27"	position = { x = 374 y = 51 } }
+	positionType = { name = "ap_28"	position = { x = 432 y = 51 } }
+	positionType = { name = "ap_29"	position = { x = 490 y = 51 } }
+	positionType = { name = "ap_30"	position = { x = 548 y = 51 } }
+	positionType = { name = "ap_31"	position = { x = 606 y = 51 } }
+	positionType = { name = "ap_32"	position = { x = 664 y = 51 } }
+	positionType = { name = "ap_33"	position = { x = 722 y = 51 } }
+	positionType = { name = "ap_34"	position = { x = 780 y = 51 } }
+	positionType = { name = "ap_35"	position = { x = 838 y = 51 } }
+	positionType = { name = "ap_36"	position = { x = 896 y = 51 } }
+	positionType = { name = "ap_37"	position = { x = 954 y = 51 } }
+	positionType = { name = "ap_38"	position = { x = 1012 y = 51 } }
+	positionType = { name = "ap_39"	position = { x = 1070 y = 51 } }
+	positionType = { name = "ap_40"	position = { x = 1128 y = 51 } }
+	positionType = { name = "ap_41"	position = { x = 1186 y = 51 } }
+	positionType = { name = "ap_42"	position = { x = -3 y = 100 } }
+	positionType = { name = "ap_43"	position = { x = 55 y = 100 } }
+	positionType = { name = "ap_44"	position = { x = 113 y = 100 } }
+	positionType = { name = "ap_45"	position = { x = 171 y = 100 } }
+	positionType = { name = "ap_46"	position = { x = 229 y = 100 } }
+	positionType = { name = "ap_47"	position = { x = 287 y = 100 } }
+	positionType = { name = "ap_48"	position = { x = 345 y = 100 } }
+	positionType = { name = "ap_49"	position = { x = 403 y = 100 } }
+	positionType = { name = "ap_50"	position = { x = 461 y = 100 } }
+	positionType = { name = "ap_51"	position = { x = 519 y = 100 } }
+	positionType = { name = "ap_52"	position = { x = 573 y = 100 } }
+	positionType = { name = "ap_53"	position = { x = 635 y = 100 } }
+	positionType = { name = "ap_54"	position = { x = 693 y = 100 } }
+	positionType = { name = "ap_55"	position = { x = 751 y = 100 } }
+	positionType = { name = "ap_56"	position = { x = 809 y = 100 } }
+	positionType = { name = "ap_57"	position = { x = 867 y = 100 } }
+	positionType = { name = "ap_58"	position = { x = 925 y = 100 } }
+	positionType = { name = "ap_59"	position = { x = 983 y = 100 } }
+	positionType = { name = "ap_60"	position = { x = 1041 y = 100 } }
+	positionType = { name = "ap_61"	position = { x = 1099 y = 100 } }
+	positionType = { name = "ap_62"	position = { x = 1157 y = 100 } }
+	
+	containerWindowType = {
+		name = "traditions_ascension_perk_entry"
+		size = { width = 44 height = 44 }
+
+		iconType = {
+			name = "icon"
+			position = { x = 9 y = 5 }
+			quadTextureSprite = "GFX_ascension_perk_slot_locked"
+			alwaystransparent = yes
+			scale = 1.0
+		}
+        
+		buttonType = {
+			name = "ascension_perk_button"
+			spriteType = "GFX_flag_64_frame"
+			buttonFont = "cg_16b"
+			clicksound = click
+			oversound = no_sound
+		}
+	
+	}
+
+	################################################################
+	# TRADITION ENTRY
+	################################################################
+
+	containerWindowType = {
+		name = "tradition_entry"
+		size = { width = 44 height = 44 }
+
+		buttonType = {
+			name = "adopt_button"
+			spriteType = "GFX_event_button_452"
+			buttonFont = "cg_16b"
+			clicksound = select_click
+			oversound = no_sound
+		}
+		
+		iconType = {
+			name = "available_tradition"
+			spriteType = "GFX_tradition_available_button"
+			alwaysTransparent = yes
+			position = { x = -22 y = -22}
+		}
+	}
+
+	################################################################
+	# TRADITION VIEW
+	################################################################
+
+	containerWindowType = {
+		name = "traditions_view"
+		size = { width = 1272 height = 100% } 
+		
+		verticalScrollbar = "right_vertical_slider"
+
+		position = { x = -1270 y = 40 }
+		show_position = { x = 35 y = 40 }
+		hide_position = { x = -1270 y = 40 }
+		animation_time = 200
+		animation_type = decelerated
+		
+		orientation = upper_left
+		moveable = no
+		clipping = no
+		show_sound = "interface"
+
+		background = {
+			name = "background"
+			spriteType = "GFX_tile_outliner_bg"
+		}
+
+		iconType = {
+			name = "hex_bg"
+			spriteType = "GFX_hex_bg"
+			position = { x = -23 y = -18 }
+			alwaysTransparent = yes
+		}
+
+		iconType = {
+			name = "header_line"
+			spriteType = "GFX_line_medium"
+			position = { x = 6 y = 21 }
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType={
+			name = "header"
+			font = "malgun_goth_24"
+			text = "TRADITIONS"
+			position = { x = 65 y = 5 }
+			maxWidth = 300
+			maxHeight = 20
+			fixedSize = yes
+			format = left
+		}
+
+		buttonType = {
+			name = "close"
+			spriteType = "GFX_close"
+			position = { x = -55 y = 16 }
+			orientation = upper_right
+			shortcut = "ESCAPE"
+			clicksound = "back_click"
+			pdx_tooltip = "CLOSE_TITLE"
+		}	
+
+		########################
+		# TABS
+		########################
+		@tabHeight = 16
+
+		buttonType = {
+			name = "tab_traditions"
+			quadTextureSprite = "GFX_tab_1_inactive"
+			position = { x = 850 y = @tabHeight }
+			font = "cg_16b"
+			buttonText = "TRADITIONS"
+			buttonFont = "cg_16b"
+			shortcut = "z"
+			clicksound = "tab_click"
+		}
+
+		buttonType = {
+			name = "tab_traditions_active"
+			quadTextureSprite = "GFX_tab_1_active"
+			position = { x = 850 y = @tabHeight }
+			font = "cg_16b"
+			buttonText = "TRADITIONS"
+			buttonFont = "cg_16b"
+			shortcut = "z"
+			clicksound = "tab_click"
+		}
+
+		buttonType = {
+			name = "tab_relics"
+			quadTextureSprite = "GFX_tab_2_inactive"
+			position = { x = 979 y = @tabHeight }
+			font = "cg_16b"
+			buttonText = "RELICS"
+			buttonFont = "cg_16b"
+			shortcut = "x"
+			clicksound = "tab_click"
+		}
+
+		buttonType = {
+			name = "tab_relics_active"
+			quadTextureSprite = "GFX_tab_2_active"
+			position = { x = 979 y = @tabHeight }
+			font = "cg_16b"
+			buttonText = "RELICS"
+			buttonFont = "cg_16b"
+			shortcut = "x"
+			clicksound = "tab_click"
+		}
+
+		################################################################
+		# TRADITION TAB
+		################################################################
+		
+		containerWindowType = {
+			name = "traditions_window"
+			size = { width = 100% height = 1650 } 
+			moveable = no
+			orientation = upper_left
+			position = { x = 0 y = 0 }
+		
+			containerWindowType = {
+				name = "tradition_box"
+				size = { width = 600 height = 100 }
+				position = { x = 370 y = 20 }
+
+				instantTextBoxType = {
+					name = "tradition_cost"
+					font = "malgun_goth_24"
+					position = { x = 0 y = -3 }
+					maxWidth = 140
+					maxHeight = 20
+					fixedSize = yes
+					format = right
+				}
+
+				iconType = {
+					name = "progress"
+					spriteType = "GFX_tech_research_progressbar"
+					position = { x = 150 y = -10 }
+				}
+
+				instantTextBoxType = {
+					name = "time_to_next_tradition"
+					font = "malgun_goth_24"
+					text = "11 months"
+					position = { x = 390 y = -3 }
+					maxWidth = 300
+					maxHeight = 20
+					fixedSize = yes
+					format = left
+				}
+			}
+
+			containerWindowType = {
+				name = "tradition_global"
+				size = { width = 5000 height = 1650 }
+				position = { x = -50% y = -50% }
+				orientation = center
+				iconType = {
+					name = "hex_bg"
+					spriteType = "GFX_tradition_hex_bg_green"
+					position = { x = -150 y = -18 }
+					alwaysTransparent = yes
+					scale = 0
+				}
+				
+				instantTextBoxType = {
+					name = "category_label"
+					font = "malgun_goth_24"
+					position = { x = 555555 y = 5555555 }
+					text = "tradition_expansion"
+				}
+				
+				instantTextBoxType = {
+					name = "category_desc"
+					font = "cg_16b"
+					position = { x = 555555 y = 555555 }
+					maxWidth = 280
+					format = center
+					vertical_alignment = center
+					alwaystransparent = yes
+					text = "tradition_domination_desc"
+				}
+				
+				#Arrows
+				containerWindowType = {
+					name = "tree"
+					iconType = {
+						name = "arrow_diplomacy"
+						spriteType = "GFX_arrow_diplomacy"
+						position = { x = 36 y = 282 }
+						scale = 1.0
+					}
+					
+					iconType = {
+						name = "arrow_discovery"
+						spriteType = "GFX_arrow_discovery"
+						position = { x = 425 y = 866 }
+						scale = 1.0
+					}
+					
+					iconType = {
+						name = "arrow_domination"
+						spriteType = "GFX_arrow_domination"
+						position = { x = 531 y = 254 }
+						scale = 1.0
+					}
+					
+					iconType = {
+						name = "arrow_expansion"
+						spriteType = "GFX_arrow_expansion"
+						position = { x = 313 y = 282 }
+						scale = 1.0
+					}
+					
+					iconType = {
+						name = "arrow_harmony"
+						spriteType = "GFX_arrow_harmony"
+						position = { x = 816 y = 282 }
+						scale = 1.0
+					}
+					
+					iconType = {
+						name = "arrow_industry"
+						spriteType = "GFX_arrow_industry"
+						position = { x = 729 y = 725 }
+						scale = 1.0
+					}
+					
+					iconType = {
+						name = "arrow_nature"
+						spriteType = "GFX_arrow_nature"
+						position = { x = 1020 y = 897 }
+						scale = 1.0
+					}
+					
+					iconType = {
+						name = "arrow_prosperity"
+						spriteType = "GFX_arrow_prosperity"
+						position = { x = 888 y = 1194 }
+						scale = 1.0
+					}
+					
+					iconType = {
+						name = "arrow_spaceborn"
+						spriteType = "GFX_arrow_spaceborn"
+						position = { x = 82 y = 1181 }
+						scale = 1.0
+					}
+					
+					iconType = {
+						name = "arrow_supremacy"
+						spriteType = "GFX_arrow_supremacy"
+						position = { x = 36 y = 696 }
+						scale = 1.0
+					}
+				}
+				
+				containerWindowType = {
+					name = "adopted_count"
+					size = { width = 45 height = 45 }
+					position = { x = 442 y = 238 }
+
+					background = {
+						name = "adopted_hitbox"
+						spriteType = "GFX_tr_global_start"
+					}
+
+					iconType = {
+						name = "adopted"
+						spriteType = "GFX_tr_global_start"
+						alwaysTransparent = yes
+					}
+				
+					instantTextBoxType = {
+						name = "value"
+						font = "cg_16b"
+						position = { x = -55555 y = -55555 }
+						maxWidth = 100
+						maxHeight = 20
+						fixedSize = yes
+						format = center
+						alwaysTransparent = yes
+					}
+				}
+
+				buttonType = {
+					name = "adopt_button"
+					size = { x = 45 y = 45 }
+					position = { x = 442 y = 238 }
+					spriteType = "GFX_tr_global_start"
+					buttonFont = "cg_16b"
+					font = "cg_16b"
+					oversound = mouse_over
+				}
+			}
+		
+			###Ascension Perks
+			containerWindowType = {
+				name = "ascension_perks"
+				size = { width = @entry_w_ap height = @entry_h_ap }
+				position = { x = 5 y = 60 } 
+				
+				background = {
+					name = "black"
+					spriteType = "GFX_plain_bg_tile"
+					alwaysTransparent = yes
+				}
+				
+				iconType = {
+					name = "hex_bg"
+					spriteType = "GFX_hex_bg"
+					position = { x = -15 y = -15 }
+					alwaysTransparent = yes
+				}
+				
+				containerWindowType = {
+					name = "tradition_box"
+					size = { width = 300 height = 200 }
+					position = { x = 15 y = 70 }
+				}
+			}
+			
+			containerWindowType = { #Scrollbar Fix. Based on the Scrollbar fix from PT
+				name = "ScrollbarFix"
+				size = { width = @entry_w height = @entry_h } 
+				position = { x = 0 y = 1650 }
+
+				containerWindowType = {
+					name = "tradition_box"
+					size = { width = 300 height = 200 }
+					position = { x = 15 y = 70 }
+				}
+			}
+		}
+
+		###############################
+		# RELICS TAB
+		###############################
+		
+		containerWindowType = {
+			name = "relics_window"
+			size = { width = 1272 height = 600 } 
+			moveable = no
+			orientation = upper_left
+			position = { x = 0 y = 0 }
+
+			###############################
+			# RELICS
+			###############################
+
+			@relicsWidth = 738
+			@relicsWidthWide = 1248
+
+			###############################
+			# RELICS BOX
+			###############################
+
+			containerWindowType = {
+				name = "relics_box"
+				size = { width = @relicsWidth height = 536 }
+				position = { x = 10 y = 50 }
+
+				background = {
+					name = "bg"
+					quadTextureSprite = "GFX_relics_panel_bg"
+				}
+
+				# TOP BAR
+				containerWindowType = {
+					name = "relics_topbar"
+					size = { width = @relicsWidth height = 65 }
+					position = { x = 0 y = 0 }
+
+					# LEFT SIDE
+					containerWindowType = {
+						name = "relics_topbar_left"
+						size = { width = 170 height = 65 }
+						position = { x = 0 y = 0 }
+
+						instantTextBoxType = {
+							name = "relics_found_text"
+							font = "cg_16b"
+							position = { x = 10 y = 15 }
+							text = "RELICS_FOUND"
+							maxWidth = 150
+							maxHeight = 22
+							fixedSize = yes
+							format = centre
+							text_color_code = "H"
+						}
+
+						instantTextBoxType = {
+							name = "relics_found_value"
+							font = "cg_16b"
+							position = { x = 10 y = 35 }
+							maxWidth = 150
+							maxHeight = 30
+							fixedSize = yes
+							format = centre
+						}
+					}
+
+					# RIGHT SIDE
+					containerWindowType = {
+						name = "relics_topbar_right"
+						size = { width = 575 height = 65 }
+						position = { x = 175 y = 0 }
+
+						instantTextBoxType = {
+							name = "no_triumph_text"
+							font = "cg_16b"
+							position = { x = 100 y = 20 }
+							text = "ACTIVATE_RELIC_FOR_TRIUMPH"
+							maxWidth = 250
+							maxHeight = 22
+							fixedSize = yes
+							text_color_code = "Y"
+						}
+
+						instantTextBoxType = {
+							name = "active_triumph_text"
+							font = "cg_16b"
+							position = { x = 50 y = 10 }
+							text = "ACTIVE_TRIUMPH_TEXT"
+							maxWidth = 150
+							maxHeight = 22
+							fixedSize = yes
+							text_color_code = "H"
+						}
+
+						instantTextBoxType = {
+							name = "active_triumph_value"
+							font = "cg_16b"
+							position = { x = 200 y = 10 }
+							maxWidth = 60
+							maxHeight = 30
+							fixedSize = yes
+							format = centre
+						}
+
+						iconType = {
+							name = "progressbar"
+							spriteType = "GFX_queue_progressbar"
+							position = { x = 50 y = 30 }
+						}
+					}
+				}
+
+				# RELICS CONTENT
+				containerWindowType = {
+					name = "relics_content"
+					size = { width = @relicsWidth height = 470 }
+					position = { x = 0 y = 60 }
+					verticalScrollbar = "right_vertical_slider"
+					margin = { top = 10 bottom = 0 }
+
+					background = {
+						name = "bg"
+						quadTextureSprite = "GFX_tiled_window_transparent"
+					}
+
+					gridBoxType = {
+						name = "relics_grid"
+						position = { x = 95 y = 30 }
+						size = { width = 200 height = 400 }
+						slotsize = {
+							width = 184
+							height = 194
+						}
+						max_slots_horizontal = 3
+					}
+				}
+			}
+
+			###############################
+			# RELICS BOX WIDE
+			###############################
+
+			containerWindowType = {
+				name = "relics_box_wide"
+				size = { width = @relicsWidthWide height = 536 }
+				position = { x = 10 y = 50 }
+
+				background = {
+					name = "bg"
+					quadTextureSprite = "GFX_relics_panel_bg_wide"
+				}
+
+				# TOP BAR
+				containerWindowType = {
+					name = "relics_topbar"
+					size = { width = @relicsWidthWide height = 65 }
+					position = { x = 0 y = 0 }
+
+					# LEFT SIDE
+					containerWindowType = {
+						name = "relics_topbar_left"
+						size = { width = 170 height = 65 }
+						position = { x = 0 y = 0 }
+
+						instantTextBoxType = {
+							name = "relics_found_text"
+							font = "cg_16b"
+							position = { x = 10 y = 15 }
+							text = "RELICS_FOUND"
+							maxWidth = 150
+							maxHeight = 22
+							fixedSize = yes
+							format = centre
+							text_color_code = "H"
+						}
+
+						instantTextBoxType = {
+							name = "relics_found_value"
+							font = "cg_16b"
+							position = { x = 10 y = 35 }
+							maxWidth = 150
+							maxHeight = 30
+							fixedSize = yes
+							format = centre
+						}
+					}
+
+					# RIGHT SIDE
+					containerWindowType = {
+						name = "relics_topbar_right"
+						size = { width = 575 height = 65 }
+						position = { x = 465 y = 0 }
+
+						instantTextBoxType = {
+							name = "no_triumph_text"
+							font = "cg_16b"
+							position = { x = 100 y = 20 }
+							text = "ACTIVATE_RELIC_FOR_TRIUMPH"
+							maxWidth = 250
+							maxHeight = 22
+							fixedSize = yes
+							text_color_code = "Y"
+						}
+
+						instantTextBoxType = {
+							name = "active_triumph_text"
+							font = "cg_16b"
+							position = { x = 50 y = 10 }
+							text = "ACTIVE_TRIUMPH_TEXT"
+							maxWidth = 150
+							maxHeight = 22
+							fixedSize = yes
+							text_color_code = "H"
+						}
+
+						instantTextBoxType = {
+							name = "active_triumph_value"
+							font = "cg_16b"
+							position = { x = 200 y = 10 }
+							maxWidth = 60
+							maxHeight = 30
+							fixedSize = yes
+							format = centre
+						}
+
+						iconType = {
+							name = "progressbar"
+							spriteType = "GFX_queue_progressbar"
+							position = { x = 50 y = 30 }
+						}
+					}
+				}
+
+				# RELICS CONTENT
+				containerWindowType = {
+					name = "relics_content"
+					size = { width = @relicsWidthWide height = 470 }
+					position = { x = 0 y = 60 }
+					verticalScrollbar = "right_vertical_slider"
+					margin = { top = 10 bottom = 0 }
+
+					background = {
+						name = "bg"
+						quadTextureSprite = "GFX_tiled_window_transparent"
+					}
+
+					gridBoxType = {
+						name = "relics_grid"
+						position = { x = 255 y = 30 }
+						size = { width = 200 height = 400 }
+						slotsize = {
+							width = 184
+							height = 194
+						}
+						max_slots_horizontal = 4
+					}
+				}
+			}
+
+			###############################
+			# ARTIFACTS
+			###############################
+
+			@artifactsWidth = 502 
+
+			containerWindowType = {
+				name = "artifacts_box"
+				size = { width = @artifactsWidth height = 516 }
+				position = { x = 757 y = 70 }
+
+				background = {
+					name = "bg"
+					quadTextureSprite = "GFX_artifacts_panel_bg"
+				}
+
+				# TOP BAR
+				containerWindowType = {
+					name = "artifacts_topbar"
+					size = { width = @artifactsWidth height = 65 }
+					position = { x = 0 y = 0 }
+
+					instantTextBoxType = {
+						name = "artifacts_header"
+						font = "cg_16b"
+						position = { x = 20 y = 14 }
+						text = "MINOR_ARTIFACTS"
+						maxWidth = 150
+						maxHeight = 22
+						fixedSize = yes
+						format = left
+						text_color_code = "H"
+					}
+
+					instantTextBoxType = {
+						name = "artifacts_count_value"
+						font = "cg_16b"
+						position = { x = 332 y = 14 }
+						maxWidth = 150
+						maxHeight = 22
+						fixedSize = yes
+						format = right
+						text = "45"
+					}
+
+				}
+
+				# CONTENT
+				containerWindowType = {
+					name = "artifacts_content"
+					size = { width = 493 height = 474 }
+					position = { x = 10 y = 50 }
+					verticalScrollbar = "right_vertical_slider"
+					margin = { top = 0 bottom = 15 }
+
+					background = {
+						name = "bg"
+						quadTextureSprite = "GFX_tiled_window_transparent"
+					}
+
+					gridBoxType = {
+						name = "artifact_actions_grid"
+						position = { x = 0 y = 0 }
+						size = { width = 480 height = 450 }
+						slotsize = {
+							width = 480
+							height = 43
+						}
+						max_slots_horizontal = 1
+					}
+				}
+			}
+		}
+	}
+
+	# RELIC GRID BOX ENTRY
+	containerWindowType = {
+		name = "relic_grid_entry"
+		size = {
+			width = 182
+			height = 194
+		}
+
+		background = {
+			name = "bg"
+			quadTextureSprite = "GFX_tiled_window_transparent"
+			no_clicksound = yes # this will be manually set by the relic type and played in the UI via code
+		}
+
+		iconType = {
+			name = "frame"
+			position = { x = 0 y = 0 }
+			quadTextureSprite = "GFX_relics_frame"
+			alwaysTransparent = yes
+		}
+
+		iconType = {
+			name = "frame_unused"
+			position = { x = 0 y = 0 }
+			quadTextureSprite = "GFX_relics_frame_unused"
+			alwaysTransparent = yes
+		}
+
+		iconType = {
+			name = "relic_portrait"
+			position = { x = 10 y = 15 }
+			quadTextureSprite = "GFX_tiled_window_transparent"
+			alwaysTransparent = yes
+		}
+	}
+
+	# ARTIFACT ACTION GRID BOX ENTRY
+	containerWindowType = {
+		name = "artifact_action_grid_entry"
+		size = {
+			width =  482
+			height = 40
+		}
+
+		background = {
+			name = "bg"
+			quadTextureSprite = "GFX_tiles_dark_area_cut_8"
+		}
+
+		instantTextBoxType = {
+			name = "title"
+			font = "cg_16b"
+			position = { x = 10 y = 14 }
+			text = "MINOR_ARTIFACTS"
+			maxWidth = 300
+			maxHeight = 22
+			fixedSize = yes
+			format = left
+			alwaysTransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "cost"
+			font = "cg_16b"
+			position = { x = 320 y = 14 }
+			maxWidth = 150
+			maxHeight = 22
+			fixedSize = yes
+			format = right
+			text = "45"
+			alwaysTransparent = yes
+		}
+
+		buttonType = {
+			name = "button"
+			quadTextureSprite = "GFX_button_light"
+			position = { x = -1 y = -1 }
+			clicksound = "queuing_building"
+			size = { x = 484 y = 42 }
+		}
+	}
+}

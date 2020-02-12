@@ -1,0 +1,275 @@
+
+#########################################
+#
+# Augmented Authorities Events
+#
+#########################################
+
+namespace = aa
+
+# Gatekeeper event for Energy Trust civic
+event = {
+	id = aa.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+        every_playable_country = {
+            if = {
+				limit = {
+					OR = {
+						has_valid_civic = civic_energy_trust
+						has_modifier = mod_energy_trust_1
+						has_modifier = mod_energy_trust_2
+						has_modifier = mod_energy_trust_3
+						has_modifier = mod_energy_trust_4
+					}
+				}
+				country_event = { id = aa.2 }
+            }
+        }
+    }
+}
+
+# Applies (or removes) appropriate Energy Trust bonus on monthly pulse
+country_event = {
+	id = aa.2
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			has_valid_civic = civic_energy_trust
+			has_modifier = mod_energy_trust_1
+			has_modifier = mod_energy_trust_2
+			has_modifier = mod_energy_trust_3
+			has_modifier = mod_energy_trust_4
+		}
+	}
+
+	immediate = {
+		if = { #Lacks civic or energy
+			limit = {
+				OR = {
+					NOT = { has_valid_civic = civic_energy_trust }
+					has_country_resource = {
+						type = energy
+						amount < 5000
+					}
+				}
+			}
+			remove_modifier = mod_energy_trust_1
+			remove_modifier = mod_energy_trust_2
+			remove_modifier = mod_energy_trust_3
+			remove_modifier = mod_energy_trust_4
+		}
+		else_if = { #Has 5k-10k energy
+			limit = {
+				has_country_resource = {
+					type = energy
+					amount < 10000
+				}
+			}
+			add_modifier = {
+				modifier = mod_energy_trust_1
+				days = -1
+			}
+			remove_modifier = mod_energy_trust_2
+			remove_modifier = mod_energy_trust_3
+			remove_modifier = mod_energy_trust_4
+		}
+		else_if = { #Has 10k-20k energy
+			limit = {
+				has_country_resource = {
+					type = energy
+					amount < 20000
+				}
+			}
+			add_modifier = {
+				modifier = mod_energy_trust_2
+				days = -1
+			}
+			remove_modifier = mod_energy_trust_1
+			remove_modifier = mod_energy_trust_3
+			remove_modifier = mod_energy_trust_4
+		}
+		else_if = { #Has 20k-40k energy
+			limit = {
+				has_country_resource = {
+					type = energy
+					amount < 40000
+				}
+			}
+			add_modifier = {
+				modifier = mod_energy_trust_3
+				days = -1
+			}
+			remove_modifier = mod_energy_trust_1
+			remove_modifier = mod_energy_trust_2
+			remove_modifier = mod_energy_trust_4
+		}
+		else_if = { #Has +40k energy
+			limit = {
+				has_country_resource = {
+					type = energy
+					amount > 40000
+				}
+			}
+			add_modifier = {
+				modifier = mod_energy_trust_4
+				days = -1
+			}
+			remove_modifier = mod_energy_trust_1
+			remove_modifier = mod_energy_trust_2
+			remove_modifier = mod_energy_trust_3
+		}
+	}
+}
+
+# Factory Overclocking, Pooled Knowledge, Meritocracy, and Ruthless Competition leaders start at level 2
+country_event = {
+	id = aa.3
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		owner = {
+			OR = {
+				has_valid_civic = civic_hive_pooled_knowledge
+				has_valid_civic = civic_machine_factory_overclock
+				has_valid_civic = civic_meritocracy
+				has_valid_civic = civic_ruthless_competition
+			}
+		}
+	}
+	
+	immediate = {
+		from = {
+			if = {
+				limit = { 
+					has_skill < 2
+				}
+				set_skill = 2
+			}
+		}
+	}
+}
+
+# Gatekeeper event for Philosopher King civic
+event = {
+	id = aa.4
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+        every_playable_country = {
+            if = {
+				limit = {
+					OR = {
+						has_valid_civic = civic_philosopher_king
+						any_owned_leader = { has_trait = trait_ruler_philosopher_king }
+					}
+				}
+				country_event = { id = aa.7 }
+            }
+        }
+    }
+}
+
+#Give starting technologies on game start
+country_event = {
+	id = aa.5
+	is_triggered_only = yes
+	hide_window = yes
+
+	immediate = {
+		if = {
+			limit = {
+				has_civic = civic_merchant_guilds
+			}
+			give_technology = { message = no tech = tech_space_trading }
+		}
+		if = {
+			limit = {
+				has_civic = civic_police_state
+			}
+			give_technology = { message = no tech = tech_penal_colonies }
+		}
+		if = {
+			limit = {
+				has_civic = civic_citizen_service
+			}
+			give_technology = { message = no tech = tech_centralized_command }
+		}
+		if = {
+			limit = {
+				has_civic = civic_distinguished_admiralty
+			}
+			give_technology = { message = no tech = tech_interstellar_fleet_traditions }
+		}
+		if = {
+			limit = {
+				has_civic = civic_efficient_bureaucracy
+			}
+			give_technology = { message = no tech = tech_adaptive_bureaucracy }
+		}
+	}
+}
+
+# "The Next Generation" gives heir monthly experience
+country_event = {
+	id = aa.6
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		has_policy_flag = policy_philosopher_imperial
+	}
+
+	immediate = {
+		if = {
+			limit = { exists = heir }
+			heir = {
+				add_experience = 3
+			}
+		}
+
+	}
+}
+
+# Applies (or removes) Philosopher King trait on monthly pulse
+country_event = {
+	id = aa.7
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		OR = {
+			has_valid_civic = civic_philosopher_king
+			any_owned_leader = { has_trait = trait_ruler_philosopher_king }
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				owner = { has_valid_civic = civic_philosopher_king }
+				any_owned_leader = { NOT = { has_trait = trait_ruler_philosopher_king } }
+			}
+			every_owned_leader = {
+				if = { limit = { NOT = { has_trait = trait_ruler_philosopher_king } } }
+				add_ruler_trait = trait_ruler_philosopher_king
+			}
+		}
+		else_if = {
+			limit = {
+				owner = { NOT = { has_valid_civic = civic_philosopher_king } }
+				any_owned_leader = { has_trait = trait_ruler_philosopher_king }
+			}
+			every_owned_leader = {
+				if = { limit = { has_trait = trait_ruler_philosopher_king } }
+				remove_ruler_trait = trait_ruler_philosopher_king
+			}
+		}
+	}
+}

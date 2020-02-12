@@ -1,0 +1,7 @@
+l_braz_por:
+l_french:
+l_german:
+l_polish:
+l_russian:
+l_simp_chinese:
+l_spanish:

@@ -1,0 +1,163 @@
+spriteTypes = {	
+	#Start Button
+	spriteType = {
+		name = "GFX_tr_global_start"
+		texturefile = "gfx/interface/traditions/start.dds"
+	}
+	
+	#Grouped Arrows for each tree, added in v2, will make arrow modification easier
+	spriteType = {
+		name = "GFX_arrow_diplomacy"
+		texturefile = "gfx/interface/traditions/arrow_diplomacy.dds" #Grouped arrow for the Diplomacy Tree
+	}
+	spriteType = {
+		name = "GFX_arrow_expansion"
+		texturefile = "gfx/interface/traditions/arrow_expansion.dds" #Grouped arrow for the Expansion Tree
+	}
+	spriteType = {
+		name = "GFX_arrow_domination"
+		texturefile = "gfx/interface/traditions/arrow_domination.dds" #Grouped arrow for the Domination Tree
+	}
+	spriteType = {
+		name = "GFX_arrow_harmony"
+		texturefile = "gfx/interface/traditions/arrow_harmony.dds" #Grouped arrow for the Harmony Tree
+	}
+	spriteType = {
+		name = "GFX_arrow_supremacy"
+		texturefile = "gfx/interface/traditions/arrow_supremacy.dds" #Grouped arrow for the Supremacy Tree
+	}
+	spriteType = {
+		name = "GFX_arrow_discovery"
+		texturefile = "gfx/interface/traditions/arrow_discovery.dds" #Grouped arrow for the Discovery Tree
+	}
+	spriteType = {
+		name = "GFX_arrow_industry"
+		texturefile = "gfx/interface/traditions/arrow_industry.dds" #Grouped arrow for the Industry Tree
+	}
+	spriteType = {
+		name = "GFX_arrow_nature"
+		texturefile = "gfx/interface/traditions/arrow_nature.dds" #Grouped arrow for the Nature Tree
+	}
+	spriteType = {
+		name = "GFX_arrow_prosperity"
+		texturefile = "gfx/interface/traditions/arrow_prosperity.dds" #Grouped arrow for the Prosperity Tree
+	}
+	spriteType = {
+		name = "GFX_arrow_spaceborn"
+		texturefile = "gfx/interface/traditions/arrow_spaceborn.dds" #Grouped arrow for the Spaceborn Tree
+	}
+	
+	#Arrows, replaced by Grouped Arrows, might cut
+	spriteType = {
+		name = "GFX_arrow_single_2"
+		texturefile = "gfx/interface/traditions/arrow_single_2.dds" # Slightly longer version of arrow_single used in Discovery Tree
+	}
+	spriteType = {
+		name = "GFX_arrow_up"
+		texturefile = "gfx/interface/traditions/arrow_up.dds" # Upward facing arrow
+	}
+	spriteType = {
+		name = "GFX_arrow_right"
+		texturefile = "gfx/interface/traditions/arrow_right.dds" # right facing arrow
+	}
+	spriteType = {
+		name = "GFX_arrow_left"
+		texturefile = "gfx/interface/traditions/arrow_left.dds" # left facing arrow
+	}
+	spriteType = {
+		name = "GFX_arrow_left_2"
+		texturefile = "gfx/interface/traditions/arrow_left_2.dds" # Slightly longer version of arrow_left used in Discovery Tree
+	}
+	spriteType = {
+		name = "GFX_arrow_left_down"
+		texturefile = "gfx/interface/traditions/arrow_left_down.dds" # left then downward facing arrow
+	}
+	spriteType = {
+		name = "GFX_arrow_right_down"
+		texturefile = "gfx/interface/traditions/arrow_right_down.dds" # right then downward facing arrow
+	}
+	spriteType = {
+		name = "GFX_arrow_long_2"
+		texturefile = "gfx/interface/traditions/arrow_long_2.dds" # Slightly longer version of arrow_long used in Discovery Tree
+	}
+	spriteType = {
+		name = "GFX_arrow_double_2"
+		texturefile = "gfx/interface/traditions/arrow_double_2.dds" # Remade version of arrow_double used in Harmony Tree
+	}
+	spriteType = {
+		name = "GFX_arrow_double_3"
+		texturefile = "gfx/interface/traditions/arrow_double_3.dds" # Remade version of arrow_double used in Harmony Tree
+	}
+	spriteType = {
+		name = "GFX_arrow_double_4"
+		texturefile = "gfx/interface/traditions/arrow_double_4.dds" # Remade version of arrow_double used in Industry Tree
+	}
+	spriteType = {
+		name = "GFX_arrow_triple"
+		texturefile = "gfx/interface/traditions/arrow_triple.dds" # Remade version of arrow_double used in Harmony Tree
+	}
+	spriteType = {
+		name = "GFX_arrow_triple_2"
+		texturefile = "gfx/interface/traditions/arrow_triple_2.dds" # Remade version of arrow_double used in Domination Tree
+	}
+	spriteType = {
+		name = "GFX_arrow_down_left"
+		texturefile = "gfx/interface/traditions/arrow_down_left.dds" # Remade version of arrow_left_down used in Harmony Tree
+	}
+	spriteType = {
+		name = "GFX_arrow_down_right"
+		texturefile = "gfx/interface/traditions/arrow_down_right.dds" # Remade version of arrow_right_down used in Harmony Tree
+	}
+	
+	spriteType = {
+		name = "GFX_diplomacy_tot"
+		texturefile = "gfx/traditions/Spec/diplomacy.dds" # diplomacy icon
+	}
+	spriteType = {
+		name = "GFX_discovery_tot"
+		texturefile = "gfx/traditions/Spec/discovery.dds" # discovery icon
+	}
+	spriteType = {
+		name = "GFX_domination_tot"
+		texturefile = "gfx/traditions/Spec/domination.dds" # domination icon
+	}
+	spriteType = {
+		name = "GFX_expansion_tot"
+		texturefile = "gfx/traditions/Spec/expansion.dds" # expansion icon
+	}
+	spriteType = {
+		name = "GFX_harmony_tot"
+		texturefile = "gfx/traditions/Spec/harmony.dds" # harmony icon
+	}
+	spriteType = {
+		name = "GFX_prosperity_tot"
+		texturefile = "gfx/traditions/Spec/prosperity.dds" # prosperity icon
+	}
+	spriteType = {
+		name = "GFX_supremacy_tot"
+		texturefile = "gfx/traditions/Spec/supremacy.dds" # supremacy icon
+	}
+	
+	spriteType = {
+		name = "GFX_est_industry_adopt_icon"
+		texturefile = "gfx/interface/traditions/est_industry_adopt_icon.dds" # Adopt icon for EST Industry
+	}
+	spriteType = {
+		name = "GFX_pt_industry_adopt_icon"
+		texturefile = "gfx/interface/traditions/pt_industry_adopt_icon.dds" # Adopt icon for PT Industry
+	}
+	spriteType = {
+		name = "GFX_est_mysticism_adopt_icon"
+		texturefile = "gfx/interface/traditions/est_mysticism_adopt_icon.dds" # Adopt icon for EST Mysticism
+	}
+	spriteType = {
+		name = "GFX_est_cybernetics_adopt_icon"
+		texturefile = "gfx/interface/traditions/est_cybernetics_adopt_icon.dds" # Adopt icon for EST Cybernetics
+	}
+	
+	spriteType = {
+		name = "GFX_experimentalism_bg"
+		texturefile = "gfx/interface/traditions/experimentalism.dds" # test thing
+	}
+}
+	

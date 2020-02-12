@@ -1,0 +1,117 @@
+tr_plentiful_order_adopt = {
+	possible = {
+		has_country_flag = stupidAIstoptakingthis
+	}
+	
+	modifier = {
+		ship_speed_mult = 0.10
+		ship_emergency_ftl_mult = -0.25
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+}
+
+tr_plentiful_order_finish = {
+	modifier = {
+		country_government_civic_points_add = 1
+		megastructures_cost_mult = -0.15
+		ascension_perks_add = 1
+	}
+}
+
+tr_plentiful_order_1 = {
+	possible = {
+		has_tradition = tr_supremacy_great_game
+	}
+	
+	modifier = {
+#		ship_shield_regen_mult = 0.1
+		ship_shield_mult = 0.15
+		starbase_shipyard_build_cost_mult = -0.05
+		country_starbase_capacity_add = 1
+	}
+	
+	ai_weight = {
+		factor = 0
+		modifier = {
+			weight = 100
+			has_tradition = tr_supremacy_great_game
+		}
+	}
+}
+
+tr_plentiful_order_2 = {
+	possible = {
+		has_tradition = tr_plentiful_order_1
+	}
+	
+	modifier = {
+		ship_armor_mult = 0.1
+		ship_hull_mult = 0.1
+	}
+	
+	ai_weight = {
+		factor = 0
+		modifier = {
+			weight = 100
+			has_tradition = tr_plentiful_order_1
+		}
+	}
+}
+
+tr_plentiful_order_3 = {
+	possible = {
+		has_tradition = tr_plentiful_order_2
+	}
+	
+	modifier = {
+		category_voidcraft_research_speed_mult = 0.25
+	}
+	
+	ai_weight = {
+		factor = 0
+		modifier = {
+			weight = 100
+			has_tradition = tr_plentiful_order_2
+		}
+	}
+}
+
+tr_plentiful_order_4 = {
+	possible = {
+		has_tradition = tr_plentiful_order_1
+	}
+	
+	modifier = {
+		starbase_module_build_speed_mult = 0.15
+		category_statecraft_research_speed_mult = 0.15
+	}
+	
+	ai_weight = {
+		factor = 0
+		modifier = {
+			weight = 100
+			has_tradition = tr_plentiful_order_1
+		}
+	}
+}
+
+tr_plentiful_order_5 = {
+	possible = {
+		has_tradition = tr_plentiful_order_4
+	}
+	
+	modifier = {
+		megastructure_build_speed_mult = 0.25
+	}
+	
+	ai_weight = {
+		factor = 0
+		modifier = {
+			weight = 100
+			has_tradition = tr_plentiful_order_4
+		}
+	}
+}

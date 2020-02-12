@@ -1,0 +1,93 @@
+namespace = tratr_foundation
+
+country_event = { #adoption effects for foundation tree
+	id = tratr_foundation.1
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_found_unlock_trig = yes
+			est_uses_confederacy_traditions = no
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+			NOT = { has_country_flag = tratr_found_finish }
+			NOT = { has_country_flag = tratr_confe_finish }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_found_finish	
+		tratr_found_unlocked_effect = yes
+	}
+}
+
+country_event = { #Clear finish flag if no longer using Foundation
+	id = tratr_foundation.2
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_found_unlock_trig = yes
+			est_uses_confederacy_traditions = yes
+			has_country_flag = tratr_found_finish
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		remove_country_flag = tratr_found_finish
+		remove_modifier = tratr_found_unlocked
+	}
+}
+
+country_event = { #adoption effects for confederacy
+	id = tratr_foundation.3
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_found_unlock_trig = yes
+			est_uses_confederacy_traditions = yes
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+			NOT = { has_country_flag = tratr_found_finish }
+			NOT = { has_country_flag = tratr_confe_finish }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_confe_finish	
+		tratr_confe_unlocked_effect = yes
+	}
+}
+
+country_event = { #adoption effects for subminds
+	id = tratr_foundation.4
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_found_unlock_trig = yes
+			has_ethic = ethic_gestalt_consciousness
+			NOT = { has_country_flag = tratr_subminds_finish }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_subminds_finish	
+		tratr_subminds_unlocked_effect = yes
+	}
+}

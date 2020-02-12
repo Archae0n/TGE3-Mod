@@ -1,0 +1,1427 @@
+namespace = tratr_finish
+
+country_event = { #Finish for Diplomacy
+	id = tratr_finish.1
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_diplo_unlock_trig = yes
+			NOT = { has_country_flag = tratr_diplo_finish }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_diplo_finish
+		if = {
+			limit = {
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_inwards_perfection
+					has_valid_civic = civic_barbaric_despoilers
+					is_criminal_syndicate = yes
+					is_machine_empire = yes
+				}
+			}
+			add_modifier = { modifier = tratr_diplo_unlocked days = -1 }
+		}
+		if = {
+			limit = {
+				AND = {
+					OR = { 
+						has_valid_civic = civic_fanatic_purifiers
+						has_valid_civic = civic_inwards_perfection
+						has_valid_civic = civic_barbaric_despoilers
+						is_criminal_syndicate = yes
+						is_hive_empire = yes
+					}
+					is_machine_empire = no
+				}
+			}
+			add_modifier = { modifier = tratr_adapt_unlocked days = -1 }
+		}
+		if = {
+			limit = { is_machine_empire = yes }
+			add_modifier = { modifier = tratr_versa_unlocked days = -1 }
+		}
+	}
+}
+
+country_event = { #Finish for EST Friendship
+	id = tratr_finish.4
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_friend_unlock_trig = yes
+			NOT = { has_country_flag = tratr_friend_finish }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_friend_finish
+		if = {
+			limit = {
+				est_uses_malice_traditions = no
+				NOR = {
+					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_hive_devouring_swarm
+					has_valid_civic = civic_machine_terminator
+					has_civic = civic_inwards_perfection
+				}
+			}
+			tratr_friend_unlocked_effect = yes
+		}
+		if = {
+			limit = {
+				est_uses_malice_traditions = yes
+				is_ai = no
+				NOR = {
+					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_hive_devouring_swarm
+					has_valid_civic = civic_machine_terminator
+				}
+			}
+			tratr_malice_unlocked_effect = yes
+		}
+		if = {
+			limit = {
+				est_uses_malice_traditions = yes
+				OR = {
+					is_ai = yes
+					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_hive_devouring_swarm
+					has_valid_civic = civic_machine_terminator
+				}
+			}
+			add_modifier = { modifier = tratr_est_malicealt_unlocked days = -1 }
+		}
+		if = {
+			limit = { has_civic = civic_inwards_perfection }
+			add_modifier = { modifier = tratr_est_per_ip_unlocked days = -1 }
+		}
+	}
+}
+
+country_event = { #Finish for PT Aspiration
+	id = tratr_finish.7
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_aspir_unlock_trig = yes
+			NOT = { has_country_flag = tratr_aspir_finish }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_aspir_finish	
+		add_modifier = { modifier = tratr_est_aspir_unlocked days = -1 }
+	}
+}
+
+country_event = { #Finish for Expansion
+	id = tratr_finish.8
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_expan_unlock_trig = yes
+			NOT = { has_country_flag = tratr_expan_finish }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_expan_finish	
+		add_modifier = { modifier = tratr_expan_unlocked days = -1 }
+	}
+}
+
+country_event = { #Finish for Administratum
+	id = tratr_finish.9
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_admin_unlock_trig = yes
+			NOT = { has_country_flag = tratr_admin_finish }
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_admin_finish	
+		add_modifier = { modifier = tratr_admin_unlocked days = -1 }
+	}
+}
+
+country_event = { #Finish for Administratum swap Omnipresence
+	id = tratr_finish.10
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_admin_unlock_trig = yes
+			has_ethic = ethic_gestalt_consciousness
+			NOT = { has_country_flag = tratr_omnipresence_finish }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_omnipresence_finish	
+		add_modifier = { modifier = tratr_omnipresence_unlocked days = -1 }
+	}
+}
+
+#Foundation and its swaps are handled in events\tratr_foundation.txt
+
+country_event = { #Finish for Domination
+	id = tratr_finish.11
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_domin_unlock_trig = yes
+			NOT = { has_country_flag = tratr_domin_finish }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_domin_finish	
+		add_modifier = { modifier = tratr_domin_unlocked days = -1 }
+	}
+}
+
+country_event = { #Finish for PT Malice
+	id = tratr_finish.12
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_ptmal_unlock_trig = yes
+			NOT = { has_country_flag = tratr_ptmal_finish }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_ptmal_finish	
+		tratr_ptmal_unlocked = yes
+	}
+}
+
+#Isolation and its swaps are handled in events\tratr_isochiv.txt
+#Chivalry and its swaps are handled in events\tratr_isochiv.txt
+
+country_event = { #Finish for Harmony
+	id = tratr_finish.13
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_harmony_unlock_trig = yes
+			is_machine_empire = no
+			is_hive_empire = no
+			NOT = { has_country_flag = tratr_harm_finish }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_harm_finish	
+		add_modifier = { modifier = tratr_harmo_unlocked days = -1 }
+	}
+}
+
+country_event = { #Finish for Synchronicity Hive
+	id = tratr_finish.14
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_harmony_unlock_trig = yes
+			is_machine_empire = no
+			is_hive_empire = yes
+			NOT = { has_country_flag = tratr_harm_finish }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_harm_finish	
+		add_modifier = { modifier = tratr_synch_unlocked days = -1 }
+	}
+}
+
+country_event = { #Finish for Synchronicity Machine
+	id = tratr_finish.15
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_harmony_unlock_trig = yes
+			is_machine_empire = yes
+			is_hive_empire = no
+			NOT = { has_country_flag = tratr_harm_finish }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_harm_finish	
+		add_modifier = { modifier = tratr_syncm_unlocked days = -1 }
+	}
+}
+
+country_event = { #Finish for Aesthetics
+	id = tratr_finish.16
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_aesth_unlock_trig = yes
+			is_machine_empire = no
+			is_hive_empire = no
+			NOT = { has_country_flag = tratr_aesth_finish }
+			NOR = {
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_spiritualist	
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_aesth_finish	
+		tratr_aesth_unlocked_effect = yes
+	}
+}
+
+country_event = { #Finish for Aesthetics Spiritualist
+	id = tratr_finish.17
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_aesth_unlock_trig = yes
+			is_machine_empire = no
+			is_hive_empire = no
+			NOT = { has_country_flag = tratr_aesth_finish }
+			OR = {
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_spiritualist	
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_aesth_finish	
+		tratr_aesthspirit_unlocked = yes
+	}
+}
+
+country_event = { #Finish for Age Hive
+	id = tratr_finish.18
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_aesth_unlock_trig = yes
+			is_machine_empire = no
+			is_hive_empire = yes
+			NOT = { has_country_flag = tratr_aesth_finish }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_aesth_finish	
+		add_modifier = { modifier = tratr_agehive_unlocked days = -1 }
+	}
+}
+
+country_event = { #Finish for Age Machine
+	id = tratr_finish.19
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_aesth_unlock_trig = yes
+			is_machine_empire = yes
+			is_hive_empire = no
+			NOT = { has_country_flag = tratr_aesth_finish }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_aesth_finish	
+		add_modifier = { modifier = tratr_agemach_unlocked days = -1 }
+	}
+}
+
+country_event = { #Finish for Justice
+	id = tratr_finish.20
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_justice_unlock_trig = yes
+			NOT = { has_country_flag = tratr_justice_finish }
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_justice_finish	
+		tratr_justice_unlocked_effect = yes
+	}
+}
+
+country_event = { #Finish for Destruction
+	id = tratr_finish.21
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_justice_unlock_trig = yes
+			NOT = { has_country_flag = tratr_justice_finish }
+			has_ethic = ethic_gestalt_consciousness
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_justice_finish	
+		tratr_dest_unlocked_effect = yes
+	}
+}
+
+country_event = { #Finish for Liberty
+	id = tratr_finish.22
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_liber_unlock_trig = yes
+			NOT = { has_country_flag = tratr_liber_finish }
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_liber_finish	
+		add_modifier = { modifier = tratr_liber_unlocked days = -1 }
+	}
+}
+
+country_event = { #Finish for Liberty No Migration
+	id = tratr_finish.23
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_liber_unlock_trig = yes
+			NOT = { has_country_flag = tratr_liber_finish }
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+			any_owned_pop = {
+				is_same_species = root
+				has_migration_control = yes
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_liber_finish	
+		add_modifier = { modifier = tratr_libernomig_unlocked days = -1 }
+	}
+}
+
+country_event = { #Finish for Fury
+	id = tratr_finish.24
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_liber_unlock_trig = yes
+			NOT = { has_country_flag = tratr_fury_finish }
+			has_ethic = ethic_gestalt_consciousness
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_fury_finish
+		tratr_fury_unlocked_effect = yes
+	}
+}
+
+country_event = { #Finish for Order
+	id = tratr_finish.25
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_order_unlock_trig = yes
+			NOT = { has_country_flag = tratr_order_finish }
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+			NOR = {
+				has_policy_flag = resettlement_not_allowed
+				has_ethic = ethic_fanatic_egalitarian
+				has_ethic = ethic_egalitarian
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_order_finish
+		add_modifier = { modifier = tratr_order_unlocked days = -1 }
+	}
+}
+
+country_event = { #Finish for Order Egal swap
+	id = tratr_finish.26
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_order_unlock_trig = yes
+			NOT = { has_country_flag = tratr_order_finish }
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+			OR = {
+				has_policy_flag = resettlement_not_allowed
+				has_ethic = ethic_fanatic_egalitarian
+				has_ethic = ethic_egalitarian
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_order_finish
+		add_modifier = { modifier = tratr_orderegal_unlocked days = -1 }
+	}
+}
+
+country_event = { #Finish for Order swap Cooperativity
+	id = tratr_finish.26
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_order_unlock_trig = yes
+			NOT = { has_country_flag = tratr_order_finish }
+			has_ethic = ethic_gestalt_consciousness
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_order_finish
+		tratr_cooper_unlocked_effect = yes
+	}
+}
+
+country_event = { #Finish for PT Affinity
+	id = tratr_finish.27
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_ptaff_unlock_trig = yes
+			NOT = { has_country_flag = tratr_ptaff_finish }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_ptaff_finish
+		add_modifier = { modifier = tratr_ptaff_unlocked days = -1 }
+	}
+}
+
+country_event = { #Finish for PT Mysticism
+	id = tratr_finish.28
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_ptmyst_unlock_trig = yes
+			NOT = { has_country_flag = tratr_ptmyst_finish }
+			NOT = { has_authority = auth_machine_intelligence }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_ptmyst_finish
+		add_modifier = { modifier = tratr_ptmyst_unlocked days = -1 }
+	}
+}
+
+country_event = { #Finish for PT Mysticism Machine
+	id = tratr_finish.29
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_ptmyst_unlock_trig = yes
+			NOT = { has_country_flag = tratr_ptmystmach_finish }
+			has_authority = auth_machine_intelligence
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_ptmystmach_finish
+		add_modifier = { modifier = tratr_ptmystmach_unlocked days = -1 }
+	}
+}
+
+country_event = { #Finish for Discovery
+	id = tratr_finish.30
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_disco_unlock_trig = yes
+			NOT = { has_country_flag = tratr_disco_finish }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_disco_finish
+		add_modifier = { modifier = tratr_disco_unlocked days = -1 }
+	}
+}
+
+#Archivist and its swaps are handled in events\tratr_archivist.txt
+
+country_event = { #Finish for Academy
+	id = tratr_finish.31
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_academy_unlock_trig = yes
+			NOT = { has_country_flag = tratr_aca_finish }
+			est_is_hive_mind = no
+			est_is_machine_empire = no
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_aca_finish
+		tratr_aca_unlocked_effect = yes
+	}
+}
+
+country_event = { #Finish for Academy swap Shroudborn
+	id = tratr_finish.32
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_academy_unlock_trig = yes
+			NOT = { has_country_flag = tratr_aca_finish }
+			est_is_hive_mind = yes
+			est_is_machine_empire = no
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_aca_finish
+		add_modifier = { modifier = tratr_shbn_unlocked days = -1 }
+	}
+}
+
+country_event = { #Finish for Academy swap Hacking
+	id = tratr_finish.33
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_academy_unlock_trig = yes
+			NOT = { has_country_flag = tratr_aca_finish }
+			est_is_hive_mind = no
+			est_is_machine_empire = yes
+			NOR = {
+				has_civic = civic_machine_terminator
+				has_civic = civic_machine_assimilator
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_aca_finish
+		add_modifier = { modifier = tratr_hack_unlocked days = -1 }
+	}
+}
+
+country_event = { #Finish for Academy swap Hacking Terminators
+	id = tratr_finish.34
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_academy_unlock_trig = yes
+			NOT = { has_country_flag = tratr_aca_finish }
+			est_is_hive_mind = no
+			est_is_machine_empire = yes
+			OR = {
+				has_civic = civic_machine_terminator
+				has_civic = civic_machine_assimilator
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_aca_finish
+		add_modifier = { modifier = tratr_hackt_unlocked days = -1 }
+	}
+}
+
+country_event = { #Finish for PT Experimentalism
+	id = tratr_finish.34
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_ptexp_unlock_trig = yes
+			NOT = { has_country_flag = tratr_ptexp_finish }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_ptexp_finish
+	}
+}
+
+country_event = { #Finish for Supremacy
+	id = tratr_finish.35
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_supre_unlock_trig = yes
+			NOT = { has_country_flag = tratr_supre_finish }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_supre_finish
+		add_modifier = { modifier = tratr_supre_unlocked days = -1 }
+	}
+}
+
+country_event = { #Finish for Militarism
+	id = tratr_finish.36
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_milit_unlock_trig = yes
+			NOT = { has_country_flag = tratr_milit_finish }
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_milit_finish
+		tratr_milit_unlocked_effect = yes
+	}
+}
+
+country_event = { #Finish for Militarism swap Might
+	id = tratr_finish.37
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_milit_unlock_trig = yes
+			NOT = { has_country_flag = tratr_might_finish }
+			has_ethic = ethic_gestalt_consciousness
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_might_finish
+		tratr_might_unlocked_effect = yes
+	}
+}
+
+country_event = { #Finish for Piracy
+	id = tratr_finish.38
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_piracy_unlock_trig = yes
+			NOT = { has_country_flag = tratr_pir_finish }
+			NOR = {
+				has_valid_civic = civic_barbaric_despoilers
+				has_valid_civic = civic_fanatic_purifiers
+				has_valid_civic = civic_inwards_perfection
+			}
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_pir_finish
+		add_modifier = { modifier = tratr_pir_unlocked days = -1 }
+	}
+}
+
+country_event = { #Finish for Piracy Special
+	id = tratr_finish.39
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_piracy_unlock_trig = yes
+			NOT = { has_country_flag = tratr_pir_finish }
+			OR = {
+				has_valid_civic = civic_barbaric_despoilers
+				has_valid_civic = civic_fanatic_purifiers
+				has_valid_civic = civic_inwards_perfection
+			}
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_pir_finish
+		tratr_pirspec_unlocked_effect = yes
+	}
+}
+
+country_event = { #Finish for Piracy GC
+	id = tratr_finish.40
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_piracy_unlock_trig = yes
+			NOT = { has_country_flag = tratr_pir_finish }
+			has_ethic = ethic_gestalt_consciousness
+			NOR = {
+				has_valid_civic = civic_hive_devouring_swarm
+				has_valid_civic = civic_machine_terminator			
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_pir_finish
+		add_modifier = { modifier = tratr_pirgc_unlocked days = -1 }
+	}
+}
+
+country_event = { #Finish for Piracy GC Special
+	id = tratr_finish.41
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_piracy_unlock_trig = yes
+			NOT = { has_country_flag = tratr_pir_finish }
+			has_ethic = ethic_gestalt_consciousness
+			OR = {
+				has_valid_civic = civic_hive_devouring_swarm
+				has_valid_civic = civic_machine_terminator			
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_pir_finish
+		tratr_pirspecgc_unlocked_effect = yes
+	}
+}
+
+country_event = { #Finish for PT Assault
+	id = tratr_finish.42
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_ptass_unlock_trig = yes
+			NOT = { has_country_flag = tratr_ptass_finish }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_ptass_finish
+		add_modifier = { modifier = tratr_ptass_unlocked days = -1 }
+	}
+}
+
+country_event = { #Finish for PT Anguish
+	id = tratr_finish.43
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_ptang_unlock_trig = yes
+			NOT = { has_country_flag = tratr_ptang_finish }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_ptang_finish
+		add_modifier = { modifier = tratr_ptang_unlocked days = -1 }
+	}
+}
+
+country_event = { #Finish for PT Order
+	id = tratr_finish.44
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_ptorder_unlock_trig = yes
+			NOT = { has_country_flag = tratr_ptorder_finish }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_ptdef_unlock_trig
+		add_modifier = { modifier = tratr_ptorder_unlocked days = -1 }
+	}
+}
+
+country_event = { #Finish for PT Defence
+	id = tratr_finish.45
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_ptorder_unlock_trig = yes
+			NOT = { has_country_flag = tratr_ptdef_finish }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_ptdef_finish
+		add_modifier = { modifier = tratr_ptdef_unlocked days = -1 }
+	}
+}
+
+country_event = { #Finish for Prosperity
+	id = tratr_finish.46
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_prosp_unlock_trig = yes
+			NOT = { has_country_flag = tratr_ptdef_finish }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_ptdef_finish
+		if = {
+			limit = { 
+				AND = {
+					is_machine_empire = no
+					is_hive_empire = no
+				}
+			}
+			add_modifier = { modifier = tratr_prosp_unlocked days = -1 }
+		}
+		if = {
+			limit = { 
+				AND = {
+					is_machine_empire = yes
+					is_hive_empire = no
+				}
+			}
+			add_modifier = { modifier = tratr_prospm_unlocked days = -1 }
+		}
+		if = {
+			limit = { 
+				AND = {
+					is_machine_empire = no
+					is_hive_empire = yes
+				}
+			}
+			add_modifier = { modifier = tratr_prosph_unlocked days = -1 }
+		}
+	}
+}
+
+country_event = { #Finish for Commerce
+	id = tratr_finish.47
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_comm_unlock_trig = yes
+			NOT = { has_country_flag = tratr_comm_finish }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_comm_finish
+		if = {
+			limit = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			add_modifier = { modifier = tratr_comm_unlocked days = -1 }
+		}
+		if = {
+			limit = { has_ethic = ethic_gestalt_consciousness }
+			add_modifier = { modifier = tratr_bene_unlocked days = -1 }
+		}
+	}
+}
+
+country_event = { #Finish for Greed
+	id = tratr_finish.48
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_greed_unlock_trig = yes
+			NOT = { has_country_flag = tratr_greed_finish }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_greed_finish
+		add_modifier = { modifier = tratr_comm_unlocked days = -1 }
+	}
+}
+
+country_event = { #Finish for PT Kleptocracy
+	id = tratr_finish.49
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_ptklept_unlock_trig = yes
+			NOT = { has_country_flag = tratr_ptklept_finish }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_ptklept_finish
+		add_modifier = { modifier = tratr_ptklept_unlocked days = -1 }
+	}
+}
+
+country_event = { #Finish for Spaceborn
+	id = tratr_finish.50
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_space_unlock_trig = yes
+			NOT = { has_country_flag = tratr_space_finish }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_space_finish
+		add_modifier = { modifier = tratr_space_unlocked days = -1 }
+	}
+}
+
+country_event = { #Finish for Mechanicum
+	id = tratr_finish.51
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_mech_unlock_trig = yes
+			NOT = { has_country_flag = tratr_mech_finish }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_mech_finish
+		if = {
+			limit = { 
+				NOR = { 
+					has_ethic = ethic_gestalt_consciousness 
+					est_uses_robots = yes
+				} 
+			}
+			add_modifier = { modifier = tratr_mech_unlocked days = -1 }
+		}
+		if = {
+			limit = { 
+				AND = {
+					NOT = { has_ethic = ethic_gestalt_consciousness }
+					est_uses_robots = yes
+				}
+			}
+			add_modifier = { modifier = tratr_mechr_unlocked days = -1 }
+		}
+		if = {
+			limit = { has_ethic = ethic_gestalt_consciousness }
+			add_modifier = { modifier = tratr_mechgc_unlocked days = -1 }
+		}
+	}
+}
+
+country_event = { #Finish for PT Endurance
+	id = tratr_finish.52
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_ptend_unlock_trig = yes
+			NOT = { has_country_flag = tratr_ptend_finish }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_ptend_finish
+		add_modifier = { modifier = tratr_ptend_unlocked days = -1 }
+	}
+}
+
+country_event = { #Finish for PT Industry
+	id = tratr_finish.53
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_ptind_unlock_trig = yes
+			NOT = { has_country_flag = tratr_ptind_finish }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_ptind_finish
+		give_technology = { message = no tech = tech_plentiful_traditions_orbital_fracking_cannon }
+		add_modifier = { modifier = tratr_ptind_unlocked days = -1 }
+	}
+}
+
+country_event = { #Finish for PT Cybernetics
+	id = tratr_finish.54
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_ptcyber_unlock_trig = yes
+			NOT = { has_country_flag = tratr_ptcyber_finish }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_ptcyber_finish
+		if = {
+			limit = { NOT = { has_authority = auth_hive_mind } }
+			add_modifier = { modifier = tratr_ptcyber_unlocked days = -1 }
+			give_technology = { message = no tech = tech_plentiful_traditions_cybernetics_construct_amplifiers }
+		}
+		if = {
+			limit = { has_authority = auth_hive_mind }
+			add_modifier = { modifier = tratr_ptcyberh_unlocked days = -1 }
+		}
+	}
+}
+
+country_event = { #Finish for Industry
+	id = tratr_finish.55
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_indus_unlock_trig = yes
+			NOT = { has_country_flag = tratr_indus_finish }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_indus_finish
+		add_modifier = { modifier = tratr_indus_unlocked days = -1 }
+	}
+}
+
+country_event = { #Finish for Mysticism
+	id = tratr_finish.56
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_myst_unlock_trig = yes
+			NOT = { has_country_flag = tratr_myst_finish }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_myst_finish
+		if = {
+			limit = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			tratr_myst_unlocked_effect = yes
+		}
+		if = {
+			limit = { has_ethic = ethic_gestalt_consciousness }
+			add_modifier = { modifier = tratr_philo_unlocked days = -1 }
+		}
+	}
+}
+
+country_event = { #Finish for Nature
+	id = tratr_finish.57
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_natural_unlock_trig = yes
+			NOR = { 
+				has_country_flag = tratr_natnoper_finish 
+				has_country_flag = tratr_natper_finish
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		if = {
+			limit = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			add_modifier = { modifier = tratr_nat_unlocked days = -1 }
+			set_country_flag = tratr_natper_finish
+		}
+		if = {
+			limit = { has_authority = auth_hive_mind }
+			add_modifier = { modifier = tratr_nath_unlocked days = -1 }
+			set_country_flag = tratr_natnoper_finish
+		}
+		if = {
+			limit = { has_authority = auth_hive_mind }
+			add_modifier = { modifier = tratr_natm_unlocked days = -1 }
+			set_country_flag = tratr_natnoper_finish
+		}
+	}
+}
+
+country_event = { #Finish for PT Transformation
+	id = tratr_finish.58
+	hide_window = yes
+
+	trigger = {
+		AND = {
+			tratr_pttrans_unlock_trig = yes
+			NOT = { has_country_flag = tratr_pttrans_finish }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 0
+	}
+
+	immediate = {
+		set_country_flag = tratr_pttrans_finish
+		add_modifier = { modifier = tratr_pttrans_unlocked days = -1 }
+	}
+}

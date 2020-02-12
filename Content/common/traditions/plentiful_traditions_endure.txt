@@ -1,0 +1,95 @@
+tr_plentiful_endure_adopt = {
+	possible = {
+		has_country_flag = stupidAIstoptakingthis
+	}
+	
+	modifier = {
+		pop_environment_tolerance = 0.05
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+}
+
+tr_plentiful_endure_finish = {
+	modifier = {
+		pc_nuked_habitability = 0.10
+		ascension_perks_add = 1
+	}
+}
+
+tr_plentiful_endure_1 = {
+	possible = {
+		has_tradition = tr_est_spaceborn_5
+	}
+	
+	modifier = {
+		country_unity_produces_mult = 0.05
+	}
+	
+	ai_weight = {
+		factor = 1000
+	}
+}
+
+tr_plentiful_endure_2 = {
+	possible = {
+		has_tradition = tr_plentiful_endure_1
+	}
+	
+	modifier = {
+		country_war_exhaustion_mult = -0.25
+	}
+	
+	ai_weight = {
+		factor = 1000
+	}
+}
+
+tr_plentiful_endure_3 = {
+	possible = {
+		has_tradition = tr_est_spaceborn_5
+	}
+	
+	on_enabled = {
+		add_research_option = tech_dark_matter_power_core
+	}
+	
+	modifier = {
+		#fallen-empire-tech
+	}
+	
+	ai_weight = {
+		factor = 1000
+	}
+}
+
+tr_plentiful_endure_4 = {
+	possible = {
+		has_tradition = tr_plentiful_endure_3
+	}
+	
+	modifier = {
+		planet_jobs_slave_produces_mult = 0.2
+	}
+	
+	ai_weight = {
+		factor = 1000
+	}
+}
+
+tr_plentiful_endure_5 = {
+	possible = {
+		has_tradition = tr_plentiful_endure_2
+		has_tradition = tr_plentiful_endure_4
+	}
+	
+	modifier = {
+		megastructure_build_speed_mult = 0.25
+	}
+	
+	ai_weight = {
+		factor = 1000
+	}
+}

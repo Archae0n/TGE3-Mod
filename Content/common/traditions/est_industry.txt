@@ -1,0 +1,200 @@
+tr_est_industry_adopt = {
+	possible = {
+		has_country_flag = stupidAIstoptakingthis
+	}
+	
+	modifier = {
+		district_mining_max = 2
+	}
+	
+	tradition_swap = {
+		name = tr_est_industry_adopt_robots
+		inherit_effects = no
+		inherit_icon = yes
+		inherit_name = yes
+		trigger = {
+			est_uses_robots = yes
+			has_technology = tech_robomodding
+		}
+		modifier = {
+			district_mining_max = 2
+		}
+		weight = {factor =  1}
+	}
+	
+	tradition_swap = {
+		name = tr_est_industry_adopt_GC
+		inherit_effects = no
+		inherit_icon = yes
+		inherit_name = yes
+		trigger = {
+			est_is_hive_mind = yes
+		}
+		modifier = {
+			district_mining_max = 2
+		}
+		weight = {factor =  1}
+	}
+
+	tradition_swap = {
+		name = tr_est_industry_adopt_machines
+		inherit_effects = no
+		inherit_icon = yes
+		inherit_name = yes
+		trigger = {
+			est_is_machine_empire = yes
+		}
+		modifier = {
+			district_mining_max = 2
+		}
+		weight = {factor =  1}
+	}
+	
+	ai_weight = {
+		factor = 0
+	}
+}
+
+tr_est_industry_finish = {
+	modifier = {
+		planet_metallurgists_upkeep_mult = -0.25
+		planet_artisans_upkeep_mult = -0.25
+		ascension_perks_add = 1
+	}
+	
+	tradition_swap = {
+		name = tr_est_industry_adopt_GC
+		inherit_effects = no
+		inherit_icon = yes
+		inherit_name = yes
+		trigger = {
+			has_ethic = ethic_gestalt_consciousness
+		}
+		modifier = {
+			planet_metallurgists_upkeep_mult = -0.25
+			planet_artisans_upkeep_mult = -0.25
+			ascension_perks_add = 1
+		}
+		weight = {factor =  1}
+	}
+}
+
+tr_est_industry_1 = {
+	possible = {
+		has_tradition = tr_plentiful_industry_3
+	}
+	modifier = {
+		station_gatherers_minerals_produces_mult = 0.20
+	}
+	
+	ai_weight = {
+		factor = 0
+		modifier = {
+			weight = 100
+			has_tradition = tr_plentiful_industry_3
+		}
+	}
+}
+
+tr_est_industry_2 = {
+	possible = {
+		has_tradition = tr_est_industry_1
+	}
+	
+	modifier = {
+		category_industry_research_speed_mult = 0.15
+	}
+	
+	ai_weight = {
+		factor = 0
+		modifier = {
+			weight = 100
+			has_tradition = tr_est_industry_1
+		}
+	}
+}
+
+tr_est_industry_3 = {
+	possible = {
+		has_tradition = tr_est_industry_2
+		has_tradition = tr_est_industry_5
+	}	
+	
+	ai_weight = {
+		factor = 0
+		modifier = {
+			weight = 100
+			has_tradition = tr_est_industry_2
+			has_tradition = tr_est_industry_5
+		}
+	}
+}
+
+tr_est_industry_4 = {
+	possible = {
+		has_tradition = tr_est_industry_1
+	}
+	modifier = {
+		starbase_shipyard_build_speed_mult = 0.25
+	}
+
+	tradition_swap = {
+		name = tr_est_industry_4_robots
+		inherit_effects = no
+		inherit_icon = yes
+		inherit_name = no
+		trigger = {
+			est_uses_robots = yes
+		}
+		modifier = {
+			planet_pop_assembly_mult = 0.20
+		}
+
+		weight = {
+			factor = 1
+		}
+	}
+
+	ai_weight = {
+		factor = 0
+		modifier = {
+			weight = 100
+			has_tradition = tr_est_industry_1
+		}
+	}
+}
+
+tr_est_industry_5 = {
+	possible = {
+		has_tradition = tr_est_industry_4
+	}
+
+	tradition_swap = {
+		name = tr_est_industry_5_GC
+		inherit_effects = no
+		inherit_icon = yes
+		inherit_name = yes
+		trigger = {
+			est_is_hive_mind = yes
+		}
+		weight = {factor =  1}
+	}
+	tradition_swap = {
+		name = tr_est_industry_5_machines
+		inherit_effects = no
+		inherit_icon = yes
+		inherit_name = yes
+		trigger = {
+			est_is_machine_empire = yes
+		}
+		weight = {factor =  1}
+	}
+
+	ai_weight = {
+		factor = 0
+		modifier = {
+			weight = 100
+			has_tradition = tr_est_industry_4
+		}
+	}
+}

@@ -1,0 +1,115 @@
+
+spaceship_mechanic
+spaceship_mechanic_gestalt
+job_spaceship_mechanic_add
+job_spaceship_mechanic_gestalt_add 
+subterranean_prospector 
+subterranean_prospector_gestalt 
+ringworld_prospector
+ringworld_prospector_gestalt
+asteroid_prospector
+asteroid_prospector_gestalt
+
+
+d_O_LSLODI_deposit 
+d_HR_LSDI_deposit 
+d_Sv_VFD_deposit 
+d_O_LOSBSP_deposit 
+d_HR_SBSP_deposit 
+d_O_LOSBF_deposit 
+d_H_SBF_deposit 
+d_SaHR_ATN_deposit 
+...
+
+modifier_O_max 
+modifier_O_max_AP 
+
+=================
+
+ap_voidborn 
+ap_master_builders 
+ap_galactic_wonders_utopia_and_megacorp 
+ap_arcology_project 
+
+ap_galactic_force_projection 
+ap_defender_of_the_galaxy 
+ap_technological_ascendancy 
+ap_one_vision 
+ap_mastery_of_nature 
+
+
+job_clerk_add 
+job_maintenance_drone_add 
+
+job_farmer_add 
+job_agri_drone_add 
+job_miner_add 
+job_mining_drone_add 
+job_technician_add 
+job_technician_drone_add 
+
+foundry 
+artisan 
+owner = { is_machine_empire = yes }
+artisan_drone (auth)
+owner = { is_machine_empire = yes }
+fabricator
+owner = { is_hive_empire = yes }
+alloy_drone
+
+merchant 
+
+culture_worker 
+owner = { is_hive_empire = yes }
+synapse_drone 
+owner = { is_machine_empire = yes }
+coordinator 
+
+job_administrator_add 
+owner = { has_authority = auth_corporate }
+job_executive_add 
+
+high_priest 
+priest 
+
+head_researcher 
+job_researcher_add 
+owner = { is_hive_empire = yes }
+job_brain_drone_add 
+owner = { is_machine_empire = yes }
+job_calculator_add 
+
+soldier 
+enforcer 
+patrol_drone 
+warrior_drone 
+
+planet_miners_minerals_produces_mult 
+planet_technician_energy_produces_mult 
+
+country_resource_max_add 
+
+pc_desert 
+pc_arid 
+pc_savannah 
+pc_tropical 
+pc_continental 
+pc_ocean 
+pc_tundra 
+pc_arctic 
+pc_alpine 
+
+pc_nuked 
+pc_hive 
+pc_machine 
+pc_gaia 
+
+pc_ringworld_habitable 
+pc_habitat 
+
+pc_city
+
+
+			has_modifier = resort_colony
+			has_modifier = penal_colony
+			has_modifier = slave_colony

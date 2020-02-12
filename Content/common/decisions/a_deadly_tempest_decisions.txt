@@ -1,0 +1,91 @@
+##########################################################################
+# Decisions
+##########################################################################
+
+# Open L-Cluster
+decision_open_lcluster = {
+	owned_planets_only = yes
+	icon = decision_open_lcluster
+
+	resources = {
+		category = decisions
+		cost = {
+			influence = 0
+		}
+	}
+	
+	potential = {
+		Not = {
+			has_global_flag = lcuster_open
+		}
+		from = {
+			has_technology = tech_lcluster_access
+		}
+		is_capital = yes
+		exists = owner
+	}
+	
+	allow = {
+		from = {
+			controls_lcuster = yes
+		}
+	}
+	
+	effect = {
+		# Make city-planet
+		custom_tooltip = decision_open_lcluster_effects
+		hidden_effect = {
+			owner = {
+				country_event = { id = a_deadly_tempest.1 } # 
+			}
+		}
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+
+# Close L-Cluster
+decision_close_lcluster = {
+	owned_planets_only = yes
+	icon = decision_close_lcluster
+
+	resources = {
+		category = decisions
+		cost = {
+			influence = 0
+		}
+	}
+	
+	potential = {
+		Not = {
+			has_global_flag = lcuster_open
+		}
+		from = {
+			has_technology = tech_lcluster_access
+		}
+		is_capital = yes
+		exists = owner
+	}
+	
+	allow = {
+		from = {
+			controls_lcuster = yes
+		}
+	}
+	
+	effect = {
+		# Make city-planet
+		custom_tooltip = decision_close_lcluster_effects
+		hidden_effect = {
+			owner = {
+				country_event = { id = a_deadly_tempest.2 } # 
+			}
+		}
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}

@@ -1,0 +1,7 @@
+	NGameplay = {
+			GOVERNMENT_COOLDOWN_YEARS				= 5	# Cooldown years after changing government before you can change it again
+			GOVERNMENT_CHANGE_INFLUENCE_COST		= 200	# The Influence it costs to change government type
+			MIN_TRADE_DEAL_LENGTH_YEARS				= 1	# Minimum length of a trade deal in years.
+			MAX_TRADE_DEAL_LENGTH_YEARS				= 20	# Maximum length of a trade deal in years.
+			TRUCE_YEARS = 0
+	}

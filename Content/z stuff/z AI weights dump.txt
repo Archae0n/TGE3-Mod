@@ -1,0 +1,104 @@
+
+
+	ai_weight = {
+		weight = 1 # low
+		weight = 2 # normal
+		weight = 3 # high
+		modifier = { # GAI planet quality flag
+			weight = 1
+			weight = 2
+			weight = 3
+			gai_good_food = yes
+			gai_good_energy = yes
+			gai_good_minerals = yes
+			gai_good_research = yes
+		}
+		modifier = { # better investment if planet is fully developed
+			weight = 1
+			free_district_slots = 0
+			factor = 0
+			free_district_slots > 0
+		}
+		modifier = { # or not
+			weight = 1
+			free_district_slots > 0
+		}
+		modifier = { # capital planet modifier, a particular decision may be particularly wanted in the capital
+			weight = 3
+			weight = 6
+			is_capital = yes
+		}
+		modifier = { # energy stockpile # @d_AI_S_energy @d_AI_U_energy @d_AI_O_energy 
+			factor = 0
+			from = { resource_stockpile_compare = { resource = energy value < @d_AI_S_energy } }
+		}
+		modifier = { # minerals stockpile # @d_AI_S_minerals @d_AI_U_minerals 
+			factor = 0
+			from = { resource_stockpile_compare = { resource = minerals value < @d_AI_S_minerals } }
+		}
+		modifier = { # alloys stockpile # @d_AI_O_alloys 
+			factor = 0
+			from = { resource_stockpile_compare = { resource = alloys value < @d_AI_O_alloys } }
+		}
+		modifier = { # influence stockpile # @d_AI_influence 
+			factor = 0
+			from = { resource_stockpile_compare = { resource = influence value < @d_AI_influence } }
+		}
+		modifier = { # must be at peace # this could be an AI enabling condition instead, for performance
+			factor = 0
+			from = { is_at_war = yes }
+		}
+		modifier = { # not to be wasted on undeveloped places # habitats tend to be 25-40 pops
+			factor = 0
+			num_pops < 25
+			num_pops < 50
+		}
+		modifier = { # might be particularly important on more developed places
+			weight = 1
+			num_pops > 49
+		}
+		modifier = { # maybe only relevant for larger planets # 0 will override capital
+			factor = 0.5
+			planet_size < 21 # > 20 for 4*O 
+		}
+		modifier = { # maybe AI should only build 1
+			factor = 0
+			has_deposit = 
+		}
+		modifier = { # AI profit checks # has_monthly_income must be profit or it'd make no sense at all
+			weight = 3
+			from = { 
+				has_monthly_income = { # energy food minerals consumer_goods
+					resource = energy
+					value < 50
+				}
+			}
+		}
+		modifier = { # AI profit checks # has_monthly_income must be profit or it'd make no sense at all
+			factor = 0
+			from = { 
+				has_monthly_income = { 
+					resource = energy
+					value > 300
+				}
+			}
+		}
+		modifier = { # if relevant for naval cap
+			factor = 3
+			from = { used_naval_capacity_percent > 0.90 }
+		}
+	}
+
+
+
+		#modifier = { # better investment on planets with unemployment 
+		#	weight = 1
+		#	planet = { free_jobs < 1 }
+		#}
+		#modifier = { # better investment on planets with or without free housing
+		#	weight = 1
+		#	free_housing > 0
+		#}
+
+
+

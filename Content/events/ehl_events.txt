@@ -1,0 +1,3102 @@
+namespace = ehl_event
+
+#Startup Event - Event 1
+#Mark stars that won't be affected
+#Isolate 25% of the remaining starts
+event = {
+	id = ehl_event.1
+	hide_window = yes
+	
+	immediate = {
+		every_system = {
+			limit = {
+				OR = {
+					has_owner = yes
+					is_star_class = sc_pulsar
+					is_star_class = sc_binary_1
+					is_star_class = sc_binary_pl_pl
+					is_star_class = sc_binary_pl_n
+				}
+			}
+			set_star_flag = connected
+		}
+		every_system = {
+			limit = {
+				has_star_flag = connected
+			}
+			every_neighbor_system = {
+				set_star_flag = connected
+			}
+		}
+		every_system = {
+			limit = {
+				NOT = {
+					has_star_flag = connected
+				}
+			}
+			random_list = {
+				25 = {
+					isolate_system = yes
+				}
+				75 = {
+				}
+			}
+		}
+	}
+}
+
+#Startup Event - Event 2
+#Check Size of Galaxy to determine lane generation rate
+event = {
+	id = ehl_event.2
+	hide_window = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				count_system = {
+					count < 500
+				}
+			}
+			set_global_flag = EHL_RATE_LOW
+		}
+		else_if = {
+			limit = {
+				count_system = {
+					count < 800
+				}
+			}
+			set_global_flag = EHL_RATE_MEDIUM
+		}
+		else = {
+			limit = {
+				count_system = {
+					count > 800
+				}
+			}
+			set_global_flag = EHL_RATE_HIGH
+		}
+	}
+}
+
+#1 Year Pulse - Event 3
+#Check which stars are isolated, connected and cleanup.
+event = {
+	id = ehl_event.3
+	hide_window = yes
+	
+	immediate = {
+		every_system = {
+			if = {
+				limit = {
+					any_neighbor_system = {
+						ignore_hyperlanes = yes			
+						NOT = {
+							has_hyperlane_to = PREV
+						}
+					}
+					NOT = {
+						has_star_flag = sealed_system
+					}
+				}
+				set_star_flag = isolated
+				remove_star_flag = connected
+				else = {
+					set_star_flag = connected
+					remove_star_flag = isolated
+				}
+			}
+		}
+		every_system = {
+			every_neighbor_system = {
+				ignore_hyperlanes = yes
+				limit = {
+					has_hyperlane_to = PREV
+				}
+				set_star_flag = connected
+				remove_star_flag = isolated
+			}
+		}
+		every_system = {
+			limit = {
+				OR = { 
+					has_star_flag = sealed_system
+					has_star_flag = extragalactic_cluster
+					has_star_flag = lcluster
+					has_star_flag = mem_sadrell_extant_cluster
+					has_star_flag = outercluster
+				}
+			}
+			remove_star_flag = isolated
+			remove_star_flag = connected
+		}
+	}
+}
+
+#10 year pulse - Event 4
+#Add hyperlanes - low rate - for smaller sized galaxies
+event = {
+	id = ehl_event.4
+	hide_window = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				AND = { 
+					has_global_flag = EHL_RATE_LOW
+					has_global_flag = EHL_10_YEAR_PULSE
+				}
+			}
+			while = {
+				count = 80
+				random_list = {
+					#Isolated Bottleneck
+					35 ={
+						random_system = {
+							limit = {
+								AND = {
+									has_star_flag = isolated
+									is_bottleneck_system = yes
+								}
+								NOT = {
+									starbase = {
+										has_starbase_building = warp_fluctuator
+									}
+								}
+							}
+							random_neighbor_system = {
+								limit = {
+									NOR = {
+										has_star_flag = sealed_system
+										has_star_flag = extragalactic_cluster
+										has_star_flag = lcluster
+										has_star_flag = mem_sadrell_extant_cluster
+										has_star_flag = outercluster
+									}
+									NOT = {
+										starbase = {
+											has_starbase_building = warp_fluctuator
+										}
+									}
+								}
+								ignore_hyperlanes = yes
+								if = {
+									limit = {
+										NOT = {
+											has_hyperlane_to = PREV
+										}
+									}
+									add_hyperlane = {
+										from = PREV
+										to = THIS
+									}
+									remove_star_flag = isolated
+									set_star_flag = connected
+									owner = {
+										create_message = {
+											type = EHL_HYPERLANE_SHIFT_ONE
+											localization = EHL_HYPERLANE_SHIFT_DESC_1
+											days = 20
+											target = PREV
+											variable = {
+												type = name
+												localization = SYSTEM
+												scope = PREV
+											}
+										}
+									}
+									PREV = {
+										remove_star_flag = isolated
+										set_star_flag = connected
+										owner = {
+											create_message = {
+												type = EHL_HYPERLANE_SHIFT_ONE
+												localization = EHL_HYPERLANE_SHIFT_DESC_1
+												days = 20
+												target = PREV
+												variable = {
+													type = name
+													localization = SYSTEM
+													scope = PREV
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					#Connected Bottleneck
+					35 = {
+						random_system = {
+							limit = {
+								AND = {
+									has_star_flag = connected
+									is_bottleneck_system = yes
+								}
+								NOT = {
+									starbase = {
+										has_starbase_building = warp_fluctuator
+									}
+								}
+							}
+							random_neighbor_system = {
+								limit = {
+									NOR = {
+										has_star_flag = sealed_system
+										has_star_flag = extragalactic_cluster
+										has_star_flag = lcluster
+										has_star_flag = mem_sadrell_extant_cluster
+										has_star_flag = outercluster
+									}
+									NOT = {
+										starbase = {
+											has_starbase_building = warp_fluctuator
+										}
+									}
+								}
+								ignore_hyperlanes = yes
+								if = {
+									limit = {
+										NOT = { 
+											has_hyperlane_to = PREV 
+										}
+									}
+									add_hyperlane = {
+										from = PREV
+										to = THIS
+									}
+									remove_star_flag = isolated
+									set_star_flag = connected
+									owner = {
+										create_message = {
+											type = EHL_HYPERLANE_SHIFT_ONE
+											localization = EHL_HYPERLANE_SHIFT_DESC_1
+											days = 20
+											target = PREV
+											variable = {
+												type = name
+												localization = SYSTEM
+												scope = PREV
+											}
+										}
+									}
+									PREV = {
+										remove_star_flag = isolated
+										set_star_flag = connected
+										owner = {
+											create_message = {
+												type = EHL_HYPERLANE_SHIFT_ONE
+												localization = EHL_HYPERLANE_SHIFT_DESC_1
+												days = 20
+												target = PREV
+												variable = {
+													type = name
+													localization = SYSTEM
+													scope = PREV
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					#Isolated Non-Bottleneck
+					15 = {
+						random_system = {
+							limit = {
+								has_star_flag = isolated
+								NOT = {
+									is_bottleneck_system = yes
+								}
+								NOT = {
+									starbase = {
+										has_starbase_building = warp_fluctuator
+									}
+								}
+							}
+							random_neighbor_system = {
+								limit = {
+									NOR = {
+										has_star_flag = sealed_system
+										has_star_flag = extragalactic_cluster
+										has_star_flag = lcluster
+										has_star_flag = mem_sadrell_extant_cluster
+										has_star_flag = outercluster
+									}
+									NOT = {
+										starbase = {
+											has_starbase_building = warp_fluctuator
+										}
+									}
+								}
+								ignore_hyperlanes = yes
+								if = {
+									limit = {
+										NOT = {
+											has_hyperlane_to = PREV
+										}
+									}
+									add_hyperlane = {
+										from = PREV
+										to = THIS
+									}
+									remove_star_flag = isolated
+									set_star_flag = connected
+									owner = {
+										create_message = {
+											type = EHL_HYPERLANE_SHIFT_ONE
+											localization = EHL_HYPERLANE_SHIFT_DESC_1
+											days = 20
+											target = PREV
+											variable = {
+												type = name
+												localization = SYSTEM
+												scope = PREV
+											}
+										}
+									}
+									PREV = {
+										remove_star_flag = isolated
+										set_star_flag = connected
+										owner = {
+											create_message = {
+												type = EHL_HYPERLANE_SHIFT_ONE
+												localization = EHL_HYPERLANE_SHIFT_DESC_1
+												days = 20
+												target = PREV
+												variable = {
+													type = name
+													localization = SYSTEM
+													scope = PREV
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					#Connected Non-Bottleneck
+					15 = {
+						random_system = {
+							limit = {
+								has_star_flag = connected
+								NOT = {
+									is_bottleneck_system = yes
+								}
+								NOT = {
+									starbase = {
+										has_starbase_building = warp_fluctuator
+									}
+								}
+							}
+							random_neighbor_system = {
+								limit = {
+									NOR = {
+										has_star_flag = sealed_system
+										has_star_flag = extragalactic_cluster
+										has_star_flag = lcluster
+										has_star_flag = mem_sadrell_extant_cluster
+										has_star_flag = outercluster
+									}
+									NOT = {
+										starbase = {
+											has_starbase_building = warp_fluctuator
+										}
+									}
+								}
+								ignore_hyperlanes = yes
+								if = {
+									limit = {
+										NOT = {
+											has_hyperlane_to = PREV
+										}
+									}
+									add_hyperlane = {
+										from = PREV
+										to = THIS
+									}
+									remove_star_flag = isolated
+									set_star_flag = connected
+									owner = {
+										create_message = {
+											type = EHL_HYPERLANE_SHIFT_ONE
+											localization = EHL_HYPERLANE_SHIFT_DESC_1
+											days = 20
+											target = PREV
+											variable = {
+												type = name
+												localization = SYSTEM
+												scope = PREV
+											}
+										}
+									}
+									PREV = {
+										remove_star_flag = isolated
+										set_star_flag = connected
+										owner = {
+											create_message = {
+												type = EHL_HYPERLANE_SHIFT_ONE
+												localization = EHL_HYPERLANE_SHIFT_DESC_1
+												days = 20
+												target = PREV
+												variable = {
+													type = name
+													localization = SYSTEM
+													scope = PREV
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+#10 year pulse - Event 5
+#Add hyperlanes - medium rate - for medium sized galaxies
+event = {
+	id = ehl_event.5
+	hide_window = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				AND = { 
+					has_global_flag = EHL_RATE_MEDIUM
+					has_global_flag = EHL_10_YEAR_PULSE
+				}
+			}
+			while = {
+				count = 90
+				random_list = {
+					#Isolated Bottleneck
+					35 ={
+						random_system = {
+							limit = {
+								AND = {
+									has_star_flag = isolated
+									is_bottleneck_system = yes
+								}
+								NOT = {
+									starbase = {
+										has_starbase_building = warp_fluctuator
+									}
+								}
+							}
+							random_neighbor_system = {
+								limit = {
+									NOR = {
+										has_star_flag = sealed_system
+										has_star_flag = extragalactic_cluster
+										has_star_flag = lcluster
+										has_star_flag = mem_sadrell_extant_cluster
+										has_star_flag = outercluster
+									}
+									NOT = {
+										starbase = {
+											has_starbase_building = warp_fluctuator
+										}
+									}
+								}
+								ignore_hyperlanes = yes
+								if = {
+									limit = {
+										NOT = {
+											has_hyperlane_to = PREV
+										}
+									}
+									add_hyperlane = {
+										from = PREV
+										to = THIS
+									}
+									remove_star_flag = isolated
+									set_star_flag = connected
+									owner = {
+										create_message = {
+											type = EHL_HYPERLANE_SHIFT_ONE
+											localization = EHL_HYPERLANE_SHIFT_DESC_1
+											days = 20
+											target = PREV
+											variable = {
+												type = name
+												localization = SYSTEM
+												scope = PREV
+											}
+										}
+									}
+									PREV = {
+										remove_star_flag = isolated
+										set_star_flag = connected
+										owner = {
+											create_message = {
+												type = EHL_HYPERLANE_SHIFT_ONE
+												localization = EHL_HYPERLANE_SHIFT_DESC_1
+												days = 20
+												target = PREV
+												variable = {
+													type = name
+													localization = SYSTEM
+													scope = PREV
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					#Connected Bottleneck
+					35 = {
+						random_system = {
+							limit = {
+								AND = {
+									has_star_flag = connected
+									is_bottleneck_system = yes
+								}
+								NOT = {
+									starbase = {
+										has_starbase_building = warp_fluctuator
+									}
+								}
+							}
+							random_neighbor_system = {
+								limit = {
+									NOR = {
+										has_star_flag = sealed_system
+										has_star_flag = extragalactic_cluster
+										has_star_flag = lcluster
+										has_star_flag = mem_sadrell_extant_cluster
+										has_star_flag = outercluster
+									}
+									NOT = {
+										starbase = {
+											has_starbase_building = warp_fluctuator
+										}
+									}
+								}
+								ignore_hyperlanes = yes
+								if = {
+									limit = {
+										NOT = { 
+											has_hyperlane_to = PREV 
+										}
+									}
+									add_hyperlane = {
+										from = PREV
+										to = THIS
+									}
+									remove_star_flag = isolated
+									set_star_flag = connected
+									owner = {
+										create_message = {
+											type = EHL_HYPERLANE_SHIFT_ONE
+											localization = EHL_HYPERLANE_SHIFT_DESC_1
+											days = 20
+											target = PREV
+											variable = {
+												type = name
+												localization = SYSTEM
+												scope = PREV
+											}
+										}
+									}
+									PREV = {
+										remove_star_flag = isolated
+										set_star_flag = connected
+										owner = {
+											create_message = {
+												type = EHL_HYPERLANE_SHIFT_ONE
+												localization = EHL_HYPERLANE_SHIFT_DESC_1
+												days = 20
+												target = PREV
+												variable = {
+													type = name
+													localization = SYSTEM
+													scope = PREV
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					#Isolated Non-Bottleneck
+					15 = {
+						random_system = {
+							limit = {
+								has_star_flag = isolated
+								NOT = {
+									is_bottleneck_system = yes
+								}
+								NOT = {
+									starbase = {
+										has_starbase_building = warp_fluctuator
+									}
+								}
+							}
+							random_neighbor_system = {
+								limit = {
+									NOR = {
+										has_star_flag = sealed_system
+										has_star_flag = extragalactic_cluster
+										has_star_flag = lcluster
+										has_star_flag = mem_sadrell_extant_cluster
+										has_star_flag = outercluster
+									}
+									NOT = {
+										starbase = {
+											has_starbase_building = warp_fluctuator
+										}
+									}
+								}
+								ignore_hyperlanes = yes
+								if = {
+									limit = {
+										NOT = {
+											has_hyperlane_to = PREV
+										}
+									}
+									add_hyperlane = {
+										from = PREV
+										to = THIS
+									}
+									remove_star_flag = isolated
+									set_star_flag = connected
+									owner = {
+										create_message = {
+											type = EHL_HYPERLANE_SHIFT_ONE
+											localization = EHL_HYPERLANE_SHIFT_DESC_1
+											days = 20
+											target = PREV
+											variable = {
+												type = name
+												localization = SYSTEM
+												scope = PREV
+											}
+										}
+									}
+									PREV = {
+										remove_star_flag = isolated
+										set_star_flag = connected
+										owner = {
+											create_message = {
+												type = EHL_HYPERLANE_SHIFT_ONE
+												localization = EHL_HYPERLANE_SHIFT_DESC_1
+												days = 20
+												target = PREV
+												variable = {
+													type = name
+													localization = SYSTEM
+													scope = PREV
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					#Connected Non-Bottleneck
+					15 = {
+						random_system = {
+							limit = {
+								has_star_flag = connected
+								NOT = {
+									is_bottleneck_system = yes
+								}
+								NOT = {
+									starbase = {
+										has_starbase_building = warp_fluctuator
+									}
+								}
+							}
+							random_neighbor_system = {
+								limit = {
+									NOR = {
+										has_star_flag = sealed_system
+										has_star_flag = extragalactic_cluster
+										has_star_flag = lcluster
+										has_star_flag = mem_sadrell_extant_cluster
+										has_star_flag = outercluster
+									}
+									NOT = {
+										starbase = {
+											has_starbase_building = warp_fluctuator
+										}
+									}
+								}
+								ignore_hyperlanes = yes
+								if = {
+									limit = {
+										NOT = {
+											has_hyperlane_to = PREV
+										}
+									}
+									add_hyperlane = {
+										from = PREV
+										to = THIS
+									}
+									remove_star_flag = isolated
+									set_star_flag = connected
+									owner = {
+										create_message = {
+											type = EHL_HYPERLANE_SHIFT_ONE
+											localization = EHL_HYPERLANE_SHIFT_DESC_1
+											days = 20
+											target = PREV
+											variable = {
+												type = name
+												localization = SYSTEM
+												scope = PREV
+											}
+										}
+									}
+									PREV = {
+										remove_star_flag = isolated
+										set_star_flag = connected
+										owner = {
+											create_message = {
+												type = EHL_HYPERLANE_SHIFT_ONE
+												localization = EHL_HYPERLANE_SHIFT_DESC_1
+												days = 20
+												target = PREV
+												variable = {
+													type = name
+													localization = SYSTEM
+													scope = PREV
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+#10 year pulse - Event 6
+#Add hyperlanes - high rate - for larger sized galaxies
+event = {
+	id = ehl_event.6
+	hide_window = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				AND = { 
+					has_global_flag = EHL_RATE_HIGH
+					has_global_flag = EHL_10_YEAR_PULSE
+				}
+			}
+			while = {
+				count = 110
+				random_list = {
+					#Isolated Bottleneck
+					35 ={
+						random_system = {
+							limit = {
+								AND = {
+									has_star_flag = isolated
+									is_bottleneck_system = yes
+								}
+								NOT = {
+									starbase = {
+										has_starbase_building = warp_fluctuator
+									}
+								}
+							}
+							random_neighbor_system = {
+								limit = {
+									NOR = {
+										has_star_flag = sealed_system
+										has_star_flag = extragalactic_cluster
+										has_star_flag = lcluster
+										has_star_flag = mem_sadrell_extant_cluster
+										has_star_flag = outercluster
+									}
+									NOT = {
+										starbase = {
+											has_starbase_building = warp_fluctuator
+										}
+									}
+								}
+								ignore_hyperlanes = yes
+								if = {
+									limit = {
+										NOT = {
+											has_hyperlane_to = PREV
+										}
+									}
+									add_hyperlane = {
+										from = PREV
+										to = THIS
+									}
+									remove_star_flag = isolated
+									set_star_flag = connected
+									owner = {
+										create_message = {
+											type = EHL_HYPERLANE_SHIFT_ONE
+											localization = EHL_HYPERLANE_SHIFT_DESC_1
+											days = 20
+											target = PREV
+											variable = {
+												type = name
+												localization = SYSTEM
+												scope = PREV
+											}
+										}
+									}
+									PREV = {
+										remove_star_flag = isolated
+										set_star_flag = connected
+										owner = {
+											create_message = {
+												type = EHL_HYPERLANE_SHIFT_ONE
+												localization = EHL_HYPERLANE_SHIFT_DESC_1
+												days = 20
+												target = PREV
+												variable = {
+													type = name
+													localization = SYSTEM
+													scope = PREV
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					#Connected Bottleneck
+					35 = {
+						random_system = {
+							limit = {
+								AND = {
+									has_star_flag = connected
+									is_bottleneck_system = yes
+								}
+								NOT = {
+									starbase = {
+										has_starbase_building = warp_fluctuator
+									}
+								}
+							}
+							random_neighbor_system = {
+								limit = {
+									NOR = {
+										has_star_flag = sealed_system
+										has_star_flag = extragalactic_cluster
+										has_star_flag = lcluster
+										has_star_flag = mem_sadrell_extant_cluster
+										has_star_flag = outercluster
+									}
+									NOT = {
+										starbase = {
+											has_starbase_building = warp_fluctuator
+										}
+									}
+								}
+								ignore_hyperlanes = yes
+								if = {
+									limit = {
+										NOT = { 
+											has_hyperlane_to = PREV 
+										}
+									}
+									add_hyperlane = {
+										from = PREV
+										to = THIS
+									}
+									remove_star_flag = isolated
+									set_star_flag = connected
+									owner = {
+										create_message = {
+											type = EHL_HYPERLANE_SHIFT_ONE
+											localization = EHL_HYPERLANE_SHIFT_DESC_1
+											days = 20
+											target = PREV
+											variable = {
+												type = name
+												localization = SYSTEM
+												scope = PREV
+											}
+										}
+									}
+									PREV = {
+										remove_star_flag = isolated
+										set_star_flag = connected
+										owner = {
+											create_message = {
+												type = EHL_HYPERLANE_SHIFT_ONE
+												localization = EHL_HYPERLANE_SHIFT_DESC_1
+												days = 20
+												target = PREV
+												variable = {
+													type = name
+													localization = SYSTEM
+													scope = PREV
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					#Isolated Non-Bottleneck
+					15 = {
+						random_system = {
+							limit = {
+								has_star_flag = isolated
+								NOT = {
+									is_bottleneck_system = yes
+								}
+								NOT = {
+									starbase = {
+										has_starbase_building = warp_fluctuator
+									}
+								}
+							}
+							random_neighbor_system = {
+								limit = {
+									NOR = {
+										has_star_flag = sealed_system
+										has_star_flag = extragalactic_cluster
+										has_star_flag = lcluster
+										has_star_flag = mem_sadrell_extant_cluster
+										has_star_flag = outercluster
+									}
+									NOT = {
+										starbase = {
+											has_starbase_building = warp_fluctuator
+										}
+									}
+								}
+								ignore_hyperlanes = yes
+								if = {
+									limit = {
+										NOT = {
+											has_hyperlane_to = PREV
+										}
+									}
+									add_hyperlane = {
+										from = PREV
+										to = THIS
+									}
+									remove_star_flag = isolated
+									set_star_flag = connected
+									owner = {
+										create_message = {
+											type = EHL_HYPERLANE_SHIFT_ONE
+											localization = EHL_HYPERLANE_SHIFT_DESC_1
+											days = 20
+											target = PREV
+											variable = {
+												type = name
+												localization = SYSTEM
+												scope = PREV
+											}
+										}
+									}
+									PREV = {
+										remove_star_flag = isolated
+										set_star_flag = connected
+										owner = {
+											create_message = {
+												type = EHL_HYPERLANE_SHIFT_ONE
+												localization = EHL_HYPERLANE_SHIFT_DESC_1
+												days = 20
+												target = PREV
+												variable = {
+													type = name
+													localization = SYSTEM
+													scope = PREV
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					#Connected Non-Bottleneck
+					15 = {
+						random_system = {
+							limit = {
+								has_star_flag = connected
+								NOT = {
+									is_bottleneck_system = yes
+								}
+								NOT = {
+									starbase = {
+										has_starbase_building = warp_fluctuator
+									}
+								}
+							}
+							random_neighbor_system = {
+								limit = {
+									NOR = {
+										has_star_flag = sealed_system
+										has_star_flag = extragalactic_cluster
+										has_star_flag = lcluster
+										has_star_flag = mem_sadrell_extant_cluster
+										has_star_flag = outercluster
+									}
+									NOT = {
+										starbase = {
+											has_starbase_building = warp_fluctuator
+										}
+									}
+								}
+								ignore_hyperlanes = yes
+								if = {
+									limit = {
+										NOT = {
+											has_hyperlane_to = PREV
+										}
+									}
+									add_hyperlane = {
+										from = PREV
+										to = THIS
+									}
+									remove_star_flag = isolated
+									set_star_flag = connected
+									owner = {
+										create_message = {
+											type = EHL_HYPERLANE_SHIFT_ONE
+											localization = EHL_HYPERLANE_SHIFT_DESC_1
+											days = 20
+											target = PREV
+											variable = {
+												type = name
+												localization = SYSTEM
+												scope = PREV
+											}
+										}
+									}
+									PREV = {
+										remove_star_flag = isolated
+										set_star_flag = connected
+										owner = {
+											create_message = {
+												type = EHL_HYPERLANE_SHIFT_ONE
+												localization = EHL_HYPERLANE_SHIFT_DESC_1
+												days = 20
+												target = PREV
+												variable = {
+													type = name
+													localization = SYSTEM
+													scope = PREV
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+#5 year pulse - Event 7
+#Add hyperlanes - low rate - for smaller sized galaxies
+event = {
+	id = ehl_event.7
+	hide_window = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				AND = { 
+					has_global_flag = EHL_RATE_LOW
+					has_global_flag = EHL_5_YEAR_PULSE
+				}
+			}
+			while = {
+				count = 40
+				random_list = {
+					#Isolated Bottleneck
+					35 ={
+						random_system = {
+							limit = {
+								AND = {
+									has_star_flag = isolated
+									is_bottleneck_system = yes
+								}
+								NOT = {
+									starbase = {
+										has_starbase_building = warp_fluctuator
+									}
+								}
+							}
+							random_neighbor_system = {
+								limit = {
+									NOR = {
+										has_star_flag = sealed_system
+										has_star_flag = extragalactic_cluster
+										has_star_flag = lcluster
+										has_star_flag = mem_sadrell_extant_cluster
+										has_star_flag = outercluster
+									}
+									NOT = {
+										starbase = {
+											has_starbase_building = warp_fluctuator
+										}
+									}
+								}
+								ignore_hyperlanes = yes
+								if = {
+									limit = {
+										NOT = {
+											has_hyperlane_to = PREV
+										}
+									}
+									add_hyperlane = {
+										from = PREV
+										to = THIS
+									}
+									remove_star_flag = isolated
+									set_star_flag = connected
+									owner = {
+										create_message = {
+											type = EHL_HYPERLANE_SHIFT_ONE
+											localization = EHL_HYPERLANE_SHIFT_DESC_1
+											days = 20
+											target = PREV
+											variable = {
+												type = name
+												localization = SYSTEM
+												scope = PREV
+											}
+										}
+									}
+									PREV = {
+										remove_star_flag = isolated
+										set_star_flag = connected
+										owner = {
+											create_message = {
+												type = EHL_HYPERLANE_SHIFT_ONE
+												localization = EHL_HYPERLANE_SHIFT_DESC_1
+												days = 20
+												target = PREV
+												variable = {
+													type = name
+													localization = SYSTEM
+													scope = PREV
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					#Connected Bottleneck
+					35 = {
+						random_system = {
+							limit = {
+								AND = {
+									has_star_flag = connected
+									is_bottleneck_system = yes
+								}
+								NOT = {
+									starbase = {
+										has_starbase_building = warp_fluctuator
+									}
+								}
+							}
+							random_neighbor_system = {
+								limit = {
+									NOR = {
+										has_star_flag = sealed_system
+										has_star_flag = extragalactic_cluster
+										has_star_flag = lcluster
+										has_star_flag = mem_sadrell_extant_cluster
+										has_star_flag = outercluster
+									}
+									NOT = {
+										starbase = {
+											has_starbase_building = warp_fluctuator
+										}
+									}
+								}
+								ignore_hyperlanes = yes
+								if = {
+									limit = {
+										NOT = { 
+											has_hyperlane_to = PREV 
+										}
+									}
+									add_hyperlane = {
+										from = PREV
+										to = THIS
+									}
+									remove_star_flag = isolated
+									set_star_flag = connected
+									owner = {
+										create_message = {
+											type = EHL_HYPERLANE_SHIFT_ONE
+											localization = EHL_HYPERLANE_SHIFT_DESC_1
+											days = 20
+											target = PREV
+											variable = {
+												type = name
+												localization = SYSTEM
+												scope = PREV
+											}
+										}
+									}
+									PREV = {
+										remove_star_flag = isolated
+										set_star_flag = connected
+										owner = {
+											create_message = {
+												type = EHL_HYPERLANE_SHIFT_ONE
+												localization = EHL_HYPERLANE_SHIFT_DESC_1
+												days = 20
+												target = PREV
+												variable = {
+													type = name
+													localization = SYSTEM
+													scope = PREV
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					#Isolated Non-Bottleneck
+					15 = {
+						random_system = {
+							limit = {
+								has_star_flag = isolated
+								NOT = {
+									is_bottleneck_system = yes
+								}
+								NOT = {
+									starbase = {
+										has_starbase_building = warp_fluctuator
+									}
+								}
+							}
+							random_neighbor_system = {
+								limit = {
+									NOR = {
+										has_star_flag = sealed_system
+										has_star_flag = extragalactic_cluster
+										has_star_flag = lcluster
+										has_star_flag = mem_sadrell_extant_cluster
+										has_star_flag = outercluster
+									}
+									NOT = {
+										starbase = {
+											has_starbase_building = warp_fluctuator
+										}
+									}
+								}
+								ignore_hyperlanes = yes
+								if = {
+									limit = {
+										NOT = {
+											has_hyperlane_to = PREV
+										}
+									}
+									add_hyperlane = {
+										from = PREV
+										to = THIS
+									}
+									remove_star_flag = isolated
+									set_star_flag = connected
+									owner = {
+										create_message = {
+											type = EHL_HYPERLANE_SHIFT_ONE
+											localization = EHL_HYPERLANE_SHIFT_DESC_1
+											days = 20
+											target = PREV
+											variable = {
+												type = name
+												localization = SYSTEM
+												scope = PREV
+											}
+										}
+									}
+									PREV = {
+										remove_star_flag = isolated
+										set_star_flag = connected
+										owner = {
+											create_message = {
+												type = EHL_HYPERLANE_SHIFT_ONE
+												localization = EHL_HYPERLANE_SHIFT_DESC_1
+												days = 20
+												target = PREV
+												variable = {
+													type = name
+													localization = SYSTEM
+													scope = PREV
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					#Connected Non-Bottleneck
+					15 = {
+						random_system = {
+							limit = {
+								has_star_flag = connected
+								NOT = {
+									is_bottleneck_system = yes
+								}
+								NOT = {
+									starbase = {
+										has_starbase_building = warp_fluctuator
+									}
+								}
+							}
+							random_neighbor_system = {
+								limit = {
+									NOR = {
+										has_star_flag = sealed_system
+										has_star_flag = extragalactic_cluster
+										has_star_flag = lcluster
+										has_star_flag = mem_sadrell_extant_cluster
+										has_star_flag = outercluster
+									}
+									NOT = {
+										starbase = {
+											has_starbase_building = warp_fluctuator
+										}
+									}
+								}
+								ignore_hyperlanes = yes
+								if = {
+									limit = {
+										NOT = {
+											has_hyperlane_to = PREV
+										}
+									}
+									add_hyperlane = {
+										from = PREV
+										to = THIS
+									}
+									remove_star_flag = isolated
+									set_star_flag = connected
+									owner = {
+										create_message = {
+											type = EHL_HYPERLANE_SHIFT_ONE
+											localization = EHL_HYPERLANE_SHIFT_DESC_1
+											days = 20
+											target = PREV
+											variable = {
+												type = name
+												localization = SYSTEM
+												scope = PREV
+											}
+										}
+									}
+									PREV = {
+										remove_star_flag = isolated
+										set_star_flag = connected
+										owner = {
+											create_message = {
+												type = EHL_HYPERLANE_SHIFT_ONE
+												localization = EHL_HYPERLANE_SHIFT_DESC_1
+												days = 20
+												target = PREV
+												variable = {
+													type = name
+													localization = SYSTEM
+													scope = PREV
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+#5 year pulse - Event 8
+#Add hyperlanes - medium rate - for medium sized galaxies
+event = {
+	id = ehl_event.8
+	hide_window = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				AND = { 
+					has_global_flag = EHL_RATE_MEDIUM
+					has_global_flag = EHL_5_YEAR_PULSE
+				}
+			}
+			while = {
+				count = 45
+				random_list = {
+					#Isolated Bottleneck
+					35 ={
+						random_system = {
+							limit = {
+								AND = {
+									has_star_flag = isolated
+									is_bottleneck_system = yes
+								}
+								NOT = {
+									starbase = {
+										has_starbase_building = warp_fluctuator
+									}
+								}
+							}
+							random_neighbor_system = {
+								limit = {
+									NOR = {
+										has_star_flag = sealed_system
+										has_star_flag = extragalactic_cluster
+										has_star_flag = lcluster
+										has_star_flag = mem_sadrell_extant_cluster
+										has_star_flag = outercluster
+									}
+									NOT = {
+										starbase = {
+											has_starbase_building = warp_fluctuator
+										}
+									}
+								}
+								ignore_hyperlanes = yes
+								if = {
+									limit = {
+										NOT = {
+											has_hyperlane_to = PREV
+										}
+									}
+									add_hyperlane = {
+										from = PREV
+										to = THIS
+									}
+									remove_star_flag = isolated
+									set_star_flag = connected
+									owner = {
+										create_message = {
+											type = EHL_HYPERLANE_SHIFT_ONE
+											localization = EHL_HYPERLANE_SHIFT_DESC_1
+											days = 20
+											target = PREV
+											variable = {
+												type = name
+												localization = SYSTEM
+												scope = PREV
+											}
+										}
+									}
+									PREV = {
+										remove_star_flag = isolated
+										set_star_flag = connected
+										owner = {
+											create_message = {
+												type = EHL_HYPERLANE_SHIFT_ONE
+												localization = EHL_HYPERLANE_SHIFT_DESC_1
+												days = 20
+												target = PREV
+												variable = {
+													type = name
+													localization = SYSTEM
+													scope = PREV
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					#Connected Bottleneck
+					35 = {
+						random_system = {
+							limit = {
+								AND = {
+									has_star_flag = connected
+									is_bottleneck_system = yes
+								}
+								NOT = {
+									starbase = {
+										has_starbase_building = warp_fluctuator
+									}
+								}
+							}
+							random_neighbor_system = {
+								limit = {
+									NOR = {
+										has_star_flag = sealed_system
+										has_star_flag = extragalactic_cluster
+										has_star_flag = lcluster
+										has_star_flag = mem_sadrell_extant_cluster
+										has_star_flag = outercluster
+									}
+									NOT = {
+										starbase = {
+											has_starbase_building = warp_fluctuator
+										}
+									}
+								}
+								ignore_hyperlanes = yes
+								if = {
+									limit = {
+										NOT = { 
+											has_hyperlane_to = PREV 
+										}
+									}
+									add_hyperlane = {
+										from = PREV
+										to = THIS
+									}
+									remove_star_flag = isolated
+									set_star_flag = connected
+									owner = {
+										create_message = {
+											type = EHL_HYPERLANE_SHIFT_ONE
+											localization = EHL_HYPERLANE_SHIFT_DESC_1
+											days = 20
+											target = PREV
+											variable = {
+												type = name
+												localization = SYSTEM
+												scope = PREV
+											}
+										}
+									}
+									PREV = {
+										remove_star_flag = isolated
+										set_star_flag = connected
+										owner = {
+											create_message = {
+												type = EHL_HYPERLANE_SHIFT_ONE
+												localization = EHL_HYPERLANE_SHIFT_DESC_1
+												days = 20
+												target = PREV
+												variable = {
+													type = name
+													localization = SYSTEM
+													scope = PREV
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					#Isolated Non-Bottleneck
+					15 = {
+						random_system = {
+							limit = {
+								has_star_flag = isolated
+								NOT = {
+									is_bottleneck_system = yes
+								}
+								NOT = {
+									starbase = {
+										has_starbase_building = warp_fluctuator
+									}
+								}
+							}
+							random_neighbor_system = {
+								limit = {
+									NOR = {
+										has_star_flag = sealed_system
+										has_star_flag = extragalactic_cluster
+										has_star_flag = lcluster
+										has_star_flag = mem_sadrell_extant_cluster
+										has_star_flag = outercluster
+									}
+									NOT = {
+										starbase = {
+											has_starbase_building = warp_fluctuator
+										}
+									}
+								}
+								ignore_hyperlanes = yes
+								if = {
+									limit = {
+										NOT = {
+											has_hyperlane_to = PREV
+										}
+									}
+									add_hyperlane = {
+										from = PREV
+										to = THIS
+									}
+									remove_star_flag = isolated
+									set_star_flag = connected
+									owner = {
+										create_message = {
+											type = EHL_HYPERLANE_SHIFT_ONE
+											localization = EHL_HYPERLANE_SHIFT_DESC_1
+											days = 20
+											target = PREV
+											variable = {
+												type = name
+												localization = SYSTEM
+												scope = PREV
+											}
+										}
+									}
+									PREV = {
+										remove_star_flag = isolated
+										set_star_flag = connected
+										owner = {
+											create_message = {
+												type = EHL_HYPERLANE_SHIFT_ONE
+												localization = EHL_HYPERLANE_SHIFT_DESC_1
+												days = 20
+												target = PREV
+												variable = {
+													type = name
+													localization = SYSTEM
+													scope = PREV
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					#Connected Non-Bottleneck
+					15 = {
+						random_system = {
+							limit = {
+								has_star_flag = connected
+								NOT = {
+									is_bottleneck_system = yes
+								}
+								NOT = {
+									starbase = {
+										has_starbase_building = warp_fluctuator
+									}
+								}
+							}
+							random_neighbor_system = {
+								limit = {
+									NOR = {
+										has_star_flag = sealed_system
+										has_star_flag = extragalactic_cluster
+										has_star_flag = lcluster
+										has_star_flag = mem_sadrell_extant_cluster
+										has_star_flag = outercluster
+									}
+									NOT = {
+										starbase = {
+											has_starbase_building = warp_fluctuator
+										}
+									}
+								}
+								ignore_hyperlanes = yes
+								if = {
+									limit = {
+										NOT = {
+											has_hyperlane_to = PREV
+										}
+									}
+									add_hyperlane = {
+										from = PREV
+										to = THIS
+									}
+									remove_star_flag = isolated
+									set_star_flag = connected
+									owner = {
+										create_message = {
+											type = EHL_HYPERLANE_SHIFT_ONE
+											localization = EHL_HYPERLANE_SHIFT_DESC_1
+											days = 20
+											target = PREV
+											variable = {
+												type = name
+												localization = SYSTEM
+												scope = PREV
+											}
+										}
+									}
+									PREV = {
+										remove_star_flag = isolated
+										set_star_flag = connected
+										owner = {
+											create_message = {
+												type = EHL_HYPERLANE_SHIFT_ONE
+												localization = EHL_HYPERLANE_SHIFT_DESC_1
+												days = 20
+												target = PREV
+												variable = {
+													type = name
+													localization = SYSTEM
+													scope = PREV
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+#5 year pulse - Event 9
+#Add hyperlanes - high rate - for larger sized galaxies
+event = {
+	id = ehl_event.9
+	hide_window = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				AND = { 
+					has_global_flag = EHL_RATE_HIGH
+					has_global_flag = EHL_5_YEAR_PULSE
+				}
+			}
+			while = {
+				count = 55
+				random_list = {
+					#Isolated Bottleneck
+					35 ={
+						random_system = {
+							limit = {
+								AND = {
+									has_star_flag = isolated
+									is_bottleneck_system = yes
+								}
+								NOT = {
+									starbase = {
+										has_starbase_building = warp_fluctuator
+									}
+								}
+							}
+							random_neighbor_system = {
+								limit = {
+									NOR = {
+										has_star_flag = sealed_system
+										has_star_flag = extragalactic_cluster
+										has_star_flag = lcluster
+										has_star_flag = mem_sadrell_extant_cluster
+										has_star_flag = outercluster
+									}
+									NOT = {
+										starbase = {
+											has_starbase_building = warp_fluctuator
+										}
+									}
+								}
+								ignore_hyperlanes = yes
+								if = {
+									limit = {
+										NOT = {
+											has_hyperlane_to = PREV
+										}
+									}
+									add_hyperlane = {
+										from = PREV
+										to = THIS
+									}
+									remove_star_flag = isolated
+									set_star_flag = connected
+									owner = {
+										create_message = {
+											type = EHL_HYPERLANE_SHIFT_ONE
+											localization = EHL_HYPERLANE_SHIFT_DESC_1
+											days = 20
+											target = PREV
+											variable = {
+												type = name
+												localization = SYSTEM
+												scope = PREV
+											}
+										}
+									}
+									PREV = {
+										remove_star_flag = isolated
+										set_star_flag = connected
+										owner = {
+											create_message = {
+												type = EHL_HYPERLANE_SHIFT_ONE
+												localization = EHL_HYPERLANE_SHIFT_DESC_1
+												days = 20
+												target = PREV
+												variable = {
+													type = name
+													localization = SYSTEM
+													scope = PREV
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					#Connected Bottleneck
+					35 = {
+						random_system = {
+							limit = {
+								AND = {
+									has_star_flag = connected
+									is_bottleneck_system = yes
+								}
+								NOT = {
+									starbase = {
+										has_starbase_building = warp_fluctuator
+									}
+								}
+							}
+							random_neighbor_system = {
+								limit = {
+									NOR = {
+										has_star_flag = sealed_system
+										has_star_flag = extragalactic_cluster
+										has_star_flag = lcluster
+										has_star_flag = mem_sadrell_extant_cluster
+										has_star_flag = outercluster
+									}
+									NOT = {
+										starbase = {
+											has_starbase_building = warp_fluctuator
+										}
+									}
+								}
+								ignore_hyperlanes = yes
+								if = {
+									limit = {
+										NOT = { 
+											has_hyperlane_to = PREV 
+										}
+									}
+									add_hyperlane = {
+										from = PREV
+										to = THIS
+									}
+									remove_star_flag = isolated
+									set_star_flag = connected
+									owner = {
+										create_message = {
+											type = EHL_HYPERLANE_SHIFT_ONE
+											localization = EHL_HYPERLANE_SHIFT_DESC_1
+											days = 20
+											target = PREV
+											variable = {
+												type = name
+												localization = SYSTEM
+												scope = PREV
+											}
+										}
+									}
+									PREV = {
+										remove_star_flag = isolated
+										set_star_flag = connected
+										owner = {
+											create_message = {
+												type = EHL_HYPERLANE_SHIFT_ONE
+												localization = EHL_HYPERLANE_SHIFT_DESC_1
+												days = 20
+												target = PREV
+												variable = {
+													type = name
+													localization = SYSTEM
+													scope = PREV
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					#Isolated Non-Bottleneck
+					15 = {
+						random_system = {
+							limit = {
+								has_star_flag = isolated
+								NOT = {
+									is_bottleneck_system = yes
+								}
+								NOT = {
+									starbase = {
+										has_starbase_building = warp_fluctuator
+									}
+								}
+							}
+							random_neighbor_system = {
+								limit = {
+									NOR = {
+										has_star_flag = sealed_system
+										has_star_flag = extragalactic_cluster
+										has_star_flag = lcluster
+										has_star_flag = mem_sadrell_extant_cluster
+										has_star_flag = outercluster
+									}
+									NOT = {
+										starbase = {
+											has_starbase_building = warp_fluctuator
+										}
+									}
+								}
+								ignore_hyperlanes = yes
+								if = {
+									limit = {
+										NOT = {
+											has_hyperlane_to = PREV
+										}
+									}
+									add_hyperlane = {
+										from = PREV
+										to = THIS
+									}
+									remove_star_flag = isolated
+									set_star_flag = connected
+									owner = {
+										create_message = {
+											type = EHL_HYPERLANE_SHIFT_ONE
+											localization = EHL_HYPERLANE_SHIFT_DESC_1
+											days = 20
+											target = PREV
+											variable = {
+												type = name
+												localization = SYSTEM
+												scope = PREV
+											}
+										}
+									}
+									PREV = {
+										remove_star_flag = isolated
+										set_star_flag = connected
+										owner = {
+											create_message = {
+												type = EHL_HYPERLANE_SHIFT_ONE
+												localization = EHL_HYPERLANE_SHIFT_DESC_1
+												days = 20
+												target = PREV
+												variable = {
+													type = name
+													localization = SYSTEM
+													scope = PREV
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					#Connected Non-Bottleneck
+					15 = {
+						random_system = {
+							limit = {
+								has_star_flag = connected
+								NOT = {
+									is_bottleneck_system = yes
+								}
+								NOT = {
+									starbase = {
+										has_starbase_building = warp_fluctuator
+									}
+								}
+							}
+							random_neighbor_system = {
+								limit = {
+									NOR = {
+										has_star_flag = sealed_system
+										has_star_flag = extragalactic_cluster
+										has_star_flag = lcluster
+										has_star_flag = mem_sadrell_extant_cluster
+										has_star_flag = outercluster
+									}
+									NOT = {
+										starbase = {
+											has_starbase_building = warp_fluctuator
+										}
+									}
+								}
+								ignore_hyperlanes = yes
+								if = {
+									limit = {
+										NOT = {
+											has_hyperlane_to = PREV
+										}
+									}
+									add_hyperlane = {
+										from = PREV
+										to = THIS
+									}
+									remove_star_flag = isolated
+									set_star_flag = connected
+									owner = {
+										create_message = {
+											type = EHL_HYPERLANE_SHIFT_ONE
+											localization = EHL_HYPERLANE_SHIFT_DESC_1
+											days = 20
+											target = PREV
+											variable = {
+												type = name
+												localization = SYSTEM
+												scope = PREV
+											}
+										}
+									}
+									PREV = {
+										remove_star_flag = isolated
+										set_star_flag = connected
+										owner = {
+											create_message = {
+												type = EHL_HYPERLANE_SHIFT_ONE
+												localization = EHL_HYPERLANE_SHIFT_DESC_1
+												days = 20
+												target = PREV
+												variable = {
+													type = name
+													localization = SYSTEM
+													scope = PREV
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+#Mid Game Pulse - Event 10
+#Event for the mid game. All remaining isolated stars gain a connection but separate islands may still exist.
+event = {
+	id = ehl_event.10
+	hide_window = yes
+	
+	immediate = {
+		every_system = {
+			limit = {
+				has_star_flag = isolated
+			}
+			random_neighbor_system = {
+				limit = {
+					NOR = {
+						has_star_flag = sealed_system 
+						has_star_flag = lcluster
+						has_star_flag = extragalactic_cluster
+						has_star_flag = mem_sadrell_extant_cluster
+						has_star_flag = outercluster
+					}
+					NOT = {
+						starbase = {
+							has_starbase_building = warp_fluctuator
+						}
+					}
+				}
+				ignore_hyperlanes = yes
+				add_hyperlane = {
+					from = PREV
+					to = THIS
+				}
+				remove_star_flag = isolated
+				set_star_flag = connected
+				owner = {
+					create_message = {
+						type = EHL_HYPERLANE_SHIFT_ONE
+						localization = EHL_HYPERLANE_SHIFT_DESC_1
+						days = 20
+						target = PREV
+						variable = {
+							type = name
+							localization = SYSTEM
+							scope = PREV
+						}
+					}
+				}
+				PREV = {
+					remove_star_flag = isolated
+					set_star_flag = connected
+					owner = {
+						create_message = {
+							type = EHL_HYPERLANE_SHIFT_ONE
+							localization = EHL_HYPERLANE_SHIFT_DESC_1
+							days = 20
+							target = PREV
+							variable = {
+								type = name
+								localization = SYSTEM
+								scope = PREV
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+#5 Year Pulse - Event 11
+#Randomizes hyperlanes around pulsar star systems, every 5 years
+event = {
+	id = ehl_event.11
+	hide_window = yes
+		
+	immediate = {
+		if = {
+			limit = {
+				has_global_flag = EHL_RATE_LOW
+			}
+			random_list = {
+				50 = {
+					random_system = {
+						limit = {
+							OR = {
+								is_star_class = sc_pulsar
+								is_star_class = sc_binary_1
+								is_star_class = sc_binary_pl_pl
+								is_star_class = sc_binary_pl_n
+							}
+							NOT = {
+								starbase = {
+									has_starbase_building = warp_fluctuator
+								}
+							}
+						}
+						random_neighbor_system = {
+							limit = { 
+								NOR = { 
+									has_star_flag = sealed_system 
+									has_star_flag = lcluster
+									has_star_flag = extragalactic_cluster
+									has_star_flag = mem_sadrell_extant_cluster
+									has_star_flag = outercluster
+								}
+								NOT = {
+									starbase = {
+										has_starbase_building = warp_fluctuator
+									}
+								}
+							}
+							ignore_hyperlanes = yes
+							if = {
+								limit = {
+									NOT = {
+										has_hyperlane_to = PREV
+									}
+								}
+								add_hyperlane = {
+									from = PREV
+									to = THIS
+								}
+								owner = {
+									create_message = {
+										type = EHL_HYPERLANE_SHIFT_TWO
+										localization = EHL_HYPERLANE_SHIFT_DESC_2
+										days = 20
+										target = PREV
+										variable = {
+											type = name
+											localization = SYSTEM
+											scope = PREV
+										}
+									}
+								}
+								PREV = {
+									owner = {
+										create_message = {
+											type = EHL_HYPERLANE_SHIFT_TWO
+											localization = EHL_HYPERLANE_SHIFT_DESC_2
+											days = 20
+											target = PREV
+											variable = {
+												type = name
+												localization = SYSTEM
+												scope = PREV
+											}
+										}
+									}
+								}
+							}
+							else ={
+								remove_hyperlane = {
+									from = PREV
+									to = THIS
+								}
+								owner = {
+									create_message = {
+										type = EHL_HYPERLANE_SHIFT_THREE
+										localization = EHL_HYPERLANE_SHIFT_DESC_3
+										days = 20
+										target = PREV
+										variable = {
+											type = name
+											localization = SYSTEM
+											scope = PREV
+										}
+									}
+								}
+								PREV = {
+									owner = {
+										create_message = {
+											type = EHL_HYPERLANE_SHIFT_THREE
+											localization = EHL_HYPERLANE_SHIFT_DESC_3
+											days = 20
+											target = PREV
+											variable = {
+												type = name
+												localization = SYSTEM
+												scope = PREV
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				50 = {
+					random_system = {
+						limit = {
+							OR = {
+								is_star_class = sc_pulsar
+								is_star_class = sc_binary_1
+								is_star_class = sc_binary_pl_pl
+								is_star_class = sc_binary_pl_n
+							}
+							NOT = {
+								starbase = {
+									has_starbase_building = warp_fluctuator
+								}
+							}
+						}
+						random_neighbor_system = {
+							limit = { 
+								NOR = {
+									has_star_flag = sealed_system 
+									has_star_flag = lcluster
+									has_star_flag = extragalactic_cluster
+									has_star_flag = mem_sadrell_extant_cluster
+									has_star_flag = outercluster
+								}
+								NOT = {
+									starbase = {
+										has_starbase_building = warp_fluctuator
+									}
+								}
+							}
+							ignore_hyperlanes = no
+							remove_hyperlane = {
+								from = PREV
+								to = THIS
+							}
+							owner = {
+								create_message = {
+									type = EHL_HYPERLANE_SHIFT_THREE
+									localization = EHL_HYPERLANE_SHIFT_DESC_3
+									days = 20
+									target = PREV
+									variable = {
+										type = name
+										localization = SYSTEM
+										scope = PREV
+									}
+								}
+							}
+							PREV = {
+								owner = {
+									create_message = {
+										type = EHL_HYPERLANE_SHIFT_THREE
+										localization = EHL_HYPERLANE_SHIFT_DESC_3
+										days = 20
+										target = PREV
+										variable = {
+											type = name
+											localization = SYSTEM
+											scope = PREV
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				has_global_flag = EHL_RATE_MEDIUM
+			}
+			while = {
+				count = 2
+				random_list = {
+					50 = {
+						random_system = {
+							limit = {
+								OR = {
+									is_star_class = sc_pulsar
+									is_star_class = sc_binary_1
+									is_star_class = sc_binary_pl_pl
+									is_star_class = sc_binary_pl_n
+								}
+								NOT = {
+									starbase = {
+										has_starbase_building = warp_fluctuator
+									}
+								}
+							}
+							random_neighbor_system = {
+								limit = { 
+									NOR = { 
+										has_star_flag = sealed_system 
+										has_star_flag = lcluster
+										has_star_flag = extragalactic_cluster
+										has_star_flag = mem_sadrell_extant_cluster
+										has_star_flag = outercluster
+									}
+									NOT = {
+										starbase = {
+											has_starbase_building = warp_fluctuator
+										}
+									}
+								}
+								ignore_hyperlanes = yes
+								if = {
+									limit = {
+										NOT = {
+											has_hyperlane_to = PREV
+										}
+									}
+									add_hyperlane = {
+										from = PREV
+										to = THIS
+									}
+									owner = {
+										create_message = {
+											type = EHL_HYPERLANE_SHIFT_TWO
+											localization = EHL_HYPERLANE_SHIFT_DESC_2
+											days = 20
+											target = PREV
+											variable = {
+												type = name
+												localization = SYSTEM
+												scope = PREV
+											}
+										}
+									}
+									PREV = {
+										owner = {
+											create_message = {
+												type = EHL_HYPERLANE_SHIFT_TWO
+												localization = EHL_HYPERLANE_SHIFT_DESC_2
+												days = 20
+												target = PREV
+												variable = {
+													type = name
+													localization = SYSTEM
+													scope = PREV
+												}
+											}
+										}
+									}
+								}
+								else ={
+									remove_hyperlane = {
+										from = PREV
+										to = THIS
+									}
+									owner = {
+										create_message = {
+											type = EHL_HYPERLANE_SHIFT_THREE
+											localization = EHL_HYPERLANE_SHIFT_DESC_3
+											days = 20
+											target = PREV
+											variable = {
+												type = name
+												localization = SYSTEM
+												scope = PREV
+											}
+										}
+									}
+									PREV = {
+										owner = {
+											create_message = {
+												type = EHL_HYPERLANE_SHIFT_THREE
+												localization = EHL_HYPERLANE_SHIFT_DESC_3
+												days = 20
+												target = PREV
+												variable = {
+													type = name
+													localization = SYSTEM
+													scope = PREV
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					50 = {
+						random_system = {
+							limit = {
+								OR = {
+									is_star_class = sc_pulsar
+									is_star_class = sc_binary_1
+									is_star_class = sc_binary_pl_pl
+									is_star_class = sc_binary_pl_n
+								}
+								NOT = {
+									starbase = {
+										has_starbase_building = warp_fluctuator
+									}
+								}
+							}
+							random_neighbor_system = {
+								limit = { 
+									NOR = {
+										has_star_flag = sealed_system 
+										has_star_flag = lcluster
+										has_star_flag = extragalactic_cluster
+										has_star_flag = mem_sadrell_extant_cluster
+										has_star_flag = outercluster
+									}
+									NOT = {
+										starbase = {
+											has_starbase_building = warp_fluctuator
+										}
+									}
+								}
+								ignore_hyperlanes = no
+								remove_hyperlane = {
+									from = PREV
+									to = THIS
+								}
+								owner = {
+									create_message = {
+										type = EHL_HYPERLANE_SHIFT_THREE
+										localization = EHL_HYPERLANE_SHIFT_DESC_3
+										days = 20
+										target = PREV
+										variable = {
+											type = name
+											localization = SYSTEM
+											scope = PREV
+										}
+									}
+								}
+								PREV = {
+									owner = {
+										create_message = {
+											type = EHL_HYPERLANE_SHIFT_THREE
+											localization = EHL_HYPERLANE_SHIFT_DESC_3
+											days = 20
+											target = PREV
+											variable = {
+												type = name
+												localization = SYSTEM
+												scope = PREV
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		else = {
+			limit = {
+				has_global_flag = EHL_RATE_HIGH
+			}
+			while = {
+				count = 3
+				random_list = {
+					50 = {
+						random_system = {
+							limit = {
+								OR = {
+									is_star_class = sc_pulsar
+									is_star_class = sc_binary_1
+									is_star_class = sc_binary_pl_pl
+									is_star_class = sc_binary_pl_n
+								}
+								NOT = {
+									starbase = {
+										has_starbase_building = warp_fluctuator
+									}
+								}
+							}
+							random_neighbor_system = {
+								limit = { 
+									NOR = { 
+										has_star_flag = sealed_system 
+										has_star_flag = lcluster
+										has_star_flag = extragalactic_cluster
+										has_star_flag = mem_sadrell_extant_cluster
+										has_star_flag = outercluster
+									}
+									NOT = {
+										starbase = {
+											has_starbase_building = warp_fluctuator
+										}
+									}
+								}
+								ignore_hyperlanes = yes
+								if = {
+									limit = {
+										NOT = {
+											has_hyperlane_to = PREV
+										}
+									}
+									add_hyperlane = {
+										from = PREV
+										to = THIS
+									}
+									owner = {
+										create_message = {
+											type = EHL_HYPERLANE_SHIFT_TWO
+											localization = EHL_HYPERLANE_SHIFT_DESC_2
+											days = 20
+											target = PREV
+											variable = {
+												type = name
+												localization = SYSTEM
+												scope = PREV
+											}
+										}
+									}
+									PREV = {
+										owner = {
+											create_message = {
+												type = EHL_HYPERLANE_SHIFT_TWO
+												localization = EHL_HYPERLANE_SHIFT_DESC_2
+												days = 20
+												target = PREV
+												variable = {
+													type = name
+													localization = SYSTEM
+													scope = PREV
+												}
+											}
+										}
+									}
+								}
+								else = {
+									remove_hyperlane = {
+										from = PREV
+										to = THIS
+									}
+									owner = {
+										create_message = {
+											type = EHL_HYPERLANE_SHIFT_THREE
+											localization = EHL_HYPERLANE_SHIFT_DESC_3
+											days = 20
+											target = PREV
+											variable = {
+												type = name
+												localization = SYSTEM
+												scope = PREV
+											}
+										}
+									}
+									PREV = {
+										owner = {
+											create_message = {
+												type = EHL_HYPERLANE_SHIFT_THREE
+												localization = EHL_HYPERLANE_SHIFT_DESC_3
+												days = 20
+												target = PREV
+												variable = {
+													type = name
+													localization = SYSTEM
+													scope = PREV
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					50 = {
+						random_system = {
+							limit = {
+								OR = {
+									is_star_class = sc_pulsar
+									is_star_class = sc_binary_1
+									is_star_class = sc_binary_pl_pl
+									is_star_class = sc_binary_pl_n
+								}
+								NOT = {
+									starbase = {
+										has_starbase_building = warp_fluctuator
+									}
+								}
+							}
+							random_neighbor_system = {
+								limit = { 
+									NOR = {
+										has_star_flag = sealed_system 
+										has_star_flag = lcluster
+										has_star_flag = extragalactic_cluster
+										has_star_flag = mem_sadrell_extant_cluster
+										has_star_flag = outercluster
+									}
+									NOT = {
+										starbase = {
+											has_starbase_building = warp_fluctuator
+										}
+									}
+								}
+								ignore_hyperlanes = no
+								remove_hyperlane = {
+									from = PREV
+									to = THIS
+								}
+								owner = {
+									create_message = {
+										type = EHL_HYPERLANE_SHIFT_THREE
+										localization = EHL_HYPERLANE_SHIFT_DESC_3
+										days = 20
+										target = PREV
+										variable = {
+											type = name
+											localization = SYSTEM
+											scope = PREV
+										}
+									}
+								}
+								PREV = {
+									owner = {
+										create_message = {
+											type = EHL_HYPERLANE_SHIFT_THREE
+											localization = EHL_HYPERLANE_SHIFT_DESC_3
+											days = 20
+											target = PREV
+											variable = {
+												type = name
+												localization = SYSTEM
+												scope = PREV
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+#1 Year Pulse - Event 12
+#HyperLane progenitor
+event = {
+	id = ehl_event.12
+	hide_window = yes
+	
+	immediate = {
+		every_system = {
+			limit = {
+				starbase = {
+					has_starbase_building = hyperlane_progenitor
+				}
+			}
+			random_list = {
+				20 = {
+					random_system = {
+						limit = {
+							starbase = {
+								has_starbase_building = hyperlane_progenitor
+							}
+						}
+						if = {
+							limit = {
+								any_neighbor_system = {
+									ignore_hyperlanes = yes
+									NOT = {
+										has_hyperlane_to = PREV
+									}
+									NOR = {
+										has_star_flag = sealed_system
+										has_star_flag = extragalactic_cluster
+										has_star_flag = lcluster
+										has_star_flag = mem_sadrell_extant_cluster
+										has_star_flag = outercluster
+									}
+									NOT = {
+										starbase = {
+											has_starbase_building = warp_fluctuator
+										}
+									}
+								}
+							}
+							random_neighbor_system = {
+								limit = {
+									NOT = {
+										has_hyperlane_to = PREV
+									}
+									NOR = {
+										has_star_flag = sealed_system
+										has_star_flag = extragalactic_cluster
+										has_star_flag = lcluster
+										has_star_flag = mem_sadrell_extant_cluster
+										has_star_flag = outercluster
+									}
+									NOT = { 	
+										starbase = {
+											has_starbase_building = warp_fluctuator
+										}
+									}
+								}
+								ignore_hyperlanes = yes
+								add_hyperlane = {
+									from = THIS
+									to = PREV
+								}
+								PREV = {
+									remove_star_flag = isolated
+									set_star_flag = connected
+									owner = {
+										create_message = {
+											type = EHL_HYPERLANE_SHIFT_FOUR
+											localization = EHL_HYPERLANE_SHIFT_DESC_4
+											days = 20
+											target = PREV
+											variable = {
+												type = name
+												localization = SYSTEM
+												scope = PREV
+											}
+										}
+									}
+								}
+							}
+							else = {
+								owner = {
+									country_event = {
+										id = ehl_event.13
+										days = 1
+										random = 0
+									}
+									PREV = {
+										save_event_target_as = progenitorsystem
+									}
+								}
+							}
+						}
+					}
+				}
+				80 = {
+				
+				}
+			}
+		}
+	}
+}
+
+#Event 13
+#HyperLane progenitor warning, no viable candidates
+country_event = {
+	id = ehl_event.13
+	title = "ehl_event.13.name"
+	desc = "ehl_event.13.desc"
+	picture = GFX_evt_star_pulsar
+	show_sound = event_mystic_reveal_03
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ehl_event.13.a
+	}
+	
+}
+
+#Startup Event - Event 15
+#Sets up the void touched civic
+event = {
+	id = ehl_event.15
+	hide_window = yes
+	fire_only_once = yes
+	
+	immediate = {
+		every_country = {
+			limit = {
+				OR = {
+					has_civic = civic_void_touched
+					has_civic = civic_void_touched_hivemind
+				}
+			}
+			every_system_within_border = {
+				limit = {
+					has_star_flag = empire_home_system
+				}
+				set_star_flag = void_touched_system
+			}
+			give_technology = {
+				tech = tech_wormhole_stabilization 
+				message = no
+			}
+			owner = {
+				set_country_flag = encountered_first_wormhole
+				add_seen_bypass_type = wormhole
+			}
+		}
+		every_system = {
+			limit = {
+				has_star_flag = void_touched_system
+			}
+			random_system = {
+				limit ={
+					has_star_flag = void_touched_system
+				}
+				save_event_target_as = void_touched_system_1
+			}
+			random_system = {
+				limit = {
+					has_owner = no
+					has_natural_wormhole = no
+					NOR = {
+						has_star_flag = sealed_system 
+						has_star_flag = lcluster
+						has_star_flag = extragalactic_cluster
+						has_star_flag = mem_sadrell_extant_cluster
+						has_star_flag = outercluster
+					}
+				}
+				save_event_target_as = void_touched_system_2
+			}
+			event_target:void_touched_system_1 = {
+				event_target:void_touched_system_2 = {
+					prev = {
+						spawn_natural_wormhole = {
+							bypass_type = wormhole
+							random_pos = yes
+							orbit_angle = 360
+						}
+						remove_star_flag = void_touched_system
+					}
+					spawn_natural_wormhole = {
+						bypass_type = wormhole
+						random_pos = yes
+						orbit_angle = 360
+					}
+					link_wormholes = prev
+				}
+			}
+		}
+	}
+}
+
+#Startup Event, set lane generation pulse, 5 years or 10 years
+country_event = {
+	id = ehl_event.20
+	title = "ehl_event.20.name"
+	desc = "ehl_event.20.desc"
+	picture = GFX_evt_star_pulsar
+	show_sound = event_mystic_reveal_03
+	
+	mean_time_to_happen = {
+		months = 3
+	}
+	
+	trigger = {
+		NOR = { 
+			has_global_flag = EHL_10_YEAR_PULSE
+			has_global_flag = EHL_5_YEAR_PULSE
+		}
+		NOT = {
+			is_ai = yes
+		}
+	}
+	
+	option = {
+		name = ehl_event.20.a
+		custom_tooltip = ehl_event.20.a.tooltip
+		hidden_effect = {
+			set_global_flag = EHL_10_YEAR_PULSE
+		}
+	}
+	option = {
+		name = ehl_event.20.b
+		custom_tooltip = ehl_event.20.b.tooltip
+		hidden_effect = {
+			set_global_flag = EHL_5_YEAR_PULSE
+		}
+	}
+}
+
+#part 2
+#country_event = {
+#	id = ehl_event.21
+#	title = "ehl_event.21.name"
+#	desc = "ehl_event.21.desc"
+#	picture = GFX_evt_star_pulsar
+#	show_sound = event_mystic_reveal_03
+#	
+#	mean_time_to_happen = {
+#		months = 10
+#	}
+#	
+#	trigger = {
+#		THIS = {
+#			NOT = { 
+#				has_country_flag = ehl_event_21
+#			}
+#		}
+#	}
+#	
+#	option = {
+#		name = ehl_event.21.a
+#		trigger = {
+#			owner = {
+#				OR = {
+#					has_ethic = ethic_fanatic_authoritarian
+#					has_ethic = ethic_authoritarian
+#				}
+#			}
+#		}
+#		hidden_effect = {
+#			set_country_flag = ehl_event_21
+#		}
+#	}
+#	option = {
+#		name = ehl_event.21.b
+#		trigger = {
+#			owner = {
+#				OR = {
+#					has_ethic = ethic_fanatic_egalitarian
+#					has_ethic = ethic_egalitarian
+#				}
+#			}
+#		}
+#		hidden_effect = {
+#			set_country_flag = ehl_event_21
+#		}
+#	}
+#	option = {
+#		name = ehl_event.21.c
+#		trigger = {
+#			owner = {
+#				OR = {
+#					has_ethic = ethic_fanatic_xenophobe
+#					has_ethic = ethic_xenophobe
+#				}
+#			}
+#		}
+#		hidden_effect = {
+#			set_country_flag = ehl_event_21
+#		}
+#	}
+#	option = {
+#		name = ehl_event.21.d
+#		trigger = {
+#			owner = {
+#				OR = {
+#					has_ethic = ethic_fanatic_xenophile
+#					has_ethic = ethic_xenophile
+#				}
+#			}
+#		}
+#		hidden_effect = {
+#			set_country_flag = ehl_event_21
+#		}
+#	}
+#	option = {
+#		name = ehl_event.21.e
+#		trigger = {
+#			owner = {
+#				OR = {
+#					has_ethic = ethic_fanatic_militarist
+#					has_ethic = ethic_militarist
+#				}
+#			}
+#		}
+#		hidden_effect = {
+#			set_country_flag = ehl_event_21
+#		}
+#	}
+#	option = {
+#		name = ehl_event.21.f
+#		trigger = {
+#			owner = {
+#				OR = {
+#					has_ethic = ethic_fanatic_pacifist
+#					has_ethic = ethic_pacifist
+#				}
+#			}
+#		}
+#		hidden_effect = {
+#			set_country_flag = ehl_event_21
+#		}
+#	}
+#	option = {
+#		name = ehl_event.21.g
+#		trigger = {
+#			owner = {
+#				OR = {
+#					has_ethic = ethic_fanatic_spiritualist
+#					has_ethic = ethic_spiritualist
+#				}
+#			}
+#		}
+#		hidden_effect = {
+#			set_country_flag = ehl_event_21
+#		}
+#	}
+#	option = {
+#		name = ehl_event.21.h
+#		trigger = {
+#			owner = {
+#				OR = {
+#					has_ethic = ethic_fanatic_materialist
+#					has_ethic = ethic_materialist
+#				}
+#			}
+#		}
+#		hidden_effect = {
+#			set_country_flag = ehl_event_21
+#		}
+#	}
+#	option = {
+#		name = ehl_event.21.i
+#		trigger = {
+#			owner = {
+#				has_ethic = ethic_gestalt_consciousness
+#			}
+#		}
+#		hidden_effect = {
+#			set_country_flag = ehl_event_21
+#		}
+#	}
+#}
