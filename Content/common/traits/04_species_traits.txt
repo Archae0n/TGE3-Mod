@@ -6,7 +6,7 @@ trait_artisanal = {
 	advanced_trait = yes
 	potential_crossbreeding_chance = 1.0	# 1.0 = 100% chance of being considered for new traits when forming half-species. does not guarantee the trait will be added if it costs points.
 	opposites = { "trait_agrarian" "trait_urban" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		planet_jobs_food_produces_mult = 0.25
 		planet_jobs_consumer_goods_produces_mult = 0.1
@@ -23,7 +23,7 @@ trait_agrarian = {
 	randomized = yes
 	potential_crossbreeding_chance = 1.0
 	opposites = { "trait_artisanal" "trait_urban" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		planet_jobs_food_produces_mult = 0.15
 	}
@@ -40,7 +40,7 @@ trait_hunters = {
 	opposites = { "trait_artisanal" "trait_agrarian" }
 	potential_crossbreeding_chance = 1.0
 	opposites = { "trait_artisanal" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		planet_jobs_food_produces_mult = -0.10
 	}
@@ -57,7 +57,7 @@ trait_bioreactor = {
 	advanced_trait = yes
 	potential_crossbreeding_chance = 1.0
 	opposites = { "trait_ingenious" "trait_reluctant" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		planet_jobs_energy_produces_mult = 0.25
 		planet_jobs_volatile_motes_produces_mult = 0.1
@@ -76,7 +76,7 @@ trait_ingenious = {
 	randomized = yes
 	potential_crossbreeding_chance = 1.0
 	opposites = { "trait_bioreactor" "trait_reluctant" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		planet_jobs_energy_produces_mult = 0.15
 	}
@@ -92,7 +92,7 @@ trait_reluctant = {
 	randomized = yes
 	opposites = { "trait_bioreactor" "trait_ingenious" }
 	potential_crossbreeding_chance = 1.0
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		planet_jobs_energy_produces_mult = -0.10
 	}
@@ -109,7 +109,7 @@ trait_thermophile = {
 	advanced_trait = yes
 	potential_crossbreeding_chance = 1.0
 	opposites = { "trait_industrious" "trait_lethargic" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		planet_jobs_minerals_produces_mult = 0.25
 		planet_jobs_alloys_produces_mult = 0.1
@@ -126,7 +126,7 @@ trait_industrious = {
 	randomized = yes
 	potential_crossbreeding_chance = 1.0
 	opposites = { "trait_thermophile" "trait_lethargic" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		planet_jobs_minerals_produces_mult = 0.15
 	}
@@ -142,7 +142,7 @@ trait_lethargic = {
 	randomized = yes
 	opposites = { "trait_thermophile" "trait_industrious" }
 	potential_crossbreeding_chance = 1.0
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		planet_jobs_minerals_produces_mult = -0.10
 	}
@@ -158,7 +158,7 @@ trait_erudite = {
 	randomized = yes
 	advanced_trait = yes
 	opposites = { "trait_nerve_stapled" "trait_intelligent" "trait_simple" "trait_moronic" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		planet_jobs_engineering_research_produces_mult = 0.20
 		planet_jobs_physics_research_produces_mult = 0.20
@@ -173,7 +173,7 @@ trait_intelligent = {
 	randomized = yes
 	potential_crossbreeding_chance = 1.0
 	opposites = { "trait_nerve_stapled" "trait_erudite" "trait_simple" "trait_moronic" "trait_enigmatic_intelligence_poor" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		planet_jobs_engineering_research_produces_mult = 0.10
 		planet_jobs_physics_research_produces_mult = 0.10
@@ -189,7 +189,7 @@ trait_simple = {
 	modification = yes
 	randomized = yes
 	opposites = { "trait_nerve_stapled" "trait_erudite" "trait_intelligent" "trait_moronic" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	
 	modifier = {
 		planet_jobs_engineering_research_produces_mult = -0.10
@@ -207,7 +207,7 @@ trait_moronic = {
 	randomized = yes
 	advanced_trait = yes
 	opposites = { "trait_intelligent" "trait_simple" "trait_nerve_stapled" "trait_erudite" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	
 	modifier = {
 		planet_jobs_engineering_research_produces_mult = -0.20
@@ -223,7 +223,7 @@ trait_natural_engineers = {
 	randomized = yes
 	potential_crossbreeding_chance = 1.0
 	opposites = { "trait_natural_physicists" "trait_natural_sociologists" "trait_nerve_stapled" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		planet_jobs_engineering_research_produces_mult = 0.20
 	}
@@ -236,7 +236,7 @@ trait_natural_physicists = {
 	randomized = yes
 	potential_crossbreeding_chance = 1.0
 	opposites = { "trait_natural_engineers" "trait_natural_sociologists" "trait_nerve_stapled" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		planet_jobs_physics_research_produces_mult = 0.20
 	}
@@ -249,7 +249,7 @@ trait_natural_sociologists = {
 	randomized = yes
 	potential_crossbreeding_chance = 1.0
 	opposites = { "trait_natural_physicists" "trait_natural_engineers" "trait_nerve_stapled" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		planet_jobs_society_research_produces_mult = 0.20
 	}
@@ -261,7 +261,7 @@ trait_thrifty = {
 	modification = yes
 	randomized = yes
 	potential_crossbreeding_chance = 1.0
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	opposites = { "trait_hive_mind" }
 	custom_tooltip = TRAIT_THRIFTY_EFFECT
 	slave_cost = { energy = 50 }
@@ -274,7 +274,7 @@ trait_robust = {
 	randomized = yes
 	advanced_trait = yes
 	opposites = { "trait_endemic" "trait_nonadaptive" "trait_adaptive" "trait_extremely_adaptive" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		pop_environment_tolerance = 0.20
 	}
@@ -290,7 +290,7 @@ trait_adaptive = {
 	randomized = yes
 	potential_crossbreeding_chance = 1.0
 	opposites = { "trait_nonadaptive" "trait_robust" "trait_endemic" "trait_extremely_adaptive" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		pop_environment_tolerance = 0.10
 	}
@@ -306,7 +306,7 @@ trait_nonadaptive = {
 	randomized = yes
 	potential_crossbreeding_chance = 1.0
 	opposites = { "trait_adaptive" "trait_robust" "trait_endemic" "trait_extremely_adaptive" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		pop_environment_tolerance = -0.10
 	}
@@ -326,7 +326,7 @@ trait_endemic = {
 	advanced_trait = yes
 	potential_crossbreeding_chance = 1.0
 	opposites = { "trait_adaptive" "trait_robust" "trait_nonadaptive" "trait_extremely_adaptive" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		pop_environment_tolerance = -0.2
 	}
@@ -345,7 +345,7 @@ trait_fertile = {
 	randomized = yes
 	advanced_trait = yes
 	opposites = { "trait_slow_breeders" "trait_rapid_breeders" "trait_sterile" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		pop_growth_speed = 0.2
 	}
@@ -361,7 +361,7 @@ trait_rapid_breeders = {
 	randomized = yes
 	potential_crossbreeding_chance = 1.0
 	opposites = { "trait_slow_breeders" "trait_fertile" "trait_sterile" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		pop_growth_speed = 0.10
 	}
@@ -377,7 +377,7 @@ trait_slow_breeders = {
 	randomized = yes
 	potential_crossbreeding_chance = 1.0
 	opposites = { "trait_rapid_breeders" "trait_fertile" "trait_sterile" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		pop_growth_speed = -0.10
 	}
@@ -394,7 +394,7 @@ trait_sterile = {
 	advanced_trait = yes
 	potential_crossbreeding_chance = 1.0
 	opposites = { "trait_rapid_breeders" "trait_fertile" "trait_slow_breeders" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		pop_growth_speed = -0.2
 	}
@@ -410,7 +410,7 @@ trait_masterful = {
 	modification = yes
 	randomized = yes
 	advanced_trait = yes
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	opposites = { "trait_nerve_stapled" "trait_talented" }
 	modifier = {
 		leader_skill_levels = 2
@@ -425,7 +425,7 @@ trait_talented = {
 	initial = yes
 	modification = yes
 	randomized = yes
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	opposites = { "trait_nerve_stapled" "trait_masterful" }
 	modifier = {
 		leader_skill_levels = 1
@@ -441,7 +441,7 @@ trait_quick_learners = {
 	randomized = yes
 	potential_crossbreeding_chance = 1.0
 	opposites = { "trait_slow_learners" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		species_leader_exp_gain = 0.25
 		army_experience_gain_mult = 0.25
@@ -455,7 +455,7 @@ trait_slow_learners = {
 	randomized = yes
 	potential_crossbreeding_chance = 1.0
 	opposites = { "trait_quick_learners" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		species_leader_exp_gain = -0.25
 		army_experience_gain_mult = -0.25
@@ -472,7 +472,7 @@ trait_nomadic = {
 	randomized = yes
 	potential_crossbreeding_chance = 1.0
 	opposites = { "trait_sedentary" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		pop_growth_from_immigration = 0.15
 		pop_resettlement_cost_mult = -0.25
@@ -486,7 +486,7 @@ trait_sedentary = {
 	randomized = yes
 	potential_crossbreeding_chance = 1.0
 	opposites = { "trait_nomadic" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		pop_growth_from_immigration = -0.15
 		pop_resettlement_cost_mult = 0.25
@@ -503,7 +503,7 @@ trait_conservational = {
 	randomized = yes
 	potential_crossbreeding_chance = 1.0
 	opposites = { "trait_wasteful" "trait_hedonists" "trait_resourceful" "trait_hive_mind" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		planet_pops_consumer_goods_upkeep_mult = -0.10
 	}
@@ -516,7 +516,7 @@ trait_wasteful = {
 	randomized = yes
 	potential_crossbreeding_chance = 1.0
 	opposites = { "trait_conservational" "trait_hedonists" "trait_resourceful" "trait_hive_mind" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		planet_pops_consumer_goods_upkeep_mult = 0.10
 	}
@@ -533,7 +533,7 @@ trait_communal = {
 	potential_crossbreeding_chance = 1.0
 	opposites = { "trait_solitary" }
 
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	
 	modifier = {
 		pop_housing_usage_mult = -0.10
@@ -548,7 +548,7 @@ trait_solitary = {
 	potential_crossbreeding_chance = 1.0
 	opposites = { "trait_communal" }
 
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	
 	modifier = {
 		pop_housing_usage_mult = 0.10
@@ -567,7 +567,7 @@ trait_oligotroph = {
 	potential_crossbreeding_chance = 1.0
 	opposites = { "trait_antimetabolic" }
 
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	
 	modifier = {
 		planet_pops_organics_food_upkeep_mult = -0.10
@@ -582,7 +582,7 @@ trait_antimetabolic = {
 	potential_crossbreeding_chance = 1.0
 	opposites = { "trait_oligotroph" }
 
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	
 	modifier = {
 		planet_pops_organics_food_upkeep_mult = 0.10
@@ -601,7 +601,7 @@ trait_charismatic = {
 	potential_crossbreeding_chance = 1.0
 	opposites = { "trait_repugnant" }
 	
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	custom_tooltip = TRAIT_CHARISMATIC_EFFECT
 }
 
@@ -613,7 +613,7 @@ trait_repugnant = {
 	potential_crossbreeding_chance = 1.0
 	opposites = { "trait_charismatic" }
 	
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	custom_tooltip = TRAIT_REPUGNANT_EFFECT
 	
 	ai_weight = {
@@ -628,7 +628,7 @@ trait_traditional = {
 	randomized = yes
 	potential_crossbreeding_chance = 1.0
 	opposites = { "trait_quarrelsome" "trait_iconoclasts" "trait_eusocial" "trait_nerve_stapled" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		planet_jobs_unity_produces_mult = 0.10
 	}
@@ -641,7 +641,7 @@ trait_quarrelsome = {
 	randomized = yes
 	potential_crossbreeding_chance = 1.0
 	opposites = { "trait_traditional" "trait_iconoclasts" "trait_eusocial" "trait_nerve_stapled" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		planet_jobs_unity_produces_mult = -0.10
 	}
@@ -659,7 +659,7 @@ trait_conformists = {
 		pop_government_ethic_attraction = 0.25
 	}
 
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	
 	ai_weight = {
 		weight = 0
@@ -678,7 +678,7 @@ trait_deviants = {
 		pop_government_ethic_attraction = -0.25
 	}
 
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	
 	ai_weight = {
 		weight = 0
@@ -692,13 +692,13 @@ trait_venerable = {
 	randomized = yes
 	advanced_trait = yes
 	potential_crossbreeding_chance = 1.0
-	opposites = { "trait_enduring" "trait_fleeting" "trait_time_lords" }
+	opposites = { "trait_enduring" "trait_fleeting" "trait_time_lords" "trait_fleeting_lithoid"}
 	
 	modifier = {
 		leader_age = 60
 	}
 	
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 }
 
 trait_enduring = {
@@ -707,13 +707,13 @@ trait_enduring = {
 	modification = yes
 	randomized = yes
 	potential_crossbreeding_chance = 1.0
-	opposites = { "trait_venerable" "trait_fleeting" "trait_time_lords" }
+	opposites = { "trait_venerable" "trait_fleeting" "trait_time_lords" "trait_fleeting_lithoid"}
 	
 	modifier = {
 		leader_age = 20
 	}
 	
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 }
 
 trait_fleeting = {
@@ -722,7 +722,7 @@ trait_fleeting = {
 	modification = yes
 	randomized = yes
 	potential_crossbreeding_chance = 1.0
-	opposites = { "trait_venerable" "trait_enduring" "trait_time_lords" }
+	opposites = { "trait_venerable" "trait_enduring" "trait_time_lords" "trait_fleeting_lithoid"}
 	
 	modifier = {
 		leader_age = -20
@@ -742,7 +742,7 @@ trait_very_strong = {
 	advanced_trait = yes
 	potential_crossbreeding_chance = 1.0
 	opposites = { "trait_weak" "trait_strong" "trait_inert" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		army_damage_mult = 0.50
 		planet_jobs_worker_produces_mult = 0.05
@@ -759,7 +759,7 @@ trait_strong = {
 	randomized = yes
 	potential_crossbreeding_chance = 1.0
 	opposites = { "trait_weak" "trait_very_strong" "trait_inert" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		army_damage_mult = 0.25
 		planet_jobs_worker_produces_mult = 0.025
@@ -776,7 +776,7 @@ trait_weak = {
 	randomized = yes
 	potential_crossbreeding_chance = 1.0
 	opposites = { "trait_strong" "trait_very_strong" "trait_inert" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		army_damage_mult = -0.25
 		planet_jobs_worker_produces_mult = -0.025
@@ -797,7 +797,7 @@ trait_inert = {
 	advanced_trait = yes
 	potential_crossbreeding_chance = 1.0
 	opposites = { "trait_strong" "trait_very_strong" "trait_weak" "trait_anxious" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		army_damage_mult = -0.50
 		planet_jobs_worker_produces_mult = -0.10
@@ -818,7 +818,7 @@ trait_unbound = {
 	advanced_trait = yes
 	opposites = { "trait_nerve_stapled" "trait_hive_mind" }
 	potential_crossbreeding_chance = 1.0
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	
 	modifier = {
 		planet_jobs_produces_mult = 0.05
@@ -844,7 +844,7 @@ trait_decadent = {
 		pop_cat_slave_happiness = -0.1
 	}
 
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	ai_weight = {
 		weight = 0
 	}
@@ -866,7 +866,7 @@ trait_anxious = {
 		pop_cat_specialist_happiness = -0.1
 	}
 
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	ai_weight = {
 		weight = 0
 	}
@@ -883,7 +883,7 @@ trait_apex_predator = {
 	advanced_trait = yes
 	opposites = { "trait_undisciplined" "trait_sedentary" "trait_nomadic" "trait_antimetabolic" "trait_oligotroph" }
 	potential_crossbreeding_chance = 1.0
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	
 	modifier = {
 		army_damage_mult = 1.00
@@ -903,7 +903,7 @@ trait_intrepid = {
 	advanced_trait = yes
 	opposites = { "trait_undisciplined" "trait_nerve_stapled" }
 	potential_crossbreeding_chance = 1.0
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	
 	modifier = {
 		army_morale = 1.00
@@ -921,7 +921,7 @@ trait_resilient = {
 	randomized = yes
 	opposites = { "trait_undisciplined" }
 	potential_crossbreeding_chance = 1.0
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	
 	modifier = {
 		army_health = 0.25
@@ -940,7 +940,7 @@ trait_undisciplined = {
 	randomized = yes
 	opposites = { "trait_resilient" }
 	potential_crossbreeding_chance = 1.0
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	
 	modifier = {
 		army_health = -0.25
@@ -961,7 +961,7 @@ trait_resourceful = {
 	randomized = yes
 	advanced_trait = yes
 	opposites = { "trait_hedonists" "trait_wasteful" "trait_conservational" "trait_antimetabolic" "trait_oligotroph" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	
 	modifier = {
 		planet_pops_upkeep_mult = -0.20
@@ -977,7 +977,7 @@ trait_hedonists = {
 	randomized = yes
 	advanced_trait = yes
 	opposites = { "trait_resourceful" "trait_wasteful" "trait_conservational" "trait_antimetabolic" "trait_oligotroph" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	
 	modifier = {
 		planet_pops_upkeep_mult = 0.20
@@ -993,7 +993,7 @@ trait_eusocial = {
 	randomized = yes
 	advanced_trait = yes
 	opposites = { "trait_conformists" "trait_deviants" "trait_iconoclasts" "trait_quarrelsome" "trait_traditional" "trait_hive_mind" "trait_nerve_stapled" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	
 	modifier = {
 		pop_government_ethic_attraction = 0.50
@@ -1010,7 +1010,7 @@ trait_iconoclasts = {
 	randomized = yes
 	advanced_trait = yes
 	opposites = { "trait_eusocial" "trait_conformists" "trait_deviants" "trait_quarrelsome" "trait_traditional" "trait_hive_mind" "trait_nerve_stapled" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	
 	modifier = {
 		pop_government_ethic_attraction = -0.50
@@ -1027,7 +1027,7 @@ trait_sanguine = {
 	randomized = yes
 	advanced_trait = yes
 	opposites = { "trait_despondent" "trait_nerve_stapled" "trait_hive_mind" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	
 	modifier = {
 		pop_happiness = 0.10
@@ -1047,7 +1047,7 @@ trait_despondent = {
 	randomized = yes
 	advanced_trait = yes
 	opposites = { "trait_sanguine" "trait_nerve_stapled" "trait_hive_mind" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	
 	modifier = {
 		pop_happiness = -0.10
@@ -1067,7 +1067,7 @@ trait_minuscule = {
 	randomized = yes
 	advanced_trait = yes
 	opposites = { "trait_gigantic" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	
 	modifier = {
 		planet_pops_organics_food_upkeep_mult = -0.20
@@ -1085,7 +1085,7 @@ trait_gigantic = {
 	randomized = yes
 	advanced_trait = yes
 	opposites = { "trait_minuscule" }
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	
 	modifier = {
 		planet_pops_organics_food_upkeep_mult = 0.20
@@ -1102,7 +1102,7 @@ trait_delicious = {
 	initial = no
 	randomized = no
 	advanced_trait = yes
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		planet_livestock_food_produces_add = 2
 	}
@@ -1119,7 +1119,7 @@ trait_nerve_stapled = {
 	randomized = no
 	advanced_trait = yes
 	forced_happiness = yes
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		planet_jobs_produces_mult = 0.10
 		leader_skill_levels = -4
@@ -1138,7 +1138,7 @@ trait_genetic_memory = {
 	randomized = no
 	advanced_trait = yes
 	improves_leaders = yes
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		leader_skill_levels = 2
 		planet_jobs_unity_produces_mult = 0.20
@@ -1153,7 +1153,7 @@ trait_time_lords = {
 	initial = no
 	randomized = no
 	advanced_trait = yes
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		leader_age = 120
 		planet_jobs_produces_mult = 0.05
@@ -1170,7 +1170,7 @@ trait_uplifted = {
 	modification = no
 	randomized = no
 
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	
 	ai_weight = {
 		weight = 0
@@ -1187,7 +1187,7 @@ trait_cybernetic = {
 	randomized = no
 	modification = no
 
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	
 	modifier = {
 		pc_machine_habitability = 0.40
@@ -1208,7 +1208,7 @@ trait_latent_psionic = {
 	randomized = no
 	modification = no
 
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	
 	modifier = {
 		planet_jobs_engineering_research_produces_mult = 0.05
@@ -1230,7 +1230,7 @@ trait_psionic = {
 	randomized = no
 	modification = no
 
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	
 	modifier = {
 		planet_jobs_engineering_research_produces_mult = 0.10
@@ -1249,7 +1249,7 @@ trait_self_modified = {
 	randomized = no
 	modification = no
 
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	
 	modifier = {
 	}
@@ -1261,7 +1261,7 @@ trait_survivor = {
 	initial = no
 	randomized = no
 	modification = no
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		pc_nuked_habitability = 0.7
 		leader_age = 10
@@ -1279,7 +1279,7 @@ trait_touched_by_the_worm = {
 	randomized = no
 	modification = no
 	advanced_trait = yes
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		planet_jobs_physics_research_produces_mult = 0.50
 		pop_amenities_usage_mult = 0.20
@@ -1293,7 +1293,7 @@ trait_enigmatic_intelligence = {
 	randomized = no
 	modification = no
 	advanced_trait = yes
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		planet_jobs_engineering_research_produces_mult = 0.1
 		planet_jobs_physics_research_produces_mult = 0.1
@@ -1310,7 +1310,7 @@ trait_enigmatic_intelligence_poor = {
 	randomized = no
 	modification = no
 	advanced_trait = yes
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		planet_jobs_engineering_research_produces_mult = 0.05
 		planet_jobs_physics_research_produces_mult = 0.05
@@ -1326,7 +1326,7 @@ trait_enigmatic_intelligence_failed = {
 	randomized = no
 	modification = no
 	advanced_trait = yes
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	modifier = {
 		planet_jobs_engineering_research_produces_mult = -0.1
 		planet_jobs_physics_research_produces_mult = -0.1
@@ -1344,7 +1344,7 @@ trait_bioadaptability = { #green
 	modification = no
 	randomized = no
 
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	
 	modifier = {
 		pop_environment_tolerance = 0.05
@@ -1367,7 +1367,7 @@ trait_social_pheromones = { #red
 	modification = no
 	randomized = no
 
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	
 	modifier = {
 		pop_housing_usage_mult = -0.05
@@ -1390,7 +1390,7 @@ trait_limited_regeneration = { #blue
 	modification = no
 	randomized = no
 
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	
 	modifier = {
 		army_health = 0.1
@@ -1412,7 +1412,7 @@ trait_extremely_adaptive = {
 	initial = no
 	modification = no
 	randomized = no
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	opposites = { "trait_nerve_stapled" "trait_robust" "trait_adaptive" "trait_nonadaptive" "trait_endemic" }
 	modifier = {
 		pop_environment_tolerance = 0.20
@@ -1427,10 +1427,243 @@ trait_inspired = {
 	randomized = no
 	opposites = { "trait_nerve_stapled" "trait_anxious" "trait_masterful" "trait_talented" }
 	potential_crossbreeding_chance = 1.0
-	allowed_archetypes = { BIOLOGICAL BIOMORPH }
+	allowed_archetypes = { BIOLOGICAL LITHOID BIOMORPH }
 	
 	modifier = {
 		planet_jobs_ruler_produces_mult = 0.10
 		planet_jobs_specialist_produces_mult = 0.05
+	}
+}
+
+# lithoid specific traits
+trait_lithoid_scintillating = {
+	cost = 2
+	potential_crossbreeding_chance = 1.0
+
+	opposites = { "trait_lithoid_volatile_excretions" "trait_lithoid_gaseous_byproducts" }
+	allowed_archetypes = { LITHOID }
+	custom_tooltip = TRAIT_LITHOID_SCINTILLATING_EFFECT
+
+	slave_cost = {
+		energy = 100
+	}
+}
+
+trait_lithoid_gaseous_byproducts = {
+	cost = 2
+	potential_crossbreeding_chance = 1.0
+
+	opposites = { "trait_lithoid_volatile_excretions" "trait_lithoid_scintillating" }
+	allowed_archetypes = { LITHOID }
+	custom_tooltip = TRAIT_LITHOID_GASEOUS_BYPRODUCTS_EFFECT
+
+	slave_cost = {
+		energy = 100
+	}
+}
+
+trait_lithoid_volatile_excretions = {
+	cost = 2
+	potential_crossbreeding_chance = 1.0
+
+	opposites = { "trait_lithoid_gaseous_byproducts" "trait_lithoid_scintillating" }
+	allowed_archetypes = { LITHOID }
+	custom_tooltip = TRAIT_LITHOID_VOLATILE_EXCRETIONS_EFFECT
+
+	slave_cost = {
+		energy = 100
+	}
+}
+
+trait_fleeting_lithoid = {
+	cost = -1
+	potential_crossbreeding_chance = 1.0
+	modifier = { leader_age = -25 }
+	icon = "gfx/interface/icons/traits/trait_fleeting.dds"
+
+	opposites = { "trait_venerable" "trait_enduring" "trait_fleeting" }
+	allowed_archetypes = { LITHOID }
+	ai_weight = {
+		weight = 0
+	}
+}
+#trait_melting = {
+#	cost = 1
+#
+#	allowed_archetypes = { LITHOID }
+#	opposites = { "trait_cold_pulse" }
+#	
+#	modifier = {
+#		pc_desert_habitability = 0.5
+#		pc_arid_habitability = 0.5
+#		pc_savannah_habitability = 0.5
+#	}
+#}
+#trait_cold_pulse = {
+#	cost = 1
+#
+#	allowed_archetypes = { LITHOID }
+#	opposites = { "trait_melting" }
+#	
+#	modifier = {
+#
+#		pc_tundra_habitability = 0.5
+#		pc_arctic_habitability = 0.5
+#		pc_alpine_habitability = 0.5
+#	}
+#}
+trait_sparkly = {
+	cost = 1
+
+	allowed_archetypes = { LITHOID }
+	opposites = { "trait_grotesque" }
+	
+	modifier = {
+		pop_other_species_owner_happiness = 0.03
+	}
+}
+trait_grotesque = {
+	cost = -1
+
+	allowed_archetypes = { LITHOID }
+	opposites = { "trait_sparkly" }
+	
+	modifier = {
+		pop_other_species_owner_happiness = -0.05
+	}
+}
+trait_sharp = {
+	cost = 1
+
+	allowed_archetypes = { LITHOID }
+	
+	modifier = {
+		army_damage_mult = 0.30
+	}
+}
+trait_eternal = {
+	cost = 2
+
+	allowed_archetypes = { LITHOID }
+	opposites = { "trait_degrading" }
+	
+	modifier = {
+		leader_age = 200
+	}
+}
+trait_degrading = {
+	cost = -1
+
+	allowed_archetypes = { LITHOID }
+	opposites = { "trait_eternal" }
+	
+	modifier = {
+		leader_age = -30
+	}
+}
+trait_brittle = {
+	cost = -2
+
+	allowed_archetypes = { LITHOID }
+	opposites = { "trait_solid_shape" }
+	
+	modifier = {
+		garrison_health = -0.8
+		pop_fortification_defense = -0.5
+	}
+}
+trait_solid_shape = {
+	cost = 2
+
+	allowed_archetypes = { LITHOID }
+	opposites = { "trait_brittle" }
+	
+	modifier = {
+		garrison_health = 0.8
+		pop_fortification_defense = 0.7
+	}
+}
+trait_axiomatic_synapses = {
+	cost = -1
+
+	allowed_archetypes = { LITHOID }
+	opposites = { "trait_fluid_synapses" }
+	
+	modifier = {
+		tile_resource_engineering_research_mult = -0.07
+		tile_resource_physics_research_mult = -0.07
+		tile_resource_society_research_mult = -0.07
+	}
+}
+
+trait_fluid_synapses = {
+	cost = 2
+
+	allowed_archetypes = { LITHOID }
+	opposites = { "trait_axiomatic_synapses" }
+	
+	modifier = {
+		tile_resource_engineering_research_mult = 0.07
+		tile_resource_physics_research_mult = 0.07
+	}
+}
+trait_demanding_structure = {
+	cost = -1
+
+	allowed_archetypes = { LITHOID }
+	opposites = { "trait_idealized_structure" }
+	
+	modifier = {
+		pop_consumer_goods_mult = 0.5
+	}
+}
+trait_idealized_structure = {
+	cost = 2
+
+	allowed_archetypes = { LITHOID }
+	opposites = { "trait_demanding_structure" }
+	
+	modifier = {
+		pop_consumer_goods_mult = -0.5
+	}
+}
+trait_electroid = {
+	cost = -1
+
+	allowed_archetypes = { LITHOID }
+	
+	modifier = {
+		tile_resource_energy_mult = -0.5
+		pop_consumer_goods_mult = -1.5
+	}
+}
+trait_rooted = {
+	cost = -1
+
+	allowed_archetypes = { LITHOID }
+	opposites = { "trait_roaming" }
+	
+	modifier = {
+		pop_migration_speed = -0.7
+	}
+}
+trait_roaming = {
+	cost = 1
+
+	allowed_archetypes = { LITHOID }
+	opposites = { "trait_rooted" }
+	
+	modifier = {
+		pop_migration_speed = 0.2
+	}
+}
+
+trait_compact = {
+	cost = 1
+
+	allowed_archetypes = { LITHOID }
+	
+	modifier = {
+		tile_resource_unity_mult = 0.25
 	}
 }
